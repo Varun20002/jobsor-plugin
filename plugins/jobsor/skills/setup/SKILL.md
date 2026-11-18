@@ -19,6 +19,12 @@ Ask in at most 8 short messages. Group questions; offer sensible defaults the us
 
 1. **Resume.** Ask for it (pasted text or a PDF). Split it into numbered **fact lines**: each role, project, result, skill, degree, link.
    One fact per line, in the user's own words, with where and when. Keep numbers exactly as written.
+   **Take the links out of the resume yourself; never ask the user to "send the links".** Collect every link in it: written addresses
+   (linkedin.com/in/..., github.com/..., a portfolio or demo site, an email address) and links hidden behind words ("GitHub", "Demo",
+   a project title, an icon). For a PDF, read the link addresses stored in the file, not just the visible text (with code tools:
+   `pypdf` page annotations `/Annots` with `/A` `/URI`, or `pdfplumber` `page.hyperlinks`; a DOCX keeps them in its relationships
+   file). Put each link on the fact line it belongs to (a project's demo on that project's line) and in the Links group. If a link's
+   words are there but the address cannot be read, say so for that one link only and ask for just that one. Never guess an address.
 2. **Confirm the facts.** Show the lines in groups (Work, Projects, Education, Skills, Links) and ask the user to reply "ok", or the
    numbers to remove, or corrections. A thin line gets one question ("Did you build the voice agent or support it?"). Only confirmed lines
    go into the profile. **These lines are the only things any JOBSOR message may say about the user.** Never add, round up, or improve a
@@ -27,7 +33,8 @@ Ask in at most 8 short messages. Group questions; offer sensible defaults the us
    (Indian cities; "Remote" if they want remote), pay floor in LPA (optional), company kinds they prefer (startup, product MNC, GCC; IT
    services are hidden unless they ask), companies to target (optional).
 4. **Never contact.** Their current employer (pre-filled from the facts) and any other company they name.
-5. **Links and resume file.** Portfolio, GitHub, demo links per project. The resume file to attach to emails (ask them to attach the PDF
+5. **Links and resume file.** Show the links already taken from the resume (portfolio, GitHub, LinkedIn, demo per project) as part of the
+   confirm step and ask only about ones that are missing or look wrong. The resume file to attach to emails (ask them to attach the PDF
    once; note where it is kept).
 6. **Reply facts (optional, private).** Current CTC, expected CTC, notice period, current city, open to relocate. Say plainly: these are
    used only in draft replies JOBSOR prepares for them, never in a first message.
