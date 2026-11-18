@@ -15,7 +15,8 @@ someone at the company replies.
 3. Setup reads your resume, asks a few questions, and makes two files in your account: your JOBSOR profile and your tracker. It also sets
    up "JOBSOR round", an hourly scheduled task (quiet from 12 midnight to 9 AM India time).
 4. Each round: replies and bounces first, then due follow-ups, then (three times a day) new jobs, the right people, and messages, left as
-   Gmail drafts unless you turned on sending. You can also run any step yourself: `/jobsor:find-jobs`, `/jobsor:find-people`,
+   Gmail drafts unless you turned on sending. Each job's email carries its own one-page resume, tailored from your own resume lines
+   (needs Cowork or Claude Code; elsewhere your original resume is attached). You can also run any step yourself: `/jobsor:find-jobs`, `/jobsor:find-people`,
    `/jobsor:write`, `/jobsor:send`, `/jobsor:round`.
 
 **After an update:** type `/jobsor:update` once. It runs only what is new (for example a new alert check) and never redoes setup.

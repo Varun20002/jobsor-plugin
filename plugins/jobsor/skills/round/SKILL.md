@@ -40,10 +40,12 @@ then hand to send.
 ## 3. New jobs (only three times a day)
 Only in the first round after 9 AM, after 3 PM and after 9 PM India time (check the Log for whether this window already ran):
 run find-jobs. For each new job with Status Found and Match 50 or more (best first, at most 5 a round): route, find-people, find-email,
-write, then send (draft or send, by the profile). Jobs under 50 stay Found for the user to choose.
+write, resume (the tailored one-page resume for this job), then send (draft or send, by the profile). Jobs under 50 stay Found for the
+user to choose.
 
-## 4. Pasted work
-Any job the user added by hand since the last round (Status Found, Source "Pasted link") goes through the same steps whatever its Match.
+## 4. Pasted and chosen jobs (every round)
+Any job the user added by hand (Status Found, Source "Pasted link") or chose (they said "go ahead with J004" or similar: set that job's
+Next step to "Chosen by you" when they say it) goes through the same steps, tailored resume included, whatever its Match.
 
 ## 5. Log and report
 Write one Log row: time and one line of counts ("2 replies (Acme asks for a call), 1 bounce replaced, 3 follow-ups, 4 new jobs, 5 drafts,

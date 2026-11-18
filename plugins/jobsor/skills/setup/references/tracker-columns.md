@@ -22,6 +22,7 @@ the sheet changed, read again and retry once.
 | Status | Found, Listed earlier, Contacting, Contacted, Replied, Interview, Rejected, No response, Skipped |
 | Next step | One plain line |
 | Notes | Dated notes, newest last. Never mail text |
+| Resume | Full path of this job's tailored resume PDF (blank until made; never remade once a message with it was sent) |
 
 ## People
 | Column | What goes in it |

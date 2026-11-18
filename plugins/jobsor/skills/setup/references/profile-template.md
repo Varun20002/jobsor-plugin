@@ -23,6 +23,19 @@ F4. Skills: SQL, Python, Figma.
 - Demo per project: F2 -> <link>
 - Resume file to attach: <where it is kept>
 
+## Resume source (my resume, word for word; tailored resumes use only these lines)
+Same sections and order as the resume. Example shape:
+### Education
+- B.Tech, Electrical and Electronics | RVCE, Bengaluru | 2021 - 2025 | CGPA 8.4
+### Experience
+- Product Intern | Acme Fintech, Bengaluru | Jan 2026 - Jun 2026
+  - Built the onboarding checklist with SQL funnels; activation went from 31% to 44% in 6 weeks
+### Projects
+- Voice agent for clinics | Demo: <link> | 2026
+  - Action: built a voice agent in Python handling 1,000 calls a day
+### Skills
+- SQL, Python, Figma, Excel
+
 ## What I want
 - Roles: (up to 5)
 - Cities: (Indian cities; "Remote" if remote is fine)

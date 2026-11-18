@@ -29,13 +29,17 @@ Ask in at most 8 short messages. Group questions; offer sensible defaults the us
    numbers to remove, or corrections. A thin line gets one question ("Did you build the voice agent or support it?"). Only confirmed lines
    go into the profile. **These lines are the only things any JOBSOR message may say about the user.** Never add, round up, or improve a
    fact. If the user has no work experience, say so in the profile, so no message ever claims experience.
+   Also save the resume itself, line for line, in the profile's **Resume source** section (layout in the template): each section, each
+   entry with its title, place, dates and bullets, word for word as the resume has them. A line the user removed is left out there too,
+   and a corrected line is saved as corrected. Tailored resumes are made only from this section (resume skill).
 3. **What you want.** Target roles (any function; up to 5), level (Intern, Entry, Mid, Senior, Lead) and years of experience, cities
    (Indian cities; "Remote" if they want remote), pay floor in LPA (optional), company kinds they prefer (startup, product MNC, GCC; IT
    services are hidden unless they ask), companies to target (optional).
 4. **Never contact.** Their current employer (pre-filled from the facts) and any other company they name.
 5. **Links and resume file.** Show the links already taken from the resume (portfolio, GitHub, LinkedIn, demo per project) as part of the
    confirm step and ask only about ones that are missing or look wrong. The resume file to attach to emails (ask them to attach the PDF
-   once; note where it is kept).
+   once; in Cowork or Claude Code copy it into the `JOBSOR/` folder and note its full path). Each job then gets its own tailored
+   one-page resume made from it (resume skill); this file is the fallback when a tailored one cannot be made.
 6. **Reply facts (optional, private).** Current CTC, expected CTC, notice period, current city, open to relocate. Say plainly: these are
    used only in draft replies JOBSOR prepares for them, never in a first message.
 7. **Job alerts (JOBSOR's main job source).** JOBSOR reads job alerts only from the Gmail connected to Claude, so the alerts must arrive
