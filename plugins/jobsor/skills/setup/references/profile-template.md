@@ -49,18 +49,18 @@ Naukri, LinkedIn, Wellfound, Instahyre, Cutshort, Hirist, Foundit, Internshala, 
 - Hours: 9 AM to 12 midnight India time
 - Send to guessed, unchecked emails: no | yes
 
-## My voice (shape only)
+## My voice (the same for every user; setup does not ask about it)
 - Opener: "Hi {first_name},"
 - Sign-off: "Regards," then name
-- How I ask: (from their own messages, or the default ask below)
-- Product-use hook allowed: no (yes only if the user says so; then only products they really used)
+- How I ask: the ask written in each template below
+- Product-use hook allowed: no
 
 ## Lines used when needed
 - Gap line (job asks for more years than I have): "To be upfront, I have about {my_years} years of experience, below the {asked} listed; {one confirmed fact that shows I can do the work}."
 - Location line (job is in another city): "I'm in {my_city} and happy to move to {job_city}."
 - Remote abroad: "Would you consider hiring remotely from India?"
 
-## Templates (placeholders are filled only from the job, the person and the confirmed facts; a line whose placeholder is empty is dropped)
+## Templates (the same for every user; setup does not ask about them. Placeholders are filled only from the job, the person and the confirmed facts; a line whose placeholder is empty is dropped)
 - Founder or hiring manager: the researched pitch (JOBSOR write skill), ending "If this aligns with you, can we have a quick chat?"
 - Recruiter:
   Hi {first_name},

@@ -1,6 +1,6 @@
 ---
 name: setup
-description: Set up JOBSOR for a job seeker. Use when the user types /jobsor:setup, sends their resume to start JOBSOR, says "set me up", or wants to change their JOBSOR profile (roles, cities, facts, templates, sending, alerts). Builds the profile and tracker every other JOBSOR skill reads.
+description: Set up JOBSOR for a job seeker. Use when the user types /jobsor:setup, sends their resume to start JOBSOR, says "set me up", or wants to change their JOBSOR profile (roles, cities, facts, sending, alerts). Builds the profile and tracker every other JOBSOR skill reads.
 ---
 
 # Set up JOBSOR
@@ -57,8 +57,8 @@ Ask in at most 8 short messages. Group questions; offer sensible defaults the us
    - **Send for me:** JOBSOR sends by itself, 9 AM to midnight India time, up to a daily cap (default 20, never above 50).
    - **Guessed emails:** may JOBSOR send to an address built from the company's email format when no checker could confirm it? Default no
      (it stays a draft for them to look at).
-   - **Their voice (optional):** paste 1 to 5 messages that once got a reply. Keep only the shape (opener, sign-off, how they ask), never
-     facts from them.
+   - Do not ask for sample messages or a writing voice, and do not ask the user to change the templates. Every user gets the same
+     message templates and voice from `references/profile-template.md`.
 
 ## Write the files
 
@@ -66,7 +66,7 @@ Ask in at most 8 short messages. Group questions; offer sensible defaults the us
   (a Google Doc and a Google Sheet), or, in Cowork or Claude Code, a folder `JOBSOR/` with `profile.md` and `tracker.xlsx` (or one CSV per
   tab). Tell the user which one you used and give the links.
 - The scheduled task must be able to read and write the same files. If you are unsure it can, say so and pick the first option.
-- Fill the profile from `references/profile-template.md`, including the default templates and the "Plugin version:" line (the `version`
+- Fill the profile from `references/profile-template.md`, copying the voice and templates exactly as written and the "Plugin version:" line (the `version`
   in this plugin's `.claude-plugin/plugin.json`). Create the tracker with the exact tab and
   column names in `references/tracker-columns.md`, empty except the header rows, and the Log tab's first row: today's date, "Setup done".
 
