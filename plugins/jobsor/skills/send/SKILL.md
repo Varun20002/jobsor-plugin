@@ -19,11 +19,12 @@ Read the profile's Sending section (mode, daily cap, hours, guessed emails) and 
 ## Drafts (default mode)
 Create a Gmail draft to the person with the subject and body, the resume attached, and for a follow-up as a reply in the same thread.
 
-**Which resume:** the job's tailored PDF (the Jobs **Resume** column). If it is blank, run the resume skill for the job first; if that
-cannot make one, attach the original resume file from the profile and add the note "original resume attached". Follow-ups attach the
-same file as the first message. Attach it as a file reference, never typed-out content: `sha256:<hash>:<full path>` (get the hash with
-`shasum -a 256 "<path>"`), filename `<Name>_Resume_<Company>.pdf`, type `application/pdf`. The same attachment goes on a message sent in
-send-for-me mode.
+**Which resume:** the job's tailored PDF, made by the resume skill in this same run (run it first if this job has none yet). If no PDF
+can be made, attach the original resume file from the profile and add the note "original resume attached". Follow-ups are replies in
+the same thread and attach nothing. Filename `<Name>_Resume_<Company>.pdf`, type `application/pdf`. How to attach:
+- In Cowork or Claude Code: a file reference, `sha256:<hash>:<full path>` (hash from `shasum -a 256 "<path>"`).
+- On claude.ai (web, mobile, cloud schedule): the file's base64 as the attachment content (`base64 -w0 "<path>"`; the PDF is a few KB).
+The same attachment goes on a message sent in send-for-me mode.
 Set Status "Draft ready", Gmail id = the draft id. Tell the user how many drafts are waiting and that they send them from Gmail.
 
 ## Send for me

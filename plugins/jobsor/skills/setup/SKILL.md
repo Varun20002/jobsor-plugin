@@ -44,23 +44,30 @@ them) or anything already shown. Every user gets the same templates and voice fr
 
 ## Write the files
 
-- Use, in this order, whatever this Claude can write to: the **Claude Docs** connector (a doc and a sheet), the **Google Drive** connector
-  (a Google Doc and a Google Sheet), or, in Cowork or Claude Code, a folder `JOBSOR/` with `profile.md` and `tracker.xlsx` (or one CSV per
-  tab).
-- The scheduled task must be able to read and write the same files. If you are unsure it can, say so and pick the first option.
+- Keep both files **online**, so the round can run in the cloud with the laptop closed: the **Claude Docs** connector (a doc and a
+  sheet) first, else the **Google Drive** connector (a Google Doc and a Google Sheet). Only if neither is there, use a folder `JOBSOR/`
+  with `profile.md` and `tracker.xlsx` (Cowork or Claude Code), and then the round needs the computer on.
+- Nothing else needs saving: tailored resumes are built fresh from the profile's Resume source in each round (resume skill).
 - Fill the profile from `references/profile-template.md`, copying the voice and templates exactly as written and the "Plugin version:" line (the `version`
   in this plugin's `.claude-plugin/plugin.json`). Create the tracker with the exact tab and
   column names in `references/tracker-columns.md`, empty except the header rows, and the Log tab's first row: today's date, "Setup done".
 
 ## The scheduled task
 
-Create it right away (the user only clicks to approve if Claude asks):
+Create it right away (the user only clicks to approve if Claude asks). **Prefer a cloud schedule**: it runs on Anthropic's servers, so
+it keeps going with the laptop closed and the report reaches the phone.
 - **Name:** JOBSOR round
-- **When:** every hour (the round itself does nothing between midnight and 9 AM India time, and searches for new jobs only three times a
-  day, so most runs are short).
-- **Instructions:** `Run /jobsor:round.`
-If you can create scheduled tasks here, propose it and let the user click Schedule. Otherwise tell them: Scheduled (left sidebar) > New
-task > Set up manually > name "JOBSOR round", prompt "Run /jobsor:round.", Hourly > Save.
+- **When:** every hour (the round does nothing between midnight and 9 AM India time and searches for new jobs only three times a day, so
+  most runs are short).
+- **Instructions** (self-contained, so a fresh cloud run needs nothing else): `Run the JOBSOR round (/jobsor:round). Profile: <profile
+  link>. Tracker: <tracker link>.`
+Where:
+1. **Cloud (best):** if this Claude has cloud scheduling tools (for example `create_trigger` / `list_triggers`, as on claude.ai), create
+   the round there, hourly. First check `list_triggers` so there is never a second JOBSOR round.
+2. **Desktop (only if there is no cloud scheduling):** the desktop app's scheduled task (Scheduled > New task > Set up manually > name
+   "JOBSOR round", the instructions above, Hourly > Save). Tell the user in one line: "This one runs only while your computer is on;
+   set JOBSOR up once on claude.ai to run it with the laptop closed."
+For phone updates, the round's report goes to the user's own WhatsApp if Bird is connected; otherwise they see it in the Claude app.
 
 ## Finish
 

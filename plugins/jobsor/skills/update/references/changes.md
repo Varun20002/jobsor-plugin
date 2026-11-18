@@ -42,3 +42,10 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 ## 0.2.16
 - Step **autopilot**: JOBSOR now runs on its own and keeps replies short. If the profile's Sending mode is "drafts", ask once, in one
   line: "Let JOBSOR send for you, up to 20 a day, 9 AM to midnight? (ok / keep drafts)". Save the answer. Guessed emails stay drafts.
+
+## 0.2.18
+- Step **cloud-round**: the round can now run in the cloud with the laptop closed. If this Claude has cloud scheduling (`list_triggers` /
+  `create_trigger`, as on claude.ai) and there is no cloud "JOBSOR round": if the profile and tracker are files on the laptop, copy them
+  to Claude Docs (or Google Drive) first; then create the cloud round as the setup skill says. Then tell the user in one line to turn off
+  the old desktop "JOBSOR round" (Scheduled in the sidebar), so it never runs twice. If there is no cloud scheduling here, say in one
+  line: "Open claude.ai and type /jobsor:update there to run JOBSOR with the laptop closed." Skip if a cloud round already exists.

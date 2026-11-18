@@ -59,8 +59,8 @@ Write one Log row: time and one line of counts ("2 replies (Acme asks for a call
   else's). If Bird fails, say so in the report.
 
 ## If the schedule is missing
-If this round was started by hand and there is no "JOBSOR round" scheduled task, tell the user how to add it: Scheduled > New task > Set up
-manually > name "JOBSOR round", prompt "Run /jobsor:round.", Hourly > Save.
+If this round was started by hand and there is no "JOBSOR round" schedule (check `list_triggers` where it exists), create it as the
+setup skill says (a cloud schedule first, so it runs with the laptop closed).
 
 ## Never
 - Never reply to a recruiter, a peer or anyone at a company; only draft for the user.

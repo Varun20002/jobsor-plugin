@@ -13,7 +13,7 @@ bolds those lines for this job. It never writes a new line, never rewords one, a
   first message is written and before send. It runs on the hourly schedule with no one watching; it never waits for the user.
 - The user can ask for it on any job ("tailor my resume for J004").
 - **Locked once used:** when a message with this job's resume was sent, never make it again for that job (the company already has it).
-  Follow-ups attach the same file.
+  Follow-ups are replies in the same thread and do not attach it again.
 
 ## Steps
 1. **Read** the profile (Resume source, Links, About me) and the job's row (Role, Company, Must-haves, Notes) and its description (read
@@ -32,19 +32,21 @@ bolds those lines for this job. It never writes a new line, never rewords one, a
      `**...**` in the JSON.
 3. **Build** `resume.json` in the shape the script's header shows (name, contact from About me and Links with their URLs, sections,
    entries, bullets) and run:
-   `python3 -I <plugin folder>/scripts/resume_pdf.py resume.json "<JOBSOR folder>/resumes/<Name>_Resume_<Company>.pdf"`
-   (the plugin folder is the folder holding this plugin's `.claude-plugin`; make `resumes/` if it is missing).
+   `python3 -I <this skill's folder>/scripts/resume_pdf.py resume.json "<out folder>/<Name>_Resume_<Company>.pdf"`
+   The script is plain Python with nothing to install, so it runs on Claude's cloud computer as well as on a laptop. The out folder is
+   `JOBSOR/resumes/` when the files are on the laptop, else any working folder of this run (the PDF is attached in the same run).
    - "ok": done. "too long by N lines": drop the least relevant line (the last bullet of the weakest project first, then the last
      Experience bullet that names nothing from the job) and run again. Never shrink Education or the Summary.
 4. **Check before saving:** every line in the JSON, with `**` removed, is a line of the Resume source, word for word. Nothing else. If a
-   check fails, fix it; if it cannot pass, do not save, and the job uses the original resume file with a note.
-5. **Save** the PDF's full path in the job's **Resume** column and a dated note: "Resume tailored: <projects kept>, <what moved first>".
-   Delete `resume.json`.
+   check fails, fix it; if it cannot pass, build the **untailored** resume instead (every Resume source line in its own order, no bold).
+5. **Save** in the job's **Resume** column: the PDF's full path when on the laptop, else "Tailored <date>: <projects kept>, <what moved
+   first>". Hand the file to send in the same run. Delete `resume.json`.
 
-## Where it cannot run
-Making a PDF needs a folder JOBSOR can write and Python (Cowork and Claude Code have both). Where there is none (claude.ai chat with the
-profile in Docs or Drive), do not try: the job uses the original resume file, and the report says once a day "Tailored resumes need Cowork
-or Claude Code."
+## Where it runs
+Anywhere Claude can run Python: Cowork, Claude Code, and claude.ai (web, mobile and cloud schedules) through Claude's own computer. Files
+there may be gone after the run, which is fine: the PDF is attached in the same run, and the first email already carries it, so a
+follow-up (a reply in the same thread) never needs it again. Only if Python cannot run at all, attach the original resume file named in
+the profile's Links and note "original resume attached".
 
 ## Rules (every JOBSOR skill keeps these)
 - Write only what the user confirmed about themselves. Never invent a fact, a number, a skill, a company or a warm connection.
