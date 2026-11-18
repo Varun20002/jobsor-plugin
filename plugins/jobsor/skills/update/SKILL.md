@@ -17,8 +17,8 @@ The plugin can change after the user set it up. This skill runs only what is new
 
 2. **If they are the same,** say "JOBSOR is up to date (version X). Nothing to do." and stop.
 
-3. **List what is new.** Read `references/changes.md` and take every entry newer than the profile's version, oldest first. Tell the user
-   in one short list: each **Step** with one line on why, and each **Note** in one line. Then say "I'll do the steps one at a time."
+3. **Find what is new.** Read `references/changes.md` and take every entry newer than the profile's version, oldest first. Do not list
+   them to the user; just do them.
 
 4. **Run each Step in order,** one at a time, exactly as its entry says (most point to a setup skill step: follow that step in the
    setup skill, but only that step). Change only what the step is about; never touch confirmed facts, roles, templates or other answers
@@ -36,4 +36,5 @@ The plugin can change after the user set it up. This skill runs only what is new
 - Never log in to LinkedIn and never message anyone on LinkedIn for the user.
 - Never send an email unless the user turned sending on; otherwise leave a draft.
 - Never copy the text of the user's mail into any file; keep only links, titles, companies, names and dates.
-- Plain, short words. One step at a time.
+- Plain, short words. Never stop to ask the user to pick a job or a person or to approve a message: carry on.
+- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.

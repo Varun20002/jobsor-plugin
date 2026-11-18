@@ -11,7 +11,7 @@ sends it from the user's Gmail or leaves a draft, tracks everything, and follows
 
 ## What to do
 
-1. **Say what JOBSOR does** in three short lines, in plain words. No marketing.
+1. **Say what JOBSOR does** in one short line: "JOBSOR finds jobs, finds the right person, writes and sends for you, every hour."
 
 2. **Check the three connectors**, one harmless read each. Do not send, draft, or change anything.
    - **Gmail:** search the user's mail for one message from the last day (any message). Report only "works" or the error. Do not show
@@ -25,12 +25,11 @@ sends it from the user's Gmail or leaves a draft, tracks everything, and follows
    Connectors), then sign in.
    If two Gmail connectors answer, use the one that works and ignore the other.
 
-3. **Show a short table**: connector, works or not, what to do if not.
+3. **Report in one line** if all work ("Gmail, Exa and Firecrawl work."); otherwise one line per broken one with the fix. No table.
 
-4. **Next step:** when all three work, say: "Next is setup: send me your resume (paste it or attach the PDF) and I'll ask a few
-   questions." Then follow the setup skill. If a JOBSOR profile already exists and its "Plugin version:" is older than this plugin's version (or missing), say "JOBSOR was
-   updated; type `/jobsor:update` to add what's new (a minute or two)." Otherwise, if a profile exists, say so and offer: run a round now (`/jobsor:round`), find
-   jobs, or paste a job link.
+4. **Next step:** when all three work and there is no profile, go straight into the setup skill: "Attach your resume PDF and I'll set
+   everything up."  If a JOBSOR profile already exists and its "Plugin version:" is older than this plugin's version (or missing), say "JOBSOR was
+   updated; type `/jobsor:update` to add what's new (a minute or two)." Otherwise, if a profile exists, run a round now (`/jobsor:round`) without asking.
 
 ## What JOBSOR can do (for "what can you do")
 - `/jobsor:update`: after JOBSOR is updated, runs only what is new for you.
@@ -50,4 +49,5 @@ sends it from the user's Gmail or leaves a draft, tracks everything, and follows
 - Never send an email unless the user turned sending on; otherwise leave a draft.
 - Never copy the text of the user's mail into any file; keep only links, titles, companies, names and dates.
 - Never try to get past a "not a robot" check on any website; skip that page.
-- Plain, short words. One step at a time.
+- Plain, short words. Never stop to ask the user to pick a job or a person or to approve a message: carry on.
+- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.

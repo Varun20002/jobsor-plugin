@@ -35,10 +35,14 @@ Set Status "Draft ready", Gmail id = the draft id. Tell the user how many drafts
 - Stop at the cap; the rest wait for tomorrow (say so).
 
 ## Report
-Sent, drafts made, bounced (and what replaced them), skipped and why, and anything the user must do (attach the resume, check a guessed
-address, a role that may be closed). Plain, short, one line each.
+One line of counts (sent, drafts, bounced, skipped), then at most 2 lines the user must act on. Nothing else.
 
 ## Never
 - Never send outside the hours, above the cap, or when the user chose drafts.
 - Never answer a recruiter or anyone who replied; replies are drafts for the user (the round makes them).
 - Never send from any address other than the user's own Gmail.
+
+## Autopilot and short replies (every JOBSOR skill)
+- Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
+  Ask only when nothing can be done without an answer.
+- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.

@@ -37,3 +37,8 @@ them. Pick the type from the person's Contact as and the history:
 - Never praise ("great post", "inspiring", "loved your talk", "hit home").
 - Never cut a message at a character count; write it short from the start.
 - Never mention reply facts (CTC, notice period) in a first message.
+
+## Autopilot and short replies (every JOBSOR skill)
+- Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
+  Ask only when nothing can be done without an answer.
+- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.

@@ -13,62 +13,40 @@ It ends with a scheduled task, "JOBSOR round", so the work runs without the user
 
 If a profile already exists, read it first and change only what the user asks; never start over without asking.
 
-## Steps
+## Steps (fast: two messages from the user, then everything runs by itself)
 
-Ask in at most 8 short messages. Group questions; offer sensible defaults the user can accept with "ok". Plain words.
+Setup is quick and leads straight into autopilot. Ask nothing that can be read from the resume, the inbox or a sensible default.
 
-1. **Resume.** Ask for it (pasted text or a PDF). Split it into numbered **fact lines**: each role, project, result, skill, degree, link.
-   One fact per line, in the user's own words, with where and when. Keep numbers exactly as written.
-   **Take the links out of the resume yourself; never ask the user to "send the links".** Collect every link in it: written addresses
-   (linkedin.com/in/..., github.com/..., a portfolio or demo site, an email address) and links hidden behind words ("GitHub", "Demo",
-   a project title, an icon). For a PDF, read the link addresses stored in the file, not just the visible text (with code tools:
-   `pypdf` page annotations `/Annots` with `/A` `/URI`, or `pdfplumber` `page.hyperlinks`; a DOCX keeps them in its relationships
-   file). Put each link on the fact line it belongs to (a project's demo on that project's line) and in the Links group. If a link's
-   words are there but the address cannot be read, say so for that one link only and ask for just that one. Never guess an address.
-2. **Confirm the facts.** Show the lines in groups (Work, Projects, Education, Skills, Links) and ask the user to reply "ok", or the
-   numbers to remove, or corrections. A thin line gets one question ("Did you build the voice agent or support it?"). Only confirmed lines
-   go into the profile. **These lines are the only things any JOBSOR message may say about the user.** Never add, round up, or improve a
-   fact. If the user has no work experience, say so in the profile, so no message ever claims experience.
-   Also save the resume itself (its summary too, if it has one), line for line, in the profile's **Resume source** section (layout in the template): each section, each
-   entry with its title, place, dates and bullets, word for word as the resume has them. A line the user removed is left out there too,
-   and a corrected line is saved as corrected. Tailored resumes are made only from this section (resume skill).
-3. **What you want.** Target roles (any function; up to 5), level (Intern, Entry, Mid, Senior, Lead) and years of experience, cities
-   (Indian cities; "Remote" if they want remote), pay floor in LPA (optional), company kinds they prefer (startup, product MNC, GCC; IT
-   services are hidden unless they ask), companies to target (optional).
-4. **Never contact.** Their current employer (pre-filled from the facts) and any other company they name.
-5. **Links and resume file.** Show the links already taken from the resume (portfolio, GitHub, LinkedIn, demo per project) as part of the
-   confirm step and ask only about ones that are missing or look wrong. The resume file to attach to emails (ask them to attach the PDF
-   once; in Cowork or Claude Code copy it into the `JOBSOR/` folder and note its full path). Each job then gets its own tailored
-   one-page resume made from it (resume skill); this file is the fallback when a tailored one cannot be made.
-6. **Reply facts (optional, private).** Current CTC, expected CTC, notice period, current city, open to relocate. Say plainly: these are
-   used only in draft replies JOBSOR prepares for them, never in a first message.
-7. **Job alerts (JOBSOR's main job source).** JOBSOR reads job alerts only from the Gmail connected to Claude, so the alerts must arrive
-   at **that same address**.
-   - First find out which address is connected (read the Gmail profile, or one recent message's "To") and say it: "JOBSOR reads job
-     alerts from <address>."
-   - Then check that inbox for the last 30 days: which of these alert senders already arrive there: Naukri, LinkedIn, Wellfound,
-     Instahyre, Cutshort, Hirist, Foundit, Internshala, Jack & Jill. Report found or missing for each. Never show mail text.
-   - Tell the user to turn on alerts on **every** one of these sites they use (at least LinkedIn and Naukri), **one alert for each target
-     role** in their cities (or India-wide), with the email set to the connected address. They are free. Give plain steps: sign in to the
-     site, search the role and city, press "Set alert" / "Create job alert" (LinkedIn: the alert switch on the search results; Naukri:
-     "Create job alert" on the search page), make sure the alert email is the connected address, repeat for each role.
-   - If their sites send alerts to a different address, they either change the email on that site, or add a Gmail forwarding filter
-     from the other inbox to the connected one. Never connect a second inbox for them.
-   - Save the list of sites in the profile. The round's job search re-checks once a week and tells the user if a listed site has sent
-     nothing for 7 days.
-8. **How to send.**
-   - **Drafts (default):** JOBSOR leaves Gmail drafts with the resume attached; the user presses Send in Gmail.
-   - **Send for me:** JOBSOR sends by itself, 9 AM to midnight India time, up to a daily cap (default 20, never above 50).
-   - **Guessed emails:** may JOBSOR send to an address built from the company's email format when no checker could confirm it? Default no
-     (it stays a draft for them to look at).
-   - Do not ask for sample messages or a writing voice, and do not ask the user to change the templates. Every user gets the same
-     message templates and voice from `references/profile-template.md`.
+1. **Get the resume** (if it is not attached yet): one line, "Attach your resume PDF (or paste it) and I'll set everything up."
+2. **Read it yourself, silently:**
+   - Split it into numbered **fact lines** (each role, project, result, skill, degree), in the user's own words, numbers exactly as written.
+   - Take every link out of it yourself, including links hidden behind words (PDF: `pypdf` `/Annots` `/URI` or `pdfplumber`
+     `page.hyperlinks`; DOCX: its relationships file). Never ask for links; never guess one.
+   - Save the resume line for line (summary included) as the profile's **Resume source**; tailored resumes use only it.
+   - Fill the rest from the resume with defaults: roles = the 2 or 3 titles it fits, level and years from the dates, cities = the city on
+     the resume (plus "Remote"), company kinds = startup, product MNC, GCC, never contact = current employer.
+   - Find the connected Gmail address and check which alert senders reached it in the last 30 days (Naukri, LinkedIn, Wellfound,
+     Instahyre, Cutshort, Hirist, Foundit, Internshala, Jack & Jill). Never show mail text.
+3. **One confirm message** (the only real question), short, in this shape:
+   ```
+   Facts I'll use (only these, ever):
+   1. ... 2. ... (one short line each)
+   Roles: A, B · Level: Entry · Cities: Bengaluru, Remote · Skip: <current employer>
+   Sending: send for me, up to 20 a day, 9 AM to midnight (or say "drafts")
+   Reply "ok", or fix anything (for example "remove 4, add Pune").
+   ```
+   Any line the user removes is removed from the Resume source too. "ok" means everything as shown. **Sending is "send for me" only if
+   the user replied "ok" to that line or chose it; "drafts" if they said drafts.** Guessed (unchecked) emails always stay drafts.
+4. **Then do everything without asking again:** write the files, create the schedule, run the first round now.
+
+Never ask for sample messages, a writing voice, template changes, reply facts (CTC, notice period; ask only later, when a reply needs
+them) or anything already shown. Every user gets the same templates and voice from `references/profile-template.md`.
 
 ## Write the files
 
 - Use, in this order, whatever this Claude can write to: the **Claude Docs** connector (a doc and a sheet), the **Google Drive** connector
   (a Google Doc and a Google Sheet), or, in Cowork or Claude Code, a folder `JOBSOR/` with `profile.md` and `tracker.xlsx` (or one CSV per
-  tab). Tell the user which one you used and give the links.
+  tab).
 - The scheduled task must be able to read and write the same files. If you are unsure it can, say so and pick the first option.
 - Fill the profile from `references/profile-template.md`, copying the voice and templates exactly as written and the "Plugin version:" line (the `version`
   in this plugin's `.claude-plugin/plugin.json`). Create the tracker with the exact tab and
@@ -76,7 +54,7 @@ Ask in at most 8 short messages. Group questions; offer sensible defaults the us
 
 ## The scheduled task
 
-Propose one scheduled task the user approves:
+Create it right away (the user only clicks to approve if Claude asks):
 - **Name:** JOBSOR round
 - **When:** every hour (the round itself does nothing between midnight and 9 AM India time, and searches for new jobs only three times a
   day, so most runs are short).
@@ -86,8 +64,14 @@ task > Set up manually > name "JOBSOR round", prompt "Run /jobsor:round.", Hourl
 
 ## Finish
 
-Show a short summary: number of confirmed facts, roles, cities, sending mode, alert senders, where the files are, and the schedule. Then
-offer the first win: "Paste a job link you care about, or say 'find jobs' and I'll run the first round now."
+Run the first round now (round skill), without asking. Then reply in at most 4 short lines, for example:
+```
+Done. Profile, tracker and hourly round are set; JOBSOR now runs by itself.
+First round: 6 jobs, 4 emails sent, 2 drafts (guessed addresses).
+To do once: turn on Naukri and LinkedIn alerts for Product Analyst to you@gmail.com.
+Files: <link>
+```
+Name only alert sites that are missing. No other explanations.
 
 ## Rules (every JOBSOR skill keeps these)
 
@@ -96,4 +80,5 @@ offer the first win: "Paste a job link you care about, or say 'find jobs' and I'
 - Never send an email unless the user turned sending on; otherwise leave a draft.
 - Never copy the text of the user's mail into any file; keep only links, titles, companies, names and dates.
 - Never try to get past a "not a robot" check on any website; skip that page.
-- Plain, short words. One step at a time.
+- Plain, short words. Never stop to ask the user to pick a job or a person or to approve a message: carry on.
+- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.

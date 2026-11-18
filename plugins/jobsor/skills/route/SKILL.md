@@ -45,3 +45,8 @@ Ported from the JOBSOR website: MASTER decisions 9 and 38, Journeys 5 and 6, and
 ## 4. Write it
 Write Size in the Jobs tab, and in Next step: "Startup: find the hiring manager (data team)" or "MNC: recruiter, then 2 referrers".
 Then hand over to find-people.
+
+## Autopilot and short replies (every JOBSOR skill)
+- Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
+  Ask only when nothing can be done without an answer.
+- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.

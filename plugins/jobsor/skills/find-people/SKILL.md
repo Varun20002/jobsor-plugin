@@ -58,9 +58,15 @@ may say so, because it is true); someone in India for an India job.
 
 ## Write
 One row per person in the People tab: Name, Title, Contact as, LinkedIn link (only a real `linkedin.com/in/` address), Proof, Status
-"To contact". Then hand over to find-email. Report: who was found, with the proof, and who was left out and why (counts only, no guessing).
+"To contact". Then hand over to find-email and carry on (write, resume, send) without asking. Report in one line: who will be contacted (name, title)
+and how many were left out.
 
 ## Rules (every JOBSOR skill keeps these)
 - Never invent a person, a title, a connection or a reason. Never write "we met" or "X suggested" unless the user said so.
 - Never log in to LinkedIn and never open linkedin.com pages; read LinkedIn only through Exa's copy or Firecrawl's post reader.
 - Never try to get past a "not a robot" check on any website; skip that page.
+
+## Autopilot and short replies (every JOBSOR skill)
+- Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
+  Ask only when nothing can be done without an answer.
+- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.

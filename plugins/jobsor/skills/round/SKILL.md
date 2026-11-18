@@ -40,8 +40,8 @@ then hand to send.
 ## 3. New jobs (only three times a day)
 Only in the first round after 9 AM, after 3 PM and after 9 PM India time (check the Log for whether this window already ran):
 run find-jobs. For each new job with Status Found and Match 50 or more (best first, at most 5 a round): route, find-people, find-email,
-write, resume (the tailored one-page resume for this job), then send (draft or send, by the profile). Jobs under 50 stay Found for the
-user to choose.
+write, resume (the tailored one-page resume for this job), then send (draft or send, by the profile), all without asking. Jobs under
+50 stay Found; never list them unless asked.
 
 ## 4. Pasted and chosen jobs (every round)
 Any job the user added by hand (Status Found, Source "Pasted link") or chose (they said "go ahead with J004" or similar: set that job's
@@ -51,7 +51,8 @@ Next step to "Chosen by you" when they say it) goes through the same steps, tail
 Write one Log row: time and one line of counts ("2 replies (Acme asks for a call), 1 bounce replaced, 3 follow-ups, 4 new jobs, 5 drafts,
 0 sent"). Then the report to the user:
 - If nothing changed: change nothing else and end with exactly "No new replies."
-- Otherwise a short summary, replies first, then what the user must do (send drafts, answer a reply, check a guessed address).
+- Otherwise at most 5 short lines: replies first, then one line of counts, then only what the user must do (answer a reply, send a
+  draft to a guessed address).
   Every job named in the summary (new jobs, jobs with a reply, jobs with a draft) is a clickable Markdown link to the job page, as the
   find-jobs report says. In the WhatsApp copy (Bird), put the plain link after the job name instead.
 - If the user connected **Bird**, also send this summary to the user's **own** WhatsApp number from the profile (only theirs, never anyone
@@ -66,3 +67,8 @@ manually > name "JOBSOR round", prompt "Run /jobsor:round.", Hourly > Save.
 - Never send outside 9 AM to 12 midnight India time or above the cap.
 - Never copy mail text into the tracker; one line in your own words.
 - Never log in to LinkedIn.
+
+## Autopilot and short replies (every JOBSOR skill)
+- Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
+  Ask only when nothing can be done without an answer.
+- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.

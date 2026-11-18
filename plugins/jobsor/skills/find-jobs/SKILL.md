@@ -73,11 +73,14 @@ below, in this order, filter and score them with `references/job-rules.md`, and 
 
 ## Report
 
-A short list, best first: Match, role, company, city, posted, source, one line on what is missing. **Every job's role is a clickable
+When the user ran this by hand (not inside a round), do not stop at the list: carry straight on with the round's steps for the jobs
+with Match 50 or more, and for any pasted job (route, find-people, find-email, write, resume, send), then report once.
+
+At most 5 jobs, best first, one line each: Match, role at company (a link), city. **Every job's role is a clickable
 link to the job page**, written as a Markdown link, for example `[Product Analyst at Razorpay](https://...)`, so the user can open the job
 before going ahead. Use the job's own link from the tracker (the company or job-site page; for an alert-mail job, the job link from the
-mail, never the mail itself). If a job has no link, write "(no link)" after it. Never show a link that was not read or found for that job. Then: how many were hidden and the top
-reasons, how many alert mails were read, and anything the user must do (for example "add Naukri alerts for Product Analyst in Pune").
+mail, never the mail itself). If a job has no link, write "(no link)" after it. Never show a link that was not read or found for that job. Then one line of counts (more found, hidden, emails sent or
+drafted) and, only if needed, one line the user must act on (for example "add Naukri alerts for Product Analyst in Pune").
 
 ## Rules (every JOBSOR skill keeps these)
 
@@ -87,3 +90,8 @@ reasons, how many alert mails were read, and anything the user must do (for exam
 - Never copy the text of the user's mail into any file; keep only links, titles, companies, names and dates.
 - Never try to get past a "not a robot" check on any website; skip that page.
 - Plain, short words.
+
+## Autopilot and short replies (every JOBSOR skill)
+- Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
+  Ask only when nothing can be done without an answer.
+- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.

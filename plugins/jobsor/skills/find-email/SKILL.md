@@ -38,3 +38,8 @@ Write the address and its label in the People tab: `published`, `checked`, or `g
 - Never buy or scrape contact databases, and never copy how a finder's browser extension talks to its servers.
 
 Report per person: the address and its label, or "no address found" with what was tried.
+
+## Autopilot and short replies (every JOBSOR skill)
+- Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
+  Ask only when nothing can be done without an answer.
+- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.
