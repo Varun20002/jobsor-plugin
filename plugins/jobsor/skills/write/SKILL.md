@@ -1,0 +1,39 @@
+---
+name: write
+description: Write the message to a person in the JOBSOR tracker (researched pitch to a founder or hiring manager, recruiter note, peer ask, referral ask, follow-up, thank-you, or a draft reply) from the user's confirmed facts only. Use when the user asks "write to them", "draft a message", "write a follow-up", or when the JOBSOR round has a person ready to contact.
+---
+
+# Write the message
+
+Read the profile (confirmed facts, voice, templates, gap and location lines), the job's row, the person's row and earlier messages to
+them. Pick the type from the person's Contact as and the history:
+
+| Contact as | First message | Rules |
+|---|---|---|
+| Hiring manager, Founder | **Researched pitch** (`references/pitch-framework.md`) | Research first; one story |
+| Recruiter | Recruiter template from the profile | 2 to 3 proof lines from the facts |
+| Peer (to ask) | Peer ask: who is the hiring manager | Never a pitch, never a referral ask |
+| Referrer (MNC) | Referral ask template | Job id and link; one story |
+| Anyone, no reply after 1 day | Follow-up (`references/followups.md`) | Opens with a new fact |
+| Peer who named the hiring manager, or a referrer who referred | Thank-you | One or two lines, no new ask |
+| A reply from the company | Reply draft for the user | Uses reply facts; never sent by JOBSOR |
+
+## Steps
+1. **Facts only.** Pick the confirmed fact lines that fit this job (the must-haves met). Every claim about the user in the message must be
+   one of those lines, in its meaning and numbers. Nothing else about the user: no salary, notice period, visa, team size, impact, skill
+   or tool that is not a confirmed line. If the user has no work experience, never imply any.
+2. **Write** the message for its type. Fill template placeholders only from the job, the person and the facts; drop a line whose
+   placeholder has nothing true to fill.
+3. **Gap line** when the job asks for more years than the user has (from the profile). **Location line** when the job is in another city;
+   for a foreign company hiring remotely, ask whether they would hire remotely from India.
+4. **Subject** for email: pitch "{role} at {company} | {story in 2 to 5 words}"; recruiter or referral "{role} ({job id}) - {user name}";
+   peer ask "Quick question about the {role} role"; follow-ups keep the thread's subject.
+5. **Run every check** in `references/message-checks.md`. Fix and re-check until all pass. If one cannot pass (for example no true opening
+   fact was found), keep it as a draft with the reason in Notes, never send it.
+6. **Write a Messages row**: type, subject, the opening fact with its date and link, Status "Draft ready". Then hand over to send.
+
+## Never
+- Never invent warmth ("we met", "X suggested", "as discussed", "following our chat") unless the user typed it for this person.
+- Never praise ("great post", "inspiring", "loved your talk", "hit home").
+- Never cut a message at a character count; write it short from the start.
+- Never mention reply facts (CTC, notice period) in a first message.

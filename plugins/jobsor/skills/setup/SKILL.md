@@ -1,0 +1,76 @@
+---
+name: setup
+description: Set up JOBSOR for a job seeker. Use when the user types /jobsor:setup, sends their resume to start JOBSOR, says "set me up", or wants to change their JOBSOR profile (roles, cities, facts, templates, sending, alerts). Builds the profile and tracker every other JOBSOR skill reads.
+---
+
+# Set up JOBSOR
+
+Setup turns the user's resume and a few answers into two files every JOBSOR skill reads first:
+1. **"JOBSOR profile"**: a document. Layout in `references/profile-template.md`.
+2. **"JOBSOR tracker"**: a spreadsheet with tabs Jobs, People, Messages, Seen, Log. Columns in `references/tracker-columns.md`.
+
+It ends with a scheduled task, "JOBSOR round", so the work runs without the user.
+
+If a profile already exists, read it first and change only what the user asks; never start over without asking.
+
+## Steps
+
+Ask in at most 8 short messages. Group questions; offer sensible defaults the user can accept with "ok". Plain words.
+
+1. **Resume.** Ask for it (pasted text or a PDF). Split it into numbered **fact lines**: each role, project, result, skill, degree, link.
+   One fact per line, in the user's own words, with where and when. Keep numbers exactly as written.
+2. **Confirm the facts.** Show the lines in groups (Work, Projects, Education, Skills, Links) and ask the user to reply "ok", or the
+   numbers to remove, or corrections. A thin line gets one question ("Did you build the voice agent or support it?"). Only confirmed lines
+   go into the profile. **These lines are the only things any JOBSOR message may say about the user.** Never add, round up, or improve a
+   fact. If the user has no work experience, say so in the profile, so no message ever claims experience.
+3. **What you want.** Target roles (any function; up to 5), level (Intern, Entry, Mid, Senior, Lead) and years of experience, cities
+   (Indian cities; "Remote" if they want remote), pay floor in LPA (optional), company kinds they prefer (startup, product MNC, GCC; IT
+   services are hidden unless they ask), companies to target (optional).
+4. **Never contact.** Their current employer (pre-filled from the facts) and any other company they name.
+5. **Links and resume file.** Portfolio, GitHub, demo links per project. The resume file to attach to emails (ask them to attach the PDF
+   once; note where it is kept).
+6. **Reply facts (optional, private).** Current CTC, expected CTC, notice period, current city, open to relocate. Say plainly: these are
+   used only in draft replies JOBSOR prepares for them, never in a first message.
+7. **Job alerts.** Which alert emails they already get: Naukri, LinkedIn, Wellfound, Instahyre, Cutshort, Hirist, Foundit, Internshala,
+   Jack & Jill. If they get none, suggest they turn on LinkedIn and Naukri alerts for their roles and cities (the alerts are free and are
+   JOBSOR's main job source in the plugin).
+8. **How to send.**
+   - **Drafts (default):** JOBSOR leaves Gmail drafts with the resume attached; the user presses Send in Gmail.
+   - **Send for me:** JOBSOR sends by itself, 9 AM to midnight India time, up to a daily cap (default 20, never above 50).
+   - **Guessed emails:** may JOBSOR send to an address built from the company's email format when no checker could confirm it? Default no
+     (it stays a draft for them to look at).
+   - **Their voice (optional):** paste 1 to 5 messages that once got a reply. Keep only the shape (opener, sign-off, how they ask), never
+     facts from them.
+
+## Write the files
+
+- Use, in this order, whatever this Claude can write to: the **Claude Docs** connector (a doc and a sheet), the **Google Drive** connector
+  (a Google Doc and a Google Sheet), or, in Cowork or Claude Code, a folder `JOBSOR/` with `profile.md` and `tracker.xlsx` (or one CSV per
+  tab). Tell the user which one you used and give the links.
+- The scheduled task must be able to read and write the same files. If you are unsure it can, say so and pick the first option.
+- Fill the profile from `references/profile-template.md`, including the default templates. Create the tracker with the exact tab and
+  column names in `references/tracker-columns.md`, empty except the header rows, and the Log tab's first row: today's date, "Setup done".
+
+## The scheduled task
+
+Propose one scheduled task the user approves:
+- **Name:** JOBSOR round
+- **When:** every hour (the round itself does nothing between midnight and 9 AM India time, and searches for new jobs only three times a
+  day, so most runs are short).
+- **Instructions:** `Run /jobsor:round.`
+If you can create scheduled tasks here, propose it and let the user click Schedule. Otherwise tell them: Scheduled (left sidebar) > New
+task > Set up manually > name "JOBSOR round", prompt "Run /jobsor:round.", Hourly > Save.
+
+## Finish
+
+Show a short summary: number of confirmed facts, roles, cities, sending mode, alert senders, where the files are, and the schedule. Then
+offer the first win: "Paste a job link you care about, or say 'find jobs' and I'll run the first round now."
+
+## Rules (every JOBSOR skill keeps these)
+
+- Write only what the user confirmed about themselves. Never invent a fact, a number, a skill, a company or a warm connection.
+- Never log in to LinkedIn and never message anyone on LinkedIn for the user.
+- Never send an email unless the user turned sending on; otherwise leave a draft.
+- Never copy the text of the user's mail into any file; keep only links, titles, companies, names and dates.
+- Never try to get past a "not a robot" check on any website; skip that page.
+- Plain, short words. One step at a time.

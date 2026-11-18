@@ -1,0 +1,12 @@
+{
+  "name": "jobsor",
+  "owner": { "name": "JOBSOR" },
+  "metadata": { "description": "JOBSOR: job search for India that gets you to a person." },
+  "plugins": [
+    {
+      "name": "jobsor",
+      "source": "./plugins/jobsor",
+      "description": "Finds fresh jobs, finds the hiring manager with proof they work there, writes a short message from your confirmed facts, and follows up until someone replies."
+    }
+  ]
+}
