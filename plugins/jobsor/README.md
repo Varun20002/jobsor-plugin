@@ -8,7 +8,7 @@ someone at the company replies.
 ## Use it
 
 1. Turn on **Claude's own Gmail connector** (claude.ai: Settings, then Connectors, then Gmail, then Connect). Then add the plugin, open its
-   **Connectors** tab and connect **Exa** and **Firecrawl**. Optional: Apify (LinkedIn jobs), Hunter, Bird, Indeed.
+   **Connectors** tab and connect **Exa** and **Firecrawl**. Optional: Apify (LinkedIn jobs), Hunter, Indeed.
    Gmail is not inside the plugin on purpose: Google's sign-in refuses connectors that register themselves, so only Claude's own Gmail
    connector can sign in.
 2. Type `/jobsor:start`. JOBSOR checks your connectors and tells you what to do next.

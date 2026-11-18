@@ -39,8 +39,8 @@ sends it from the user's Gmail or leaves a draft, tracks everything, and follows
 - `/jobsor:find-people`: the hiring manager, founder, recruiter or referrer for a job, each with proof they work there now.
 - `/jobsor:resume`: a one-page resume tailored to one job, from your own resume lines only; the round makes one for every job it writes for.
 - `/jobsor:write` and `/jobsor:send`: a short message from your confirmed facts, as a Gmail draft or sent for you, with that job's resume.
-- Optional connectors that help: Apify (LinkedIn jobs, about $0.15 a day on your own Apify account), Hunter (find and check emails), Bird
-  (check emails, and the round's summary on your own WhatsApp), Indeed (more jobs), Google Calendar (interviews).
+- Optional connectors that help: Apify (LinkedIn jobs, about $0.15 a day on your own Apify account), Hunter (find and check emails), Indeed
+  (more jobs), Google Calendar (interviews).
 
 ## Rules (every JOBSOR skill keeps these)
 

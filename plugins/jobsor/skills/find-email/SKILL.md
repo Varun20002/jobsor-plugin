@@ -23,7 +23,7 @@ Write the address and its label in the People tab: `published`, `checked`, or `g
    names without titles (Dr, Mr, Ms, Prof, Shri, Smt) and without accents; a double surname is joined ("Rao-Iyer" gives "raoiyer").
 4. **Build the address** from the format. With no known format, the common Indian formats in this order: `{first}.{last}`, `{first}`,
    `{first}{last}`, `{f}{last}`, `{first}_{last}`.
-5. **Check it**, if a checker is connected: Hunter's email verifier, or Bird's email lookup. Valid means `checked`. "Accept all" or
+5. **Check it**, if a checker is connected: Hunter's email verifier. Valid means `checked`. "Accept all" or
    "catch-all" proves nothing: the address stays `guessed (not checked)`. Invalid: try the next format (at most 3 checks a person). With no
    checker, the address stays `guessed (not checked)`.
 

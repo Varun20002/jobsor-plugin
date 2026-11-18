@@ -67,7 +67,7 @@ Where:
 2. **Desktop (only if there is no cloud scheduling):** the desktop app's scheduled task (Scheduled > New task > Set up manually > name
    "JOBSOR round", the instructions above, Hourly > Save). Tell the user in one line: "This one runs only while your computer is on;
    set JOBSOR up once on claude.ai to run it with the laptop closed."
-For phone updates, the round's report goes to the user's own WhatsApp if Bird is connected; otherwise they see it in the Claude app.
+Each round's report reaches the user as a Claude notification (phone and computer); nothing else is needed.
 
 ## Finish
 
