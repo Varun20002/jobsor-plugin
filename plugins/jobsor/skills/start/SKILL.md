@@ -18,8 +18,12 @@ sends it from the user's Gmail or leaves a draft, tracks everything, and follows
      the message.
    - **Exa:** one web search for `hiring product manager Bengaluru`. Report "works" or the error.
    - **Firecrawl:** one search for `careers page Razorpay`. Report "works" or the error.
-   If a connector is missing, tell the user exactly where to add it: the plugin's **Connectors** tab (Customize, then Plugins, then
-   JOBSOR, then Connectors), then sign in.
+   Gmail is **Claude's own Gmail connector**, not one inside the plugin (Google's sign-in only works with the connector Claude itself
+   registered with Google). If Gmail is missing, tell the user: on claude.ai open **Settings, then Connectors**, find **Gmail**, click
+   Connect and sign in with Google; in Claude Code the same connector appears once they are signed in with that Claude account. If Exa or
+   Firecrawl is missing, tell the user to add it on the plugin's **Connectors** tab (Customize, then Plugins, then JOBSOR, then
+   Connectors), then sign in.
+   If two Gmail connectors answer, use the one that works and ignore the other.
 
 3. **Show a short table**: connector, works or not, what to do if not.
 

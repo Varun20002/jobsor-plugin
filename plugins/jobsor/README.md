@@ -7,7 +7,10 @@ someone at the company replies.
 
 ## Use it
 
-1. Add the plugin, then open its **Connectors** tab and connect **Gmail**, **Exa** and **Firecrawl**. Optional: Apify (LinkedIn jobs), Hunter, Bird, Indeed.
+1. Turn on **Claude's own Gmail connector** (claude.ai: Settings, then Connectors, then Gmail, then Connect). Then add the plugin, open its
+   **Connectors** tab and connect **Exa** and **Firecrawl**. Optional: Apify (LinkedIn jobs), Hunter, Bird, Indeed.
+   Gmail is not inside the plugin on purpose: Google's sign-in refuses connectors that register themselves, so only Claude's own Gmail
+   connector can sign in.
 2. Type `/jobsor:start`. JOBSOR checks your connectors and tells you what to do next.
 3. Setup reads your resume, asks a few questions, and makes two files in your account: your JOBSOR profile and your tracker. It also sets
    up "JOBSOR round", an hourly scheduled task (quiet from 12 midnight to 9 AM India time).

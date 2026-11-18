@@ -9,7 +9,13 @@ mkdir -p "$dir" 2>/dev/null || true
 day=$(TZ=Asia/Kolkata date +%F)
 hour="${JOBSOR_TEST_HOUR:-$(TZ=Asia/Kolkata date +%H)}" # JOBSOR_TEST_HOUR only for the guard's own test
 log="$dir/sends-$day.log"
-cat >/dev/null # the tool call's details are not needed
+input=$(cat)
+# Claude's own Gmail connector has no "gmail" in its tool names (e.g. mcp__<id>__send_message), so the hook matches any send, reply or
+# forward tool, and this check lets through anything that is clearly not Gmail (Slack and others: no email fields in the call).
+case "$input" in
+  *[Gg]mail*|*'"to"'*|*'"draftId"'*|*'"replyThreadId"'*|*'"messageId"'*) ;;
+  *) exit 0 ;;
+esac
 if [ "$((10#$hour))" -lt 9 ]; then
   echo "JOBSOR: no sending between 12 midnight and 9 AM India time. Leave it as a draft; the round sends after 9 AM." >&2
   exit 2

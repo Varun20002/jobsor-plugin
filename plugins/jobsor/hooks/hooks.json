@@ -2,7 +2,7 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "^mcp__.*[Gg]mail.*__.*send",
+        "matcher": "^mcp__.*__(send_message|send_email|send_draft|reply|forward)$",
         "hooks": [
           {
             "type": "command",
