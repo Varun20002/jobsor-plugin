@@ -29,7 +29,7 @@ Ask in at most 8 short messages. Group questions; offer sensible defaults the us
    numbers to remove, or corrections. A thin line gets one question ("Did you build the voice agent or support it?"). Only confirmed lines
    go into the profile. **These lines are the only things any JOBSOR message may say about the user.** Never add, round up, or improve a
    fact. If the user has no work experience, say so in the profile, so no message ever claims experience.
-   Also save the resume itself, line for line, in the profile's **Resume source** section (layout in the template): each section, each
+   Also save the resume itself (its summary too, if it has one), line for line, in the profile's **Resume source** section (layout in the template): each section, each
    entry with its title, place, dates and bullets, word for word as the resume has them. A line the user removed is left out there too,
    and a corrected line is saved as corrected. Tailored resumes are made only from this section (resume skill).
 3. **What you want.** Target roles (any function; up to 5), level (Intern, Entry, Mid, Senior, Lead) and years of experience, cities

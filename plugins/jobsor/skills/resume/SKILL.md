@@ -18,8 +18,11 @@ bolds those lines for this job. It never writes a new line, never rewords one, a
 ## Steps
 1. **Read** the profile (Resume source, Links, About me) and the job's row (Role, Company, Must-haves, Notes) and its description (read
    the Job link once if needed).
-2. **Pick and order** from the Resume source, section by section, in this order: Education, Experience, Projects, Skills, Achievements,
-   Other (leave out an empty section).
+2. **Pick and order** from the Resume source, section by section, in this order: Summary, Education, Experience, Projects, Skills,
+   Achievements, Other (leave out an empty section).
+   - Summary: if the resume has one, it goes first, under the name, word for word as a plain paragraph (`"text"` in the entry). If it has
+     more than one, use the one that names the most must-haves or words from the job title. Bold at most 3 phrases in it, by the same
+     rule as bullets. If the resume has no summary, leave the section out; never write one.
    - Every entry under Education and Experience stays. Inside each Experience entry, bullets that name a must-have or a word from the job
      title move first; the others keep their order.
    - Projects: keep the 1 or 2 that fit the job best (they name its must-haves or its kind of work). Project bullets keep their order.
@@ -32,7 +35,7 @@ bolds those lines for this job. It never writes a new line, never rewords one, a
    `python3 -I <plugin folder>/scripts/resume_pdf.py resume.json "<JOBSOR folder>/resumes/<Name>_Resume_<Company>.pdf"`
    (the plugin folder is the folder holding this plugin's `.claude-plugin`; make `resumes/` if it is missing).
    - "ok": done. "too long by N lines": drop the least relevant line (the last bullet of the weakest project first, then the last
-     Experience bullet that names nothing from the job) and run again. Never shrink Education.
+     Experience bullet that names nothing from the job) and run again. Never shrink Education or the Summary.
 4. **Check before saving:** every line in the JSON, with `**` removed, is a line of the Resume source, word for word. Nothing else. If a
    check fails, fix it; if it cannot pass, do not save, and the job uses the original resume file with a note.
 5. **Save** the PDF's full path in the job's **Resume** column and a dated note: "Resume tailored: <projects kept>, <what moved first>".

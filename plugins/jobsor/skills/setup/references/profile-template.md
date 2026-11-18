@@ -25,6 +25,8 @@ F4. Skills: SQL, Python, Figma.
 
 ## Resume source (my resume, word for word; tailored resumes use only these lines)
 Same sections and order as the resume. Example shape:
+### Summary
+- Entry-level product analyst who builds with SQL and Python; shipped an onboarding flow that lifted activation from 31% to 44%.
 ### Education
 - B.Tech, Electrical and Electronics | RVCE, Bengaluru | 2021 - 2025 | CGPA 8.4
 ### Experience

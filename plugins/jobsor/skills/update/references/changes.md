@@ -34,3 +34,8 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
   `JOBSOR/` folder if it is not there and note its full path.
 - Step **resume-column**: add the column "Resume" at the end of the tracker's Jobs tab (header only).
 - Note: say "go ahead with J004" to pick a job under Match 50; the next round writes for it and tailors the resume.
+
+## 0.2.15
+- Step **resume-summary**: tailored resumes now keep the professional summary. If the resume has a summary and the profile's Resume
+  source has no "Summary" part, read the resume file named in Links (or ask for the PDF once) and add the summary word for word at the top
+  of Resume source. If the resume has no summary, skip this step silently.
