@@ -22,6 +22,8 @@ below, in this order, filter and score them with `references/job-rules.md`, and 
 2. **Job-alert emails in Gmail** (only the senders the profile lists). Follow `references/alert-mail-rules.md` exactly. Read each alert
    mail once: skip any whose Gmail id is in the Seen tab, then add its id. Keep only links, title, company, city and date; never copy the
    mail's text anywhere.
+   Once a week (the first round on Monday), check each alert site in the profile: if one has sent nothing in 7 days, tell the user once
+   ("No Naukri alerts reached <connected address> this week; check the alert is on and sent to this address").
 3. **Hiring posts from the last 24 to 48 hours.**
    - **LinkedIn's own post search first** (through Firecrawl; no LinkedIn login, LinkedIn is never opened by us). For each target role (up
      to 3), one call: `firecrawl_scrape` with an `alexandria` body `{"provider": "harvestapi", "capability": "linkedin/search-posts",

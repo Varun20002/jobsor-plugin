@@ -38,9 +38,20 @@ Ask in at most 8 short messages. Group questions; offer sensible defaults the us
    once; note where it is kept).
 6. **Reply facts (optional, private).** Current CTC, expected CTC, notice period, current city, open to relocate. Say plainly: these are
    used only in draft replies JOBSOR prepares for them, never in a first message.
-7. **Job alerts.** Which alert emails they already get: Naukri, LinkedIn, Wellfound, Instahyre, Cutshort, Hirist, Foundit, Internshala,
-   Jack & Jill. If they get none, suggest they turn on LinkedIn and Naukri alerts for their roles and cities (the alerts are free and are
-   JOBSOR's main job source in the plugin).
+7. **Job alerts (JOBSOR's main job source).** JOBSOR reads job alerts only from the Gmail connected to Claude, so the alerts must arrive
+   at **that same address**.
+   - First find out which address is connected (read the Gmail profile, or one recent message's "To") and say it: "JOBSOR reads job
+     alerts from <address>."
+   - Then check that inbox for the last 30 days: which of these alert senders already arrive there: Naukri, LinkedIn, Wellfound,
+     Instahyre, Cutshort, Hirist, Foundit, Internshala, Jack & Jill. Report found or missing for each. Never show mail text.
+   - Tell the user to turn on alerts on **every** one of these sites they use (at least LinkedIn and Naukri), **one alert for each target
+     role** in their cities (or India-wide), with the email set to the connected address. They are free. Give plain steps: sign in to the
+     site, search the role and city, press "Set alert" / "Create job alert" (LinkedIn: the alert switch on the search results; Naukri:
+     "Create job alert" on the search page), make sure the alert email is the connected address, repeat for each role.
+   - If their sites send alerts to a different address, they either change the email on that site, or add a Gmail forwarding filter
+     from the other inbox to the connected one. Never connect a second inbox for them.
+   - Save the list of sites in the profile. The round's job search re-checks once a week and tells the user if a listed site has sent
+     nothing for 7 days.
 8. **How to send.**
    - **Drafts (default):** JOBSOR leaves Gmail drafts with the resume attached; the user presses Send in Gmail.
    - **Send for me:** JOBSOR sends by itself, 9 AM to midnight India time, up to a daily cap (default 20, never above 50).
