@@ -37,6 +37,11 @@ Proof column.
    - The company's own team or about page (`/team`, `/about`, `/company`), read with Firecrawl.
    - Hunter's people at the company's domain, if Hunter is connected (a Hunter record alone is not proof; it needs a public line that
      agrees).
+   - **Last, the wide backup: Vibe Prospecting**, only if it is connected (optional) and only when Exa, Firecrawl and Hunter found
+     nobody fitting, or Hunter is out of credits: `match-business` for the company, then `fetch-entities` for prospects at it by title
+     (hiring manager's function, founder, recruiter or talent acquisition, India). At most 1 search a job, to save its small free credits.
+     A Vibe record alone is not proof: it needs a public line that agrees (post, headline, team page). If it says no credits, skip it
+     for the rest of the day.
 4. **Ask a peer (startups only).** Still no hiring manager: find 1 or 2 people in the same team (same function, with proof they work there
    now) and add them with Contact as "Peer (to ask)". The write skill gives them the peer ask: "Do you know who the hiring manager for this
    role is?" It is never a pitch and never asks for a referral. When a peer replies with a name, the round adds that person with the proof

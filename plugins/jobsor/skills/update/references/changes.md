@@ -49,3 +49,7 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
   to Claude Docs (or Google Drive) first; then create the cloud round as the setup skill says. Then tell the user in one line to turn off
   the old desktop "JOBSOR round" (Scheduled in the sidebar), so it never runs twice. If there is no cloud scheduling here, say in one
   line: "Open claude.ai and type /jobsor:update there to run JOBSOR with the laptop closed." Skip if a cloud round already exists.
+
+## 0.2.20
+- Note: Vibe Prospecting (optional, Settings > Connectors) is a backup for finding people and emails, used only after Exa, Firecrawl
+  and Hunter. Skip this note if it is already connected.
