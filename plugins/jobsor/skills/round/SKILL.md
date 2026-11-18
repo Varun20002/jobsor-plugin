@@ -5,7 +5,8 @@ description: Run one JOBSOR round - check replies and bounces, stop jobs where t
 
 # The JOBSOR round
 
-Read the profile and the whole tracker first. Note the time in India (IST, UTC+5:30) and the last round's time (last row of Log).
+Read the profile and the whole tracker first. If the profile's "Plugin version:" is older than this plugin's version (or missing), carry
+on with the round and add one line to the report: "JOBSOR was updated; type /jobsor:update when you have a minute." (once a day at most). Note the time in India (IST, UTC+5:30) and the last round's time (last row of Log).
 
 **Quiet hours:** between 12 midnight and 9 AM India time, do nothing, write nothing, and end with "Quiet hours, nothing done." (A round
 the user starts by hand runs anyway, but sends nothing in quiet hours.)

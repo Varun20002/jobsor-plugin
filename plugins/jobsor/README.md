@@ -18,6 +18,8 @@ someone at the company replies.
    Gmail drafts unless you turned on sending. You can also run any step yourself: `/jobsor:find-jobs`, `/jobsor:find-people`,
    `/jobsor:write`, `/jobsor:send`, `/jobsor:round`.
 
+**After an update:** type `/jobsor:update` once. It runs only what is new (for example a new alert check) and never redoes setup.
+
 In Cowork and Claude Code, two helpers (people-finder, researcher) let a round work on several jobs at once, and a guard refuses any
 Gmail send outside 9 AM to 12 midnight India time or above 50 in a day.
 

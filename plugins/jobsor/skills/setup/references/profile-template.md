@@ -3,6 +3,7 @@
 Every JOBSOR skill reads this first. Change it by asking JOBSOR ("change my cities to ...") or by editing it.
 
 ## About me
+- Plugin version: <the plugin's version at setup; /jobsor:update keeps it current>
 - Name:
 - Email used to send:
 - Phone (only if they want it in signatures):

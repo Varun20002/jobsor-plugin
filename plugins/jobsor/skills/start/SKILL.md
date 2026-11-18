@@ -28,10 +28,12 @@ sends it from the user's Gmail or leaves a draft, tracks everything, and follows
 3. **Show a short table**: connector, works or not, what to do if not.
 
 4. **Next step:** when all three work, say: "Next is setup: send me your resume (paste it or attach the PDF) and I'll ask a few
-   questions." Then follow the setup skill. If a JOBSOR profile already exists, say so and offer: run a round now (`/jobsor:round`), find
+   questions." Then follow the setup skill. If a JOBSOR profile already exists and its "Plugin version:" is older than this plugin's version (or missing), say "JOBSOR was
+   updated; type `/jobsor:update` to add what's new (a minute or two)." Otherwise, if a profile exists, say so and offer: run a round now (`/jobsor:round`), find
    jobs, or paste a job link.
 
 ## What JOBSOR can do (for "what can you do")
+- `/jobsor:update`: after JOBSOR is updated, runs only what is new for you.
 - `/jobsor:setup`: your profile (confirmed facts, roles, cities, sending) and tracker, and the hourly round.
 - `/jobsor:round`: replies and bounces, follow-ups, new jobs three times a day, people, messages, a report.
 - `/jobsor:find-jobs`: jobs from links you paste, your job-alert emails, hiring posts and companies you name.

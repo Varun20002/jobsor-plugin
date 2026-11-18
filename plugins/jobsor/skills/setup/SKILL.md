@@ -66,7 +66,8 @@ Ask in at most 8 short messages. Group questions; offer sensible defaults the us
   (a Google Doc and a Google Sheet), or, in Cowork or Claude Code, a folder `JOBSOR/` with `profile.md` and `tracker.xlsx` (or one CSV per
   tab). Tell the user which one you used and give the links.
 - The scheduled task must be able to read and write the same files. If you are unsure it can, say so and pick the first option.
-- Fill the profile from `references/profile-template.md`, including the default templates. Create the tracker with the exact tab and
+- Fill the profile from `references/profile-template.md`, including the default templates and the "Plugin version:" line (the `version`
+  in this plugin's `.claude-plugin/plugin.json`). Create the tracker with the exact tab and
   column names in `references/tracker-columns.md`, empty except the header rows, and the Log tab's first row: today's date, "Setup done".
 
 ## The scheduled task
