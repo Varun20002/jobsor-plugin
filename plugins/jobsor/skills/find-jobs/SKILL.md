@@ -73,7 +73,10 @@ below, in this order, filter and score them with `references/job-rules.md`, and 
 
 ## Report
 
-A short list, best first: Match, role, company, city, posted, source, one line on what is missing. Then: how many were hidden and the top
+A short list, best first: Match, role, company, city, posted, source, one line on what is missing. **Every job's role is a clickable
+link to the job page**, written as a Markdown link, for example `[Product Analyst at Razorpay](https://...)`, so the user can open the job
+before going ahead. Use the job's own link from the tracker (the company or job-site page; for an alert-mail job, the job link from the
+mail, never the mail itself). If a job has no link, write "(no link)" after it. Never show a link that was not read or found for that job. Then: how many were hidden and the top
 reasons, how many alert mails were read, and anything the user must do (for example "add Naukri alerts for Product Analyst in Pune").
 
 ## Rules (every JOBSOR skill keeps these)

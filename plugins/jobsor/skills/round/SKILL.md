@@ -50,6 +50,8 @@ Write one Log row: time and one line of counts ("2 replies (Acme asks for a call
 0 sent"). Then the report to the user:
 - If nothing changed: change nothing else and end with exactly "No new replies."
 - Otherwise a short summary, replies first, then what the user must do (send drafts, answer a reply, check a guessed address).
+  Every job named in the summary (new jobs, jobs with a reply, jobs with a draft) is a clickable Markdown link to the job page, as the
+  find-jobs report says. In the WhatsApp copy (Bird), put the plain link after the job name instead.
 - If the user connected **Bird**, also send this summary to the user's **own** WhatsApp number from the profile (only theirs, never anyone
   else's). If Bird fails, say so in the report.
 
