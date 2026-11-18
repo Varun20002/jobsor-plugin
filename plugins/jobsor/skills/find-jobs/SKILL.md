@@ -76,7 +76,7 @@ below, in this order, filter and score them with `references/job-rules.md`, and 
 When the user ran this by hand (not inside a round), do not stop at the list: carry straight on with the round's steps for the jobs
 with Match 50 or more, and for any pasted job (route, find-people, find-email, write, resume, send), then report once.
 
-At most 5 jobs, best first, one line each: Match, role at company (a link), city. **Every job's role is a clickable
+A table of the jobs, best first: Match, Job (role at company, as a link), City, What happened (emailed <name>, draft, no person found). **Every job's role is a clickable
 link to the job page**, written as a Markdown link, for example `[Product Analyst at Razorpay](https://...)`, so the user can open the job
 before going ahead. Use the job's own link from the tracker (the company or job-site page; for an alert-mail job, the job link from the
 mail, never the mail itself). If a job has no link, write "(no link)" after it. Never show a link that was not read or found for that job. Then one line of counts (more found, hidden, emails sent or
@@ -94,4 +94,4 @@ drafted) and, only if needed, one line the user must act on (for example "add Na
 ## Autopilot and short replies (every JOBSOR skill)
 - Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
   Ask only when nothing can be done without an answer.
-- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.
+- Replies show only the results, precise and short: a table is fine for results (jobs, people, messages sent); no plans, no filler, no explanations unless asked.

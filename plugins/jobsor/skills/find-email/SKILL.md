@@ -42,4 +42,4 @@ Report per person: the address and its label, or "no address found" with what wa
 ## Autopilot and short replies (every JOBSOR skill)
 - Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
   Ask only when nothing can be done without an answer.
-- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.
+- Replies show only the results, precise and short: a table is fine for results (jobs, people, messages sent); no plans, no filler, no explanations unless asked.

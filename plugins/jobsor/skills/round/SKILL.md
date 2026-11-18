@@ -51,8 +51,8 @@ Next step to "Chosen by you" when they say it) goes through the same steps, tail
 Write one Log row: time and one line of counts ("2 replies (Acme asks for a call), 1 bounce replaced, 3 follow-ups, 4 new jobs, 5 drafts,
 0 sent"). Then the report to the user:
 - If nothing changed: change nothing else and end with exactly "No new replies."
-- Otherwise at most 5 short lines: replies first, then one line of counts, then only what the user must do (answer a reply, send a
-  draft to a guessed address).
+- Otherwise only the results: replies first (one line each), then a table of this round's work (Job as a link, Person, Sent or
+  Draft), then only what the user must do (answer a reply, send a draft to a guessed address). No other text.
   Every job named in the summary (new jobs, jobs with a reply, jobs with a draft) is a clickable Markdown link to the job page, as the
   find-jobs report says. In the WhatsApp copy (Bird), put the plain link after the job name instead.
 - If the user connected **Bird**, also send this summary to the user's **own** WhatsApp number from the profile (only theirs, never anyone
@@ -71,4 +71,4 @@ manually > name "JOBSOR round", prompt "Run /jobsor:round.", Hourly > Save.
 ## Autopilot and short replies (every JOBSOR skill)
 - Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
   Ask only when nothing can be done without an answer.
-- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.
+- Replies show only the results, precise and short: a table is fine for results (jobs, people, messages sent); no plans, no filler, no explanations unless asked.

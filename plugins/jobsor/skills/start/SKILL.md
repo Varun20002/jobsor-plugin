@@ -50,4 +50,4 @@ sends it from the user's Gmail or leaves a draft, tracks everything, and follows
 - Never copy the text of the user's mail into any file; keep only links, titles, companies, names and dates.
 - Never try to get past a "not a robot" check on any website; skip that page.
 - Plain, short words. Never stop to ask the user to pick a job or a person or to approve a message: carry on.
-- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.
+- Replies show only the results, precise and short: a table is fine for results (jobs, people, messages sent); no plans, no filler, no explanations unless asked.

@@ -64,7 +64,7 @@ task > Set up manually > name "JOBSOR round", prompt "Run /jobsor:round.", Hourl
 
 ## Finish
 
-Run the first round now (round skill), without asking. Then reply in at most 4 short lines, for example:
+Run the first round now (round skill), without asking. Then reply with only the results, for example:
 ```
 Done. Profile, tracker and hourly round are set; JOBSOR now runs by itself.
 First round: 6 jobs, 4 emails sent, 2 drafts (guessed addresses).
@@ -81,4 +81,4 @@ Name only alert sites that are missing. No other explanations.
 - Never copy the text of the user's mail into any file; keep only links, titles, companies, names and dates.
 - Never try to get past a "not a robot" check on any website; skip that page.
 - Plain, short words. Never stop to ask the user to pick a job or a person or to approve a message: carry on.
-- Every reply to the user is at most 5 short lines. No tables, no lists of what you will do, no explanations unless asked.
+- Replies show only the results, precise and short: a table is fine for results (jobs, people, messages sent); no plans, no filler, no explanations unless asked.
