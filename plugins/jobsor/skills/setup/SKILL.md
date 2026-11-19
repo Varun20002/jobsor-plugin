@@ -35,8 +35,8 @@ Setup is quick and leads straight into autopilot. Ask nothing that can be read f
    Sending: send for me, up to 20 a day, 9 AM to midnight (or say "drafts")
    Reply "ok", or fix anything (for example "remove 4, add Pune").
    ```
-   Any line the user removes is removed from the Resume source too. "ok" means everything as shown. **Sending is "send for me" only if
-   the user replied "ok" to that line or chose it; "drafts" if they said drafts.** Guessed (unchecked) emails always stay drafts.
+   Any line the user removes is removed from the Resume source too. "ok" means everything as shown. **Sending is "send for me" unless
+   the user said "drafts".** Guessed (unchecked) emails always stay drafts.
 4. **Then do everything without asking again:** write the files, create the schedule, run the first round now.
 
 Never ask for sample messages, a writing voice, template changes, reply facts (CTC, notice period; ask only later, when a reply needs
@@ -84,7 +84,7 @@ Name only alert sites that are missing. No other explanations.
 
 - Write only what the user confirmed about themselves. Never invent a fact, a number, a skill, a company or a warm connection.
 - Never log in to LinkedIn and never message anyone on LinkedIn for the user.
-- Never send an email unless the user turned sending on; otherwise leave a draft.
+- Send by default (up to the daily cap, 9 AM to midnight India time). Leave a draft only if the user chose drafts, the address is a guess, or it is a reply to someone.
 - Never copy the text of the user's mail into any file; keep only links, titles, companies, names and dates.
 - Never try to get past a "not a robot" check on any website; skip that page.
 - Plain, short words. Never stop to ask the user to pick a job or a person or to approve a message: carry on.

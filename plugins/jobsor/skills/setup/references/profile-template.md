@@ -59,7 +59,7 @@ Same sections and order as the resume. Example shape:
 Naukri, LinkedIn, Wellfound, Instahyre, Cutshort, Hirist, Foundit, Internshala, Jack & Jill (keep only the ones that apply)
 
 ## Sending
-- Mode: drafts | send for me
+- Mode: send for me (default) | drafts
 - Daily cap: 20 (never above 50)
 - Hours: 9 AM to 12 midnight India time
 - Send to guessed, unchecked emails: no | yes

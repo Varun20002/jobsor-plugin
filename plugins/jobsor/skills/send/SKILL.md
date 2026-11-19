@@ -5,7 +5,7 @@ description: Send JOBSOR messages from the user's Gmail, or leave them as Gmail 
 
 # Send or draft
 
-Read the profile's Sending section (mode, daily cap, hours, guessed emails) and the Messages rows with Status "Draft ready".
+Read the profile's Sending section (mode: send for me unless it says drafts; daily cap, hours, guessed emails) and the Messages rows with Status "Draft ready".
 
 ## Before each message (skip it, with the reason in Notes, if any check fails)
 1. **Stop rules:** no reply from anyone at the company since the last message (check Gmail now, not only the tracker); the person is not
@@ -16,7 +16,7 @@ Read the profile's Sending section (mode, daily cap, hours, guessed emails) and 
 4. **Cap and hours** (send mode): fewer than the daily cap sent today (count the Messages rows Sent today), and the time is between 9 AM and
    12 midnight India time.
 
-## Drafts (default mode)
+## Drafts (only if the profile says drafts, or the address is a guess)
 Create a Gmail draft to the person with the subject and body, the resume attached, and for a follow-up as a reply in the same thread.
 
 **Which resume:** the job's tailored PDF, made by the resume skill in this same run (run it first if this job has none yet). If no PDF
@@ -39,7 +39,7 @@ Set Status "Draft ready", Gmail id = the draft id. Tell the user how many drafts
 One line of counts (sent, drafts, bounced, skipped), then at most 2 lines the user must act on. Nothing else.
 
 ## Never
-- Never send outside the hours, above the cap, or when the user chose drafts.
+- Never send outside the hours, above the cap, or when the user chose drafts. Sending is the default: do not leave a checked or published address as a draft.
 - Never answer a recruiter or anyone who replied; replies are drafts for the user (the round makes them).
 - Never send from any address other than the user's own Gmail.
 

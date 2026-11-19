@@ -40,7 +40,7 @@ then hand to send.
 ## 3. New jobs (only three times a day)
 Only in the first round after 9 AM, after 3 PM and after 9 PM India time (check the Log for whether this window already ran):
 run find-jobs. For each new job with Status Found and Match 50 or more (best first, at most 5 a round): route, find-people, find-email,
-write, resume (the tailored one-page resume for this job), then send (draft or send, by the profile), all without asking. Jobs under
+write, resume (the tailored one-page resume for this job), then send (send by default; draft only if the profile says drafts), all without asking. Jobs under
 50 stay Found; never list them unless asked.
 
 ## 4. Pasted and chosen jobs (every round)

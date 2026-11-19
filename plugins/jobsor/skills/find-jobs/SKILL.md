@@ -86,7 +86,7 @@ drafted) and, only if needed, one line the user must act on (for example "add Na
 
 - Write only what the user confirmed about themselves. Never invent a fact, a number, a skill, a company or a warm connection.
 - Never log in to LinkedIn and never open linkedin.com pages; never message anyone on LinkedIn for the user.
-- Never send an email unless the user turned sending on; otherwise leave a draft.
+- Send by default (up to the daily cap, 9 AM to midnight India time). Leave a draft only if the user chose drafts, the address is a guess, or it is a reply to someone.
 - Never copy the text of the user's mail into any file; keep only links, titles, companies, names and dates.
 - Never try to get past a "not a robot" check on any website; skip that page.
 - Plain, short words.

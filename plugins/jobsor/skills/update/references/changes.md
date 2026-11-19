@@ -53,3 +53,7 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 ## 0.2.20
 - Note: Vibe Prospecting (optional, Settings > Connectors) is a backup for finding people and emails, used only after Exa, Firecrawl
   and Hunter. Skip this note if it is already connected.
+
+## 0.2.21
+- Step **send-default**: sending is now the default. If the profile's Sending mode is "drafts", set it to "send for me" (20 a day, 9 AM to
+  midnight) and say so in one line; the user can say "drafts" to go back. Guessed emails and replies stay drafts.
