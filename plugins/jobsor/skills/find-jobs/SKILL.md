@@ -101,6 +101,7 @@ mail, never the mail itself). If a job has no link, write "(no link)" after it. 
 drafted), one "Couldn't read" line per job no reader could open (as in "Describe it"), and, only if needed, one line the user must act on (for example "add Naukri alerts for Product Analyst in Pune").
 
 ## Rules (every JOBSOR skill keeps these)
+- **Debug log:** if the profile says "Debug log: on", log every step of this skill as `skills/round/references/debug-log.md` says.
 
 - Write only what the user confirmed about themselves. Never invent a fact, a number, a skill, a company or a warm connection.
 - Never log in to LinkedIn and never open linkedin.com pages; never message anyone on LinkedIn for the user.

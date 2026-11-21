@@ -67,6 +67,7 @@ One row per person in the People tab: Name, Title, Contact as, LinkedIn link (on
 and how many were left out.
 
 ## Rules (every JOBSOR skill keeps these)
+- **Debug log:** if the profile says "Debug log: on", log every step of this skill as `skills/round/references/debug-log.md` says.
 - Never invent a person, a title, a connection or a reason. Never write "we met" or "X suggested" unless the user said so.
 - Never log in to LinkedIn and never open linkedin.com pages; read LinkedIn only through Exa's copy or Firecrawl's post reader.
 - Never try to get past a "not a robot" check on any website; skip that page.

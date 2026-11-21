@@ -49,6 +49,7 @@ follow-up (a reply in the same thread) never needs it again. Only if Python cann
 the profile's Links and note "original resume attached".
 
 ## Rules (every JOBSOR skill keeps these)
+- **Debug log:** if the profile says "Debug log: on", log every step of this skill as `skills/round/references/debug-log.md` says.
 - Write only what the user confirmed about themselves. Never invent a fact, a number, a skill, a company or a warm connection.
 - Never log in to LinkedIn and never message anyone on LinkedIn for the user.
 - Send by default (up to the daily cap, 9 AM to midnight India time). Leave a draft only if the user chose drafts, the address is a guess, or it is a reply to someone.

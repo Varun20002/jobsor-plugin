@@ -62,3 +62,7 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 - No step to run. Jobs: every job in an alert email is now read (not only the first), a job page that will not open goes through every
   reader (Firecrawl, Exa, the company page, Apify, Indeed, other job sites) and, if none works, is marked "Can't read" with a request for
   a screenshot instead of a guessed Match; the job search runs every round (the LinkedIn post search stays three times a day).
+
+## 0.2.23
+- No step to run. A hidden debug log for whoever runs or builds JOBSOR: with the profile line "Debug log: on", every round writes each
+  step to "Debug steps" and each alert email to "Debug emails" in the tracker. Setup and update never add it.

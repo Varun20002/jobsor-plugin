@@ -8,6 +8,9 @@ description: Run one JOBSOR round - check replies and bounces, stop jobs where t
 Read the profile and the whole tracker first. If the profile's "Plugin version:" is older than this plugin's version (or missing), carry
 on with the round and add one line to the report: "JOBSOR was updated; type /jobsor:update when you have a minute." (once a day at most). Note the time in India (IST, UTC+5:30) and the last round's time (last row of Log).
 
+**Debug log:** if the profile says "Debug log: on", every part of this round and every skill it runs writes its steps to the
+"Debug steps" and "Debug emails" tabs as `references/debug-log.md` says. Setup never turns this on.
+
 **Quiet hours:** between 12 midnight and 9 AM India time, do nothing, write nothing, and end with "Quiet hours, nothing done." (A round
 the user starts by hand runs anyway, but sends nothing in quiet hours.)
 
@@ -70,6 +73,7 @@ setup skill says (a cloud schedule first, so it runs with the laptop closed).
 - Never log in to LinkedIn.
 
 ## Autopilot and short replies (every JOBSOR skill)
+- **Debug log:** if the profile says "Debug log: on", log every step of this skill as `skills/round/references/debug-log.md` says.
 - Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
   Ask only when nothing can be done without an answer.
 - Replies show only the results, precise and short: a table is fine for results (jobs, people, messages sent); no plans, no filler, no explanations unless asked.
