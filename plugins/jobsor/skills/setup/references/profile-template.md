@@ -90,10 +90,10 @@ Naukri, LinkedIn, Wellfound, Instahyre, Cutshort, Hirist, Foundit, Internshala, 
   I saw {company} is hiring for {role}: {job_link}
   Do you know who the hiring manager for this role is?
   {signoff}
-- Referral ask (MNC):
+- Referral ask (MNC referrers; at a startup, peers once the hiring manager is confirmed):
   Hi {first_name},
   {role} ({job_id}): {job_link}
   A bit about me: {top_story}
-  Would you be open to referring me for {role} ({job_id})?
+  Would you be open to referring me for {role} ({job_id}), or sharing this with the hiring team?
   {signoff}
 - Thank-you (after a peer names the hiring manager, or after a referral): one or two lines, no new ask.

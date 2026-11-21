@@ -7,7 +7,7 @@ description: Find the right people to contact for a job in the JOBSOR tracker (h
 
 Read the JOBSOR profile and the job's row first. The route skill has set Size (Startup, MNC, Agency) and who to look for; if it has not,
 run route first. Then search in the order below and **stop as soon as the right person is found with proof**: a confirmed hiring manager
-at a startup (or, without one, the peers to ask); the recruiter and up to 2 referrers at an MNC; the posting recruiter for an agency.
+at a startup (or, without one, the peers to ask); the recruiters and referrers at an MNC, up to the numbers in "How many"; the posting recruiter for an agency.
 
 **Before anyone is written to the People tab, apply `references/proof-rules.md`.** A person goes in only with a proof they work at this
 company now and no contradiction. Unsure means left out. Never relax the proof to fill the list. Write the proof in plain words in the
@@ -49,11 +49,11 @@ Proof column.
      A Vibe record alone is not proof: it needs a public line that agrees (post, headline, team page). If it says no credits, skip it
      for the rest of the day.
 4. **Startup with no confirmed hiring manager: ask peers.** Never guess the hiring manager from a title. If steps 1 to 3 did not find a
-   person confirmed as hiring for this role (see "Who counts as the hiring manager"), do not pitch anyone: ask 2 peers who the hiring
-   manager is. A founder, a "founding team" member or a head of the function is **not** assumed to be the hiring manager; they are
+   person confirmed as hiring for this role (see "Who counts as the hiring manager"), do not pitch anyone: ask up to 10 peers who the
+   hiring manager is. A founder, a "founding team" member or a head of the function is **not** assumed to be the hiring manager; they are
    pitched only when confirmed. If no peer in the same team can be found (a very small company), ask a founder the same question
    instead of pitching them.
-   **Ask a peer (startups only).** Find 2 people in the same team (1 if only one exists) (same function, with proof they work there
+   **Ask peers (startups only).** Find up to 10 people in the same team (same function, with proof they work there
    now) and add them with Contact as "Peer (to ask)". The write skill gives them the peer ask: "Do you know who the hiring manager for this
    role is?" It is never a pitch and never asks for a referral. When a peer replies with a name, the round adds that person with the proof
    "Named by <peer> in a reply" and drafts the pitch to them. At an MNC the peer step is not used.
@@ -71,16 +71,20 @@ confirmation, step 4 (ask peers) applies. A peer with the same title as the job 
 manager. At an MNC, never a director for an analyst job.
 
 ## How many
-- **Startup, confirmed hiring manager:** the hiring manager (pitch), plus the poster if they are a recruiter at the company (recruiter
-  note), plus at most one other recruiter if none posted: 1 to 2 people.
-- **Startup, no confirmed hiring manager:** 2 peers (the peer ask), plus the poster if they are a recruiter at the company: 2 to 3
-  people. When a peer names the hiring manager, that person is added and pitched (one more).
-- **MNC:** one recruiter (the poster if a recruiter posted it) and up to 2 referrers in the same function in India: 1 to 3 people.
-- **Agency:** the posting recruiter only: 1 person.
-- **Size unknown:** as a Startup, plus one recruiter: 2 to 3 people.
+- **Startup, confirmed hiring manager:** the hiring manager (pitch) + one recruiter (the poster if a recruiter posted it) + 2 peers in
+  the same team (Contact as "Referrer"; they get the referral ask: refer me, or share this with the hiring team): up to 4 people.
+- **Startup, no confirmed hiring manager:** up to 10 peers in the same team (the peer ask: who is the hiring manager?) + the recruiter
+  who posted, if any: up to 11 people. When a peer names the hiring manager, that person is added and pitched, and the remaining peers
+  are not followed up.
+- **MNC:** up to 3 recruiters (the poster first if a recruiter posted it; then recruiters whose title or posts cover this kind of role,
+  in India) + up to 10 referrers (same function, in India, user's college or past company first): up to 13 people.
+- **Agency:** the recruiter who posted, only if the agency is legitimate (it has its own website and LinkedIn company page, and the post
+  asks for no fee or deposit): 1 person. Otherwise nobody, with the reason in Notes.
+- **Size unknown:** as a Startup.
+Take people in this order of preference until the number is reached: the person who posted the job; someone from the user's college
+or a past company (say so in Notes, and the message may say so, because it is true); someone in India for an India job; then the rest.
+If fewer people can be found with proof, contact the ones found; never relax the proof to reach the number.
 Gather about 10% more people than you need across the round, so a bounced email can be replaced.
-Prefer, at equal fit: the person who posted the job; someone from the user's college or a past company (say so in Notes, and the message
-may say so, because it is true); someone in India for an India job.
 
 ## Write
 One row per person in the People tab: Name, Title, Contact as, LinkedIn link (only a real `linkedin.com/in/` address), Proof, Status

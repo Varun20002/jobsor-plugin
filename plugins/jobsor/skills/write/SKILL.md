@@ -13,7 +13,7 @@ them. Pick the type from the person's Contact as and the history:
 | Hiring manager, Founder | **Researched pitch** (`references/pitch-framework.md`) | Research first; one story |
 | Recruiter | Recruiter template from the profile | 2 to 3 proof lines from the facts |
 | Peer (to ask) | Peer ask: who is the hiring manager | Never a pitch, never a referral ask |
-| Referrer (MNC) | Referral ask template | Job id and link; one story |
+| Referrer (MNC, or a startup peer once the hiring manager is confirmed) | Referral ask template: refer me, or share this with the hiring team | Job id and link; one story |
 | Anyone, no reply after 1 day | Follow-up (`references/followups.md`) | Opens with a new fact |
 | Peer who named the hiring manager, or a referrer who referred | Thank-you | One or two lines, no new ask |
 | A reply from the company | Reply draft for the user | Uses reply facts; never sent by JOBSOR |

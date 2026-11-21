@@ -96,3 +96,11 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 - No step to run. A hiring manager is contacted only when confirmed (their own post, named in the post or job page, LinkedIn's hiring
   team box, or named by someone at the company); a title alone (founder, founding team, head) is never enough. Without a confirmed
   hiring manager, 2 peers are asked who it is (a founder only when no peer can be found).
+
+## 0.2.30
+- Step **referral-template**: in the profile's Templates, change the Referral ask's title line to "Referral ask (MNC referrers; at a
+  startup, peers once the hiring manager is confirmed):" and its ask line to "Would you be open to referring me for {role} ({job_id}),
+  or sharing this with the hiring team?". Do not ask; say so in one line.
+- More people per job: startup with a confirmed hiring manager, the hiring manager + 1 recruiter + 2 peers (refer or share); startup
+  without one, up to 10 peers asked who the hiring manager is + the posting recruiter; MNC, up to 3 recruiters + up to 10 referrers;
+  agency, the posting recruiter only if the agency is legitimate.

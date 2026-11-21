@@ -36,19 +36,17 @@ Ported from the JOBSOR website: MASTER decisions 9 and 38, Journeys 5 and 6, and
 ## 2. Who to contact
 
 **Startup** (reach the person who decides):
-1. The job poster, if a person posted it.
-2. The hiring manager for the role, only when confirmed (own post, named in the post or job page, LinkedIn's hiring team box, or
-   named by someone at the company). A title alone (founder, head, lead) is never enough.
-3. One recruiter or HR person, if the company has one.
-4. If no hiring manager is confirmed: 2 peers in the same team, only to ask who the hiring manager is (the find-people skill); a
-   founder gets that same question only when no peer can be found.
+- Hiring manager confirmed (own post, named in the post or job page, LinkedIn's hiring team box, or named by someone at the company; a
+  title alone is never enough): the hiring manager (pitch) + one recruiter + 2 peers asked to refer or share with the hiring team.
+- No confirmed hiring manager: up to 10 peers in the same team, asked only who the hiring manager is (a founder gets that question only
+  when no peer can be found) + the recruiter who posted, if any.
 
-**MNC** (referral and recruiter first; never hunt the hiring manager):
-1. The recruiter for this role (the job poster, or a recruiter whose title or posts cover this kind of role).
-2. Up to 2 referrers: employees in the same function, in India, ideally the user's college or past company.
-3. No founders and no general HR at an MNC.
+**MNC** (referral and recruiter first; never hunt the hiring manager): up to 3 recruiters for this kind of role (the poster first) +
+up to 10 referrers in the same function in India. No founders and no general HR at an MNC.
 
-**Agency:** only the posting recruiter.
+**Agency:** only the posting recruiter, and only if the agency is legitimate (own website and LinkedIn company page, no fee asked).
+
+The exact numbers and order are in the find-people skill ("How many").
 
 ## 3. Match the function (owner's rules)
 - The person who posted the job always comes first.
