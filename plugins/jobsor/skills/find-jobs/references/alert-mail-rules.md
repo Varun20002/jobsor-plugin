@@ -17,7 +17,8 @@ Search Gmail for mail from the last 3 days from these senders (only the portals 
 | Internshala | `@internshala.com` | `internshala.com/job/detail/...` or `/internship/detail/...` |
 | Jack & Jill | `@jackandjill.ai` | `jackandjill.ai/job...` |
 
-Read each mail once (its id goes in the Seen tab). At most 15 job links per mail.
+Read each mail once (its id goes in the Seen tab once every job in it is handled). **Every job link in the mail is taken**, not only the
+first: a digest of 6 jobs gives 6 jobs, each filtered and scored on its own (at most 30 a mail).
 
 ## Which links are jobs
 - A link on the portal's own site whose address looks like the job link above is a job, whatever its text.
@@ -46,5 +47,5 @@ Read each mail once (its id goes in the Seen tab). At most 15 job links per mail
 ## Description
 Alert mails carry no description. For each kept job that passes the filters (at most 10 a round): search for the same job on the
 company's own careers page or hiring system (Workday, Greenhouse, Lever, Ashby, SmartRecruiters, Workable, Keka, Darwinbox), then one
-general search "<title> <company> careers"; read what you find with Firecrawl. If only a job site has it and that site shows a "not a robot"
-check, skip it: score the job as an estimate and say "No description found, Match is an estimate".
+general search "<title> <company> careers"; read what you find with Firecrawl. If that fails, go through every reader in the find-jobs skill ("Describe it"). If none can read
+the job, never score it as an estimate: Status "Can't read", and the user is asked for a screenshot or the job's text.

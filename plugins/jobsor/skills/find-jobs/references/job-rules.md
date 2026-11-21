@@ -42,6 +42,7 @@ A job the user pasted is never hidden: apply the rules, show the warnings, keep 
   If the post names fewer than 3 must-haves, take at most two thirds of the 85 and call the Match an estimate.
 - **Level (15):** 15 when the level and years asked fit the user; 8 when one is a stretch; 12 when the post says nothing about level or
   years; when the user has not set level or years, use the years since graduating.
-- No description: score from the user's confirmed skills the title and snippet mention, and call it an estimate.
+- No description: no Match. Never score a job from its title, company or a snippet; it stays "Can't read" until a reader or the
+  user's screenshot gives the description.
 - Role, city and freshness only decide what is kept and the order, not the number. Freshness breaks ties: posted in the last 24 hours
   first, then the last 3 days.

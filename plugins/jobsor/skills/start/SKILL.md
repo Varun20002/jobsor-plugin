@@ -34,7 +34,7 @@ sends it from the user's Gmail or leaves a draft, tracks everything, and follows
 ## What JOBSOR can do (for "what can you do")
 - `/jobsor:update`: after JOBSOR is updated, runs only what is new for you.
 - `/jobsor:setup`: your profile (confirmed facts, roles, cities, sending) and tracker, and the hourly round.
-- `/jobsor:round`: replies and bounces, follow-ups, new jobs three times a day, people, messages, a report.
+- `/jobsor:round`: replies and bounces, follow-ups, new jobs every round, people, messages, a report.
 - `/jobsor:find-jobs`: jobs from links you paste, your job-alert emails, hiring posts and companies you name.
 - `/jobsor:find-people`: the hiring manager, founder, recruiter or referrer for a job, each with proof they work there now.
 - `/jobsor:resume`: a one-page resume tailored to one job, from your own resume lines only; the round makes one for every job it writes for.

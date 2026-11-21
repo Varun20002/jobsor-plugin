@@ -57,3 +57,8 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 ## 0.2.21
 - Step **send-default**: sending is now the default. If the profile's Sending mode is "drafts", set it to "send for me" (20 a day, 9 AM to
   midnight) and say so in one line; the user can say "drafts" to go back. Guessed emails and replies stay drafts.
+
+## 0.2.22
+- No step to run. Jobs: every job in an alert email is now read (not only the first), a job page that will not open goes through every
+  reader (Firecrawl, Exa, the company page, Apify, Indeed, other job sites) and, if none works, is marked "Can't read" with a request for
+  a screenshot instead of a guessed Match; the job search runs every round (the LinkedIn post search stays three times a day).

@@ -57,8 +57,8 @@ them) or anything already shown. Every user gets the same templates and voice fr
 Create it right away (the user only clicks to approve if Claude asks). **Prefer a cloud schedule**: it runs on Anthropic's servers, so
 it keeps going with the laptop closed and the report reaches the phone.
 - **Name:** JOBSOR round
-- **When:** every hour (the round does nothing between midnight and 9 AM India time and searches for new jobs only three times a day, so
-  most runs are short).
+- **When:** every hour (the round does nothing between midnight and 9 AM India time and reads new alert emails every round; the LinkedIn post
+  search runs three times a day).
 - **Instructions** (self-contained, so a fresh cloud run needs nothing else): `Run the JOBSOR round (/jobsor:round). Profile: <profile
   link>. Tracker: <tracker link>.`
 Where:

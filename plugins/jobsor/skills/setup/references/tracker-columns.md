@@ -19,7 +19,7 @@ the sheet changed, read again and retry once.
 | Size | Startup, MNC, Agency, Unknown (with the reason: "about 120 people (LinkedIn page)", "Workday careers page") |
 | Match | Match N / 100 |
 | Must-haves | "Met: SQL, Figma. Missing: Tableau" |
-| Status | Found, Listed earlier, Contacting, Contacted, Replied, Interview, Rejected, No response, Skipped |
+| Status | Found, Can't read, Listed earlier, Contacting, Contacted, Replied, Interview, Rejected, No response, Skipped |
 | Next step | One plain line |
 | Notes | Dated notes, newest last. Never mail text |
 | Resume | Full path of this job's tailored resume PDF (blank until made; never remade once a message with it was sent) |

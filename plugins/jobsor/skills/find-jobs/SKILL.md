@@ -17,11 +17,16 @@ below, in this order, filter and score them with `references/job-rules.md`, and 
      company's own careers page.
    - A LinkedIn post link: read the whole post with Firecrawl. The poster and anyone the post names are people for the find-people skill.
      Open each link inside the post once: a job page is read, a form is saved as the Apply link, anything else is left.
-   - A screenshot: read it yourself. A "Meet the hiring team" screenshot gives names and titles for the job named in its caption or the
+   - A screenshot: read it yourself. A screenshot or pasted text of a job's description fills the job with Status "Can't read" that it
+     belongs to (by the caption, the title or the company; ask which job only if none fits), then the job is scored and carries on.
+     A "Meet the hiring team" screenshot gives names and titles for the job named in its caption or the
      message; if no job is named, ask which job it is for. Never guess.
 2. **Job-alert emails in Gmail** (only the senders the profile lists). Follow `references/alert-mail-rules.md` exactly. Read each alert
-   mail once: skip any whose Gmail id is in the Seen tab, then add its id. Keep only links, title, company, city and date; never copy the
-   mail's text anywhere.
+   mail once: skip any whose Gmail id is in the Seen tab. Keep only links, title, company, city and date; never copy the mail's text anywhere.
+   **Every job in a mail is handled, not only the first or the best one.** A digest ("Visa Product Analyst and 5 other jobs", "Jobs
+   similar to ...", a Naukri list of 8) is opened in full and each job link in it is listed, then filtered and scored one by one. Each
+   job ends as added, merged into an existing row, or hidden with its reason; none is silently left out. Add the mail's id to Seen only
+   when every job in it has been handled; if the round's limits stop part way, leave the mail unseen so the next round finishes it.
    Once a week (the first round on Monday), check each alert site in the profile: if one has sent nothing in 7 days, tell the user once
    ("No Naukri alerts reached <connected address> this week; check the alert is on and sent to this address").
 3. **Hiring posts from the last 24 to 48 hours.**
@@ -57,14 +62,27 @@ below, in this order, filter and score them with `references/job-rules.md`, and 
 
 ## Then, for every job collected
 
-1. **Describe it.** An alert job has no description: find the company's own page for it (one Exa search on the hiring systems with the
-   title and company, then one general search), and read it with Firecrawl. At most 10 such look-ups a round. If a page shows a "not a
-   robot" or human check (Naukri, Instahyre, startup.jobs often do), skip that page; never try to get past it.
+1. **Describe it: read the job itself, never guess.** An alert job has no description, and a job page may refuse to load. Try every
+   reader below, in order, and stop at the first that gives the job's description:
+   1. **Firecrawl** scrape of the job's own link (a LinkedIn link: never; go to step 2).
+   2. **Exa**: fetch the same address, then one Exa search for the job (title, company, city), on the hiring systems first.
+   3. **The company's own page:** one search "<title> <company> careers" (Firecrawl search), and read the company or hiring-system
+      page it finds (Workday, Greenhouse, Lever, Ashby, SmartRecruiters, Workable, Keka, Darwinbox) with Firecrawl.
+   4. **Apify**, if the user connected it: for a LinkedIn job, `curious_coder/linkedin-jobs-scraper` with the job's address
+      (`maxTotalChargeUsd: 0.02`); for another site, Apify's web fetch of the job's link.
+   5. **Indeed**, if connected: its job details for the same title and company.
+   6. **Other job sites:** a search for the same title and company on Naukri, Instahyre, Cutshort, Wellfound or Foundit, read with
+      Firecrawl.
+   A page with a "not a robot" or human check is skipped (never try to get past it); go to the next reader. At most 10 jobs a round go
+   through this; the rest wait for the next round (their mail stays unseen).
+   **If every reader fails: never score the job from its title, company or the alert's snippet.** Add it with Status "Can't read", no
+   Match, and the readers tried in Notes. The report lists it on its own line: "Couldn't read <job as a link>: send a screenshot of the
+   job or paste its text." When the user sends one, read it (as in source 1), fill the job's description, and carry on with the job.
 2. **Date it.** Keep the date and how it is known (see `references/alert-mail-rules.md`). Jobs older than 3 days, or with no date, go in
    with Status "Listed earlier" and are never drafted for, unless the user pasted them.
 3. **Filter it** with `references/job-rules.md`: role family, level and years, city or India remote, never-contact companies, IT
    services (hidden unless the user asked for them), scams. A job that fails a rule is not added; count it under "hidden" with the reason.
-4. **Score it**: Match N / 100 as in `references/job-rules.md`. Write the must-haves met and missing.
+4. **Score it**: Match N / 100 as in `references/job-rules.md`, only from a description that was read. Write the must-haves met and missing.
 5. **Dedupe** against the tracker: the same company and role (or the same job id, or the same link) is one job. A company-board copy
    wins over an alert copy (it has the real description and date). An Apify copy of a job that already came from a LinkedIn alert or a
    hiring post is **not a new job**: merge it into the existing row and use it only to fill what is missing there (the description, the
@@ -80,7 +98,7 @@ A table of the jobs, best first: Match, Job (role at company, as a link), City, 
 link to the job page**, written as a Markdown link, for example `[Product Analyst at Razorpay](https://...)`, so the user can open the job
 before going ahead. Use the job's own link from the tracker (the company or job-site page; for an alert-mail job, the job link from the
 mail, never the mail itself). If a job has no link, write "(no link)" after it. Never show a link that was not read or found for that job. Then one line of counts (more found, hidden, emails sent or
-drafted) and, only if needed, one line the user must act on (for example "add Naukri alerts for Product Analyst in Pune").
+drafted), one "Couldn't read" line per job no reader could open (as in "Describe it"), and, only if needed, one line the user must act on (for example "add Naukri alerts for Product Analyst in Pune").
 
 ## Rules (every JOBSOR skill keeps these)
 
