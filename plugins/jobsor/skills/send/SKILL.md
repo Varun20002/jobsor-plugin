@@ -34,8 +34,9 @@ The same attachment goes on a message sent in send-for-me mode.
 Set Status "Draft ready", Gmail id = the draft id. Tell the user how many drafts are waiting and that they send them from Gmail.
 
 ## Send for me
-- Send every ready message in the same run, back to back, with no waiting between them (up to the daily cap and the hours). After each
-  send, write the row (Status "Sent", Sent time, Gmail id, Next follow-up = the next day); write the rows in batches if there are many.
+- Send every ready message in the same run, one after another, up to the daily cap and the hours. Wait a random 1 to 5 seconds between
+  two sends (different each time; on a computer, `python3 -c "import random,time; time.sleep(random.uniform(1,5))"`). After each send,
+  write the row (Status "Sent", Sent time, Gmail id, Next follow-up = the next day); write the rows in batches if there are many.
 - After every 20 sends, and at the end: search Gmail for bounce notices (`from:mailer-daemon` or `from:postmaster`, newer than today) that
   name one of today's addresses. For each bounce: the message becomes "Bounced", the person's email is cleared with a dated note, and the
   person goes back to find-email for the next format, or is replaced by the next person found for that job.

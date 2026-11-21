@@ -111,3 +111,6 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 
 ## 0.2.32
 - No step to run. Messages that are ready are sent in the same run, back to back, with no 50-second wait between them.
+
+## 0.2.33
+- No step to run. Ready messages are sent in the same run with a random 1 to 5 second wait between two sends.
