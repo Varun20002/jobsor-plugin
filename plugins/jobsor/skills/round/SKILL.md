@@ -8,8 +8,9 @@ description: Run one JOBSOR round - check replies and bounces, stop jobs where t
 Read the profile and the whole tracker first. If the profile's "Plugin version:" is older than this plugin's version (or missing), carry
 on with the round and add one line to the report: "JOBSOR was updated; type /jobsor:update when you have a minute." (once a day at most). Note the time in India (IST, UTC+5:30) and the last round's time (last row of Log).
 
-**Debug log:** if the profile says "Debug log: on", every part of this round and every skill it runs writes its steps to the
-"Debug steps" and "Debug emails" tabs as `references/debug-log.md` says. Setup never turns this on.
+**Debug log:** if the profile says "Debug log: on", every part of this round and every skill it runs writes its rows to the
+"Debug steps", "Debug emails" and "Debug jobs" tabs as `references/debug-log.md` says, part by part as it goes, one row per item. A
+round that writes no debug rows is not finished; the Log row ends with "debug: N rows". Setup never turns this on.
 
 **Quiet hours:** between 12 midnight and 9 AM India time, do nothing, write nothing, and end with "Quiet hours, nothing done." (A round
 the user starts by hand runs anyway, but sends nothing in quiet hours.)

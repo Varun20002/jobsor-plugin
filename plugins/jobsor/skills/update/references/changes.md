@@ -127,3 +127,8 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 - Messages: purpose first; the person's post or news only when relevant; a connecting line; 2 to 4 proof bullets in the job's words; the
   gap line after the proof; "My resume is attached."; the company's job id, never JOBSOR's; follow-ups are a fixed short text with no AI
   writing; an application email named in the post is contacted too.
+
+## 0.2.36
+- No step to run. Debug log (only when the profile says "Debug log: on"): a third tab "Debug jobs" (one row per job seen, with source,
+  reader, gate, the three Match parts and the decision); rows are written part by part, one per item, never a summary; every round must
+  write rows and ends its Log row with "debug: N rows".

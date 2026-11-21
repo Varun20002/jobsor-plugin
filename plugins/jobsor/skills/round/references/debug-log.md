@@ -4,7 +4,7 @@ Setup never adds this line and never asks about it. It is for the person who run
 When the profile has no such line, or it says off, write none of this.
 
 ## Where
-Two tabs in the tracker. If a tab is missing, add it with its header row first.
+Three tabs in the tracker. If a tab is missing, add it with its header row first.
 
 **"Debug steps"**: one row for every step, in the order it happened.
 
@@ -35,8 +35,41 @@ Two tabs in the tracker. If a tab is missing, add it with its header row first.
 | Can't read | Job ids no reader could open |
 | Finished | Yes when every job in it is handled; No when the round stopped part way (the next round adds a new row for the rest) |
 
+**"Debug jobs"**: one row for **every job seen** in the round, from any source, kept or not.
+
+| Column | What goes in it |
+|---|---|
+| Round | The round's start time |
+| Source | Alert mail (with its Gmail id), LinkedIn post, X post, Apify, Indeed, Company board, Pasted |
+| Title | The job title as shown |
+| Company | The company |
+| Link | The job's link (or the post's link) |
+| Posted | The posted date and how it is known |
+| Read via | The reader that gave the description (Firecrawl, Exa, company page, Apify, Indeed, job site), or "Can't read" with the readers tried |
+| Gate | Kept, or Hidden with the rule (another field, too senior, city, older than 3 days, never-contact, IT services, scam, not hiring) |
+| Match | The three parts and the total ("Work 30/45, Must 28/40, Level 15/15 = 73"), blank when hidden before scoring |
+| Decision | Added as J0xx, Merged into J0xx (why), Hidden (why), Waiting (cap reached) |
+
+
+
 ## Rules
-- A row is written for every step, including the ones that found nothing and the ones that were skipped (say why).
-- Write the rows in batches (at the end of each part of the round), not one call per row.
-- Never put mail text, message text or resume text in these tabs: only ids, links, titles, companies, names, tool names and one-line reasons.
+- **Every round writes debug rows; no exceptions.** A round that writes none is not finished. The busiest rounds (new-jobs windows) matter
+  most: never skip the log to save time.
+- **Write as you go:** after each part of the round (replies, follow-ups, alert mails, each source, each job's people, emails, messages,
+  sends), write that part's rows before starting the next part, so a round that stops part way still leaves its trail.
+- **One row per item, never a summary:** one row per search or tool call (its words, how many results, credits), one per alert mail
+  (in "Debug emails" too), one per job seen (in "Debug jobs" too), one per person checked, one per email address tried, one per message
+  written and one per send. "4 alerts already seen" is four rows, one per mail id.
+- **Minimum rows a part must leave** (when the part runs): Reply check and Bounce check: one row each. Follow-up: one row per message due
+  or not due. Alert mail: one row per mail. Each job source (post search, X, Apify, Indeed, company board): one row per call. Read job,
+  Filter, Score: one row per job. Route: one row per job (size, source, call). Find people: one row per person checked plus one per search.
+  Find email: one row per address tried. Write: one row per message (type, length in words, checks passed). Send: one row per send (the
+  To address, Gmail id, Result).
+- **Skipped parts still get a row** with the reason ("3 PM window already run", "Apify: once a day, ran at 09:57", "cap of 50 reached").
+- **Credits:** fill the Credits column whenever the tool reports a cost (Firecrawl, Apify, Hunter).
+- **Check before the Log row:** count this round's debug rows and write the count at the end of the round's Log row ("debug: 34 rows").
+  If the count is 0, or a part that ran has no rows, write the missing rows first.
+- Write the rows in batches (one write per part), not one call per row.
+- Never put mail text, message text or resume text in these tabs: only ids, links, titles, companies, names, tool names, numbers and
+  one-line reasons.
 - A round in quiet hours writes one row: Step "Reply check", Result "Skipped", Why "quiet hours".
