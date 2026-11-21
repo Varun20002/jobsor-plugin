@@ -18,7 +18,8 @@ Ported from the JOBSOR website: MASTER decisions 9 and 38, Journeys 5 and 6, and
    record (employees, founded, headquarters), it confirms the same thing.
 3. Only if that finds nothing: Exa `category:company <company>`, then one search for a funding article or its listing on a stock
    exchange. Run these one at a time (Exa's free plan refuses several at once).
-4. Write the size, where it came from and the founded year in the Size column ("501-1,000 employees, LinkedIn company page, founded
+4. If the search shows the company's website, write it in the job's Notes as "Website: <domain>".
+5. Write the size, where it came from and the founded year in the Size column ("501-1,000 employees, LinkedIn company page, founded
    2014").
 
 **Decide.**

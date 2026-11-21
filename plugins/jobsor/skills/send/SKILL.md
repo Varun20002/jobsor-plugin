@@ -16,6 +16,12 @@ Read the profile's Sending section (mode: send for me unless it says drafts; dai
 4. **Cap and hours** (send mode): fewer than the daily cap sent today (count the Messages rows Sent today), and the time is between 9 AM and
    12 midnight India time.
 
+## The address is the tracker's address
+Use the People tab's Email exactly as written, character for character (dots, hyphens, case). Never retype or "clean" it. After
+sending (or making a draft), read the sent message's To address from Gmail. If it differs from the People tab's Email, write the address
+actually used into the People tab's Email and add a dated note "Sent to <address>, tracker had <old>"; log it in the debug log with
+Result "Failed" and Why "address changed".
+
 ## Drafts (only if the profile says drafts, or the address is a guess)
 Create a Gmail draft to the person with the subject and body, the resume attached, and for a follow-up as a reply in the same thread.
 

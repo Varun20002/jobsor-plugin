@@ -12,8 +12,9 @@ Write the address and its label in the People tab: `published`, `checked`, or `g
    `"<full name>" "<company>" (email OR contact OR "@<domain>")`. An email is theirs only when the part before the @ carries their name
    (both names in full for a personal Gmail-type address). Shared mailboxes (careers@, hr@, jobs@, info@) are never a person's address;
    keep a careers@ address only as the company inbox for a small startup with nobody found. Label: `published`.
-2. **The company's domain.** From the job link when it is the company's own site, else its website from search. Not the domain of a job
-   site or a hiring system.
+2. **The company's domain.** Take it from the job's Notes "Website:" first, then the job link if it is the company's own site, then the
+   LinkedIn company page's website, then one search. Not the domain of a job site or a hiring system. Never use a guessed domain (do not
+   try name.ai or name.com without a page that shows it).
 3. **The company's email format.** Learn it once per company and note it in the job's Notes ("Email format: {first}.{last}@acme.com, from
    2 published addresses"):
    - a page that states the format (search `"@<domain>" email format`), or
@@ -29,6 +30,11 @@ Write the address and its label in the People tab: `published`, `checked`, or `g
    "catch-all" proves nothing: the address stays `guessed (not checked)`. Invalid: try the next format (at most 3 checks a person). With no
    checker, the address stays `guessed (not checked)`.
 
+6. **Never stop at "no address found".** If no published or checked address was found, build the best guess from the company's format
+   (Hunter's domain search pattern, or two published addresses, or the common formats in order) and write it with the label
+   `guessed (not checked)`. If the person's last name is only an initial or missing, use `{first}@domain` first. The person is only left
+   with no address when the company's domain itself is unknown.
+
 ## What a label allows
 - `published` and `checked`: the send skill may send (if sending is on) or draft.
 - `guessed (not checked)`: draft only, unless the profile says "Send to guessed, unchecked emails: yes".
@@ -39,10 +45,12 @@ Write the address and its label in the People tab: `published`, `checked`, or `g
 - Never use an address from another company's domain for this person.
 - Never buy or scrape contact databases, and never copy how a finder's browser extension talks to its servers.
 
-Report per person: the address and its label, or "no address found" with what was tried.
+Report per person: the address and its label, or "no address found" (only when the domain is unknown) with what was tried.
 
 ## Autopilot and short replies (every JOBSOR skill)
 - **Debug log:** if the profile says "Debug log: on", log every step of this skill as `skills/round/references/debug-log.md` says.
+  Each person checked writes one row: Step "Find email", Item the person, Tool, Input (address tried), Result (OK / Empty / Hidden /
+  Failed), Why (for example "Hunter: no result", "built from {first}.{last}, not checked").
 - Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
   Ask only when nothing can be done without an answer.
 - Replies show only the results, precise and short: a table is fine for results (jobs, people, messages sent); no plans, no filler, no explanations unless asked.

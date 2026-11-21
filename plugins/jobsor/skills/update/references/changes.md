@@ -85,3 +85,9 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 - No step to run. Startup or MNC: the line is now 1,000 people (listed companies are always MNC); the size comes from one Google-style
   search of the company's LinkedIn page; an unknown size is never assumed (contact the hiring manager and a recruiter); placement firms
   hiding the client are Agencies. Existing jobs keep their label.
+
+## 0.2.28
+- No step to run. People and email: the job poster is always checked first; at a startup the order is hiring manager, then founder,
+  then a peer ask; a recruiter poster is contacted together with the hiring manager or founder; the company's website comes from its
+  LinkedIn page (never a guessed domain); when no address is found or checked, the best guess is built and labelled; the address sent
+  is exactly the one in the tracker, and any difference is logged.
