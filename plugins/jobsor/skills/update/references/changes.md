@@ -71,3 +71,7 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 - Step **related-titles**: matching now works for any field and is decided by the job description, not the title. If the profile's
   "What I want" has no "Related titles:" line, add one under Roles: 4 to 8 other titles used for the same work as the user's roles, from
   their resume. Do not ask; say in one line "Added related titles: ...; change them any time."
+
+## 0.2.25
+- No step to run. Only jobs posted in the last 3 days are kept; older or undated jobs are hidden ("older than 3 days") instead of
+  being added as "Listed earlier" (a job the user pastes still goes ahead).

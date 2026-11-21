@@ -28,6 +28,8 @@ jobs that are plainly in another field.
 7. **A scam:** asks for payment, a deposit or a registration or training fee; "Telegram tasks" or WhatsApp-only hiring; "earn per day/task"
    or pay far above normal; asks someone to interview on another's behalf; hiring from a personal Gmail/Yahoo/Outlook address in the post.
 8. **A post that is not hiring** (it mentions the role but offers no job).
+9. **Older than 3 days.** Only jobs posted in the last 3 days are kept (posted date, or the alert mail's date when that is all there is).
+   A job with no date at all is hidden too. Hidden jobs are counted with the reason "older than 3 days" and never added.
 
 ## Warnings (keep the job, show the warning)
 - **College rule** ("IITs, NITs and IIITs only", "tier-1 only") and the user's confirmed college is not one: "This job limits applicants
@@ -53,7 +55,7 @@ Score three parts separately and write each in Notes, for example "Work 30/45, M
 - No description: no Match. Never score a job from its title, company or a snippet; it stays "Can't read" until a reader or the
   user's screenshot gives the description.
 - A short post is not punished for being short: score what it says.
-- Role, city and freshness only decide what is kept and the order, not the number. Freshness breaks ties: posted in the last 24 hours
+- Role, city and recency only decide what is kept and the order, not the number. Recency breaks ties: posted in the last 24 hours
   first, then the last 3 days.
 
 ## Worked examples (made-up jobs and users from different fields, to keep scoring the same)

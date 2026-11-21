@@ -42,7 +42,7 @@ first: a digest of 6 jobs gives 6 jobs, each filtered and scored on its own (at 
 - **Wellfound, Cutshort, Internshala:** their job pages carry a real posted date; read the page with Firecrawl. "page date".
 - **Instahyre, Foundit:** their pages refuse automated reads. Keep the job; Posted = the alert's date, "alert date, not checked".
 - **Jack & Jill:** the alert's date, "alert date, not checked".
-- Kept only when the date is within the last 3 days. Older or undated: Status "Listed earlier".
+- Kept only when the date is within the last 3 days. Older or undated: hidden ("older than 3 days"), not added.
 
 ## Description
 Alert mails carry no description. For each kept job that passes the filters (at most 10 a round): search for the same job on the

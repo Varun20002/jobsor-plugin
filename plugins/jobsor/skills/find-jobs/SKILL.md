@@ -78,8 +78,9 @@ below, in this order, filter and score them with `references/job-rules.md`, and 
    **If every reader fails: never score the job from its title, company or the alert's snippet.** Add it with Status "Can't read", no
    Match, and the readers tried in Notes. The report lists it on its own line: "Couldn't read <job as a link>: send a screenshot of the
    job or paste its text." When the user sends one, read it (as in source 1), fill the job's description, and carry on with the job.
-2. **Date it.** Keep the date and how it is known (see `references/alert-mail-rules.md`). Jobs older than 3 days, or with no date, go in
-   with Status "Listed earlier" and are never drafted for, unless the user pasted them.
+2. **Date it.** Keep the date and how it is known (see `references/alert-mail-rules.md`). Jobs older than 3 days, or with no date, are
+   hidden (reason "older than 3 days") and not added, unless the user pasted them (a pasted older job is added with Status "Listed
+   earlier" and still goes ahead, as the user chose it).
 3. **Filter it** with `references/job-rules.md`: the wide field gate (title or description), level and years, city or India remote, never-contact companies, IT
    services (hidden unless the user asked for them), scams. A job that fails a rule is not added; count it under "hidden" with the reason.
 4. **Score it**: Match N / 100 as in `references/job-rules.md`, only from a description that was read. Write the must-haves met and missing.
