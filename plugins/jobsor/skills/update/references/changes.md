@@ -104,3 +104,7 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 - More people per job: startup with a confirmed hiring manager, the hiring manager + 1 recruiter + 2 peers (refer or share); startup
   without one, up to 10 peers asked who the hiring manager is + the posting recruiter; MNC, up to 3 recruiters + up to 10 referrers;
   agency, the posting recruiter only if the agency is legitimate.
+
+## 0.2.31
+- No step to run. New profiles start with a daily cap of 50 emails (the most allowed), since more people are contacted per job. An
+  existing profile keeps its cap; the user can say "set my daily cap to 50".

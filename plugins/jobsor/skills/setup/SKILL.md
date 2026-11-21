@@ -33,7 +33,7 @@ Setup is quick and leads straight into autopilot. Ask nothing that can be read f
    Facts I'll use (only these, ever):
    1. ... 2. ... (one short line each)
    Roles: A, B (also: related titles) · Level: Entry · Cities: Bengaluru, Remote · Skip: <current employer>
-   Sending: send for me, up to 20 a day, 9 AM to midnight (or say "drafts")
+   Sending: send for me, up to 50 a day, 9 AM to midnight (or say "drafts")
    Reply "ok", or fix anything (for example "remove 4, add Pune").
    ```
    Any line the user removes is removed from the Resume source too. "ok" means everything as shown. **Sending is "send for me" unless

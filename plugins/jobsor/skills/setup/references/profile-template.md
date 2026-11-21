@@ -61,7 +61,7 @@ Naukri, LinkedIn, Wellfound, Instahyre, Cutshort, Hirist, Foundit, Internshala, 
 
 ## Sending
 - Mode: send for me (default) | drafts
-- Daily cap: 20 (never above 50)
+- Daily cap: 50 (never above 50)
 - Hours: 9 AM to 12 midnight India time
 - Send to guessed, unchecked emails: no | yes
 
