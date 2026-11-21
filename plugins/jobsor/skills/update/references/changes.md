@@ -80,3 +80,8 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 - No step to run. Job sources: searches use the roles plus the related titles; X posts are searched with Firecrawl (x.com only, recent)
   instead of Exa; Apify and Indeed add "entry level" for Intern or Entry users; Indeed (the plugin's or Claude's own connector) keeps only
   jobs posted in the last 3 days.
+
+## 0.2.27
+- No step to run. Startup or MNC: the line is now 1,000 people (listed companies are always MNC); the size comes from one Google-style
+  search of the company's LinkedIn page; an unknown size is never assumed (contact the hiring manager and a recruiter); placement firms
+  hiding the client are Agencies. Existing jobs keep their label.

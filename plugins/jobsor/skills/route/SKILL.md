@@ -8,13 +8,29 @@ description: Decide, for a job in the JOBSOR tracker, whether the company is a s
 Ported from the JOBSOR website: MASTER decisions 9 and 38, Journeys 5 and 6, and the owner's rules on who to contact.
 
 ## 1. Size
-- Find the company's size once (its LinkedIn company page through Exa's copy, its website, a funding article, Crunchbase-style pages
-  through search). Write the number and where it came from in the Size column ("about 120 people, LinkedIn company page").
-- **500 people or fewer: Startup. Above 500: MNC.**
-- Size unknown after one search: a careers page on Workday, SuccessFactors or Oracle means MNC; otherwise Startup. Write "Unknown,
-  treated as Startup (no size found)".
-- **Agency:** the post is by a staffing or recruitment agency and the client company is hidden or named only as "our client". Contact only
-  the recruiter who posted it; no founders, no employees.
+**Find the size (one search almost always does it).**
+1. **Confirm the company first:** take its website address from the job, the post or the careers link, so a company with the same name
+   elsewhere is never used.
+2. **One Google-style search of LinkedIn:** `firecrawl_search` with query `<company> LinkedIn company employees`,
+   `includeDomains: ["linkedin.com"]`, `limit: 3`, `sources: ["web"]` (about 2 credits). The result for the company's own page
+   (`linkedin.com/company/...`, matching the website or the name) shows "Company size: 501-1,000 employees" and often "View all N
+   employees". Use the **Company size band**; if only "View all N employees" is shown, use N. If the search also returns a company
+   record (employees, founded, headquarters), it confirms the same thing.
+3. Only if that finds nothing: Exa `category:company <company>`, then one search for a funding article or its listing on a stock
+   exchange. Run these one at a time (Exa's free plan refuses several at once).
+4. Write the size, where it came from and the founded year in the Size column ("501-1,000 employees, LinkedIn company page, founded
+   2014").
+
+**Decide.**
+- **1,000 people or fewer: Startup. Above 1,000: MNC.** A band that ends at 1,000 ("501-1,000") is a Startup; "1,001-5,000" and above is
+  an MNC.
+- **Listed on a stock exchange: MNC**, whatever the size.
+- **Size still unknown** after the steps above (rare): never assume. Write "Size unknown" and contact both ways: the poster or hiring
+  manager (as for a Startup) **and** a recruiter (as for an MNC).
+- **Agency:** the post is by a staffing, recruitment, consulting-placement or overseas-placement firm and the client company is hidden or
+  named only as "our client". Contact only the recruiter who posted it; no founders, no employees. If the client is named, route the job
+  as the client company.
+- **Debug log:** write one row for this step: the size, the source, the founded year and the call.
 
 ## 2. Who to contact
 
