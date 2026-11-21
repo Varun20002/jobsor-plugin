@@ -37,7 +37,7 @@ Classify each with `references/reply-rules.md` and act:
 
 ## 2. Follow-ups due
 For every Sent message whose Next follow-up date has come, check `skills/write/references/followups.md` rules (via the write skill): no
-reply from the company, fewer than 3 follow-ups so far, 9 AM to 12 midnight in the recipient's time (any day of the week). Write the follow-up with a new opening fact,
+reply from the company, fewer than 3 follow-ups so far, 9 AM to 12 midnight in the recipient's time (any day of the week). Fill the profile's fixed Follow-up template (no AI writing),
 then hand to send.
 
 ## 3. New jobs (every round)

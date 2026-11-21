@@ -31,7 +31,7 @@ the sheet changed, read again and retry once.
 | Job ID | |
 | Name | |
 | Title | |
-| Contact as | Hiring manager, Founder, Recruiter, Referrer, Peer (to ask) |
+| Contact as | Hiring manager, Founder, Recruiter, Referrer, Peer (to ask), Company inbox |
 | LinkedIn | Profile link, if found |
 | Proof | Why we know they work there now: "Posted about this job on 10 Nov", "Headline: PM at Acme", "On acme.com/team", "Named by P004 in a reply" |
 | Email | |
@@ -47,7 +47,7 @@ the sheet changed, read again and retry once.
 | Person ID | |
 | Type | Pitch, Recruiter, Peer ask, Referral ask, Follow-up 1, Follow-up 2, Follow-up 3, Thank-you, Reply draft |
 | Subject | |
-| Opening fact | The researched fact the message opens with, with its date and link (so a follow-up never repeats it) |
+| Opening fact | The relevant item the message opens with, with its date and link (blank when it has no opening) |
 | Status | Draft ready, Sent, Bounced, Replied, Cancelled |
 | Created | |
 | Sent | Date and time sent (by JOBSOR or seen in Gmail's Sent) |

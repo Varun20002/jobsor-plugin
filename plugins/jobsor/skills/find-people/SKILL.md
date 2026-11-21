@@ -23,6 +23,9 @@ Proof column.
    - Poster is a job-sharing page, a recruitment agency or someone not at the company: do not add them. Write in the job's Notes
      "Poster <name> is not at <company> (<why>)" and go on to step 2.
    Never skip this check, even when a founder or leader is easy to find.
+   If the post or the job page says where to send applications (an email address, even a shared one like hiring@ or careers@), add that
+   address as a contact with Contact as "Company inbox" and send it the pitch with "Hi {company} team,". It does not count toward the
+   people numbers.
 2. **Reverse search from the job link** (the job came from a job link or an apply link and nobody is named). Search Exa and Firecrawl for
    LinkedIn and X posts that share **this same link**, three ways, because posts often hold a short link (lnkd.in, bit.ly) instead of the
    long one:

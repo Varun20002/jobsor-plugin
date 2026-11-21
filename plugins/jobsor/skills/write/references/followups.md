@@ -6,12 +6,9 @@ From the JOBSOR website (MASTER Journey 7, `lib/engine.ts`, `lib/outreach-channe
   follow-ups by email, each only if there is no reply from anyone at the company, and sent only between 9 AM and 12 midnight in the recipient's
   time (India time for India). Weekends count: there is no weekday-only rule.
 - **The same for every kind of message**: pitches, recruiter notes, referral asks and peer asks all get up to 3 follow-ups, one a day.
-- **Each follow-up opens with a new fact**: the next-best researched item not used before (check the Opening fact column), or one more
-  confirmed fact of the user's that fits the job. Never "just following up", "bumping this", "circling back".
-  - Follow-up 1: the new fact in one sentence, in the source's own terms (no comment on what it means for them or the role), then the
-    user's story fact as it is, then the same ask. Three short paragraphs, nothing in between.
-  - Follow-up 2: one more piece of proof (a demo, a result) from the confirmed facts, the same ask.
-  - Follow-up 3: a short last note: "Last note from me on the {role} role at {company}. I will leave it here." No new ask beyond a soft one.
+- **Fixed text, no AI writing:** every follow-up is exactly the profile's Follow-up template with only {first_name} and {signoff} filled:
+  "Hi {first_name}, Following up on my previous message. Please let me know if this aligns with you." plus the sign-off. No new fact, no
+  story, no proof, no link. The same text for follow-up 1, 2 and 3. Sent as a reply in the same Gmail thread.
 - **After follow-up 3** with no reply: the job's Status becomes "No response" when every person on it is done.
 - **Stop at once** when anyone at the company replies (any person, any address at the company's domain), when the person says "not
   hiring", "not interested", "stop", or "do not contact" (then Status "Do not contact" for that person on every job), when the job is

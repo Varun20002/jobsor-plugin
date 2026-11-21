@@ -119,3 +119,11 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 - No step to run. People: Exa's people search (category:people) is used first for peers, referrers, recruiters and founders, keeping only
   profiles that show the company as "(Current)", with searches by the user's college and past companies first. Jobs: two postings are
   merged only when they share a job id or a link; the same company and title with different ids are separate jobs.
+
+## 0.2.35
+- Step **message-templates**: in the profile, replace the Recruiter, Employee ask and Referral ask templates with the new ones from the
+  setup template, add the Follow-up template and the "One line about me" line, and change the Sign-off to add the LinkedIn link (and phone
+  if given). Do not ask; say so in one line.
+- Messages: purpose first; the person's post or news only when relevant; a connecting line; 2 to 4 proof bullets in the job's words; the
+  gap line after the proof; "My resume is attached."; the company's job id, never JOBSOR's; follow-ups are a fixed short text with no AI
+  writing; an application email named in the post is contacted too.

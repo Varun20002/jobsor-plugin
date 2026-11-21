@@ -67,7 +67,7 @@ Naukri, LinkedIn, Wellfound, Instahyre, Cutshort, Hirist, Foundit, Internshala, 
 
 ## My voice (the same for every user; setup does not ask about it)
 - Opener: "Hi {first_name},"
-- Sign-off: "Regards," then name
+- Sign-off: "Regards," then name, then phone (only if given above), then the LinkedIn link from Links
 - How I ask: the ask written in each template below
 - Product-use hook allowed: no
 
@@ -75,25 +75,33 @@ Naukri, LinkedIn, Wellfound, Instahyre, Cutshort, Hirist, Foundit, Internshala, 
 - Gap line (job asks for more years than I have): "To be upfront, I have about {my_years} years of experience, below the {asked} listed; {one confirmed fact that shows I can do the work}."
 - Location line (job is in another city): "I'm in {my_city} and happy to move to {job_city}."
 - Remote abroad: "Would you consider hiring remotely from India?"
+- One line about me: the user's latest role or project and its main result, from one confirmed fact, in one sentence ("I'm a product intern at Beta, where I took activation from 31% to 44%.").
+- {company_job_id}: the company's own job id or requisition number from the job page or link; if there is none, drop the brackets. Never JOBSOR's tracker id (J001...).
 
 ## Templates (the same for every user; setup does not ask about them. Placeholders are filled only from the job, the person and the confirmed facts; a line whose placeholder is empty is dropped)
 - Founder or hiring manager: the researched pitch (JOBSOR write skill), ending "If this aligns with you, can we have a quick chat?"
 - Recruiter:
   Hi {first_name},
-  Saw the {role} role at {company}: {job_link}
-  A few things I have done that map to this role:
-  {proof_lines}
-  Would you be open to a quick chat about this role?
+  I'd like to apply for the {role} role at {company} ({company_job_id}): {job_link}
+  Why I think I fit:
+  {2_to_4_proof_bullets}
+  {gap_line}
+  My resume is attached. Would you be open to a quick chat about this role?
   {signoff}
 - Employee ask (startup, to find the hiring manager):
   Hi {first_name},
   I saw {company} is hiring for {role}: {job_link}
-  Do you know who the hiring manager for this role is?
+  I'm {one_line_about_me}.
+  Do you know who the hiring manager for this role is? My resume is attached in case it helps.
   {signoff}
 - Referral ask (MNC referrers; at a startup, peers once the hiring manager is confirmed):
   Hi {first_name},
-  {role} ({job_id}): {job_link}
-  A bit about me: {top_story}
-  Would you be open to referring me for {role} ({job_id}), or sharing this with the hiring team?
+  {role} at {company} ({company_job_id}): {job_link}
+  I'm {one_line_about_me}.
+  Would you be open to referring me for this role, or sharing this with the hiring team? My resume is attached.
+  {signoff}
+- Follow-up (all types, fixed text, no AI):
+  Hi {first_name},
+  Following up on my previous message. Please let me know if this aligns with you.
   {signoff}
 - Thank-you (after a peer names the hiring manager, or after a referral): one or two lines, no new ask.

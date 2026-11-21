@@ -11,8 +11,9 @@ Every message passes all of these. Ported from the JOBSOR website (`lib/compose.
    fact says so.
    **Names:** the user's name, sign-off and contact details come only from the profile. With no profile, write "[your name]"; never take
    a name from anywhere else (the computer, an email address, earlier chats).
-   **Their side:** say about the person or company only what a source says (their post's words, the news item). No guesses about their
-   product, users or problems ("this adds a step where users drop off").
+   **Their side:** say about the person or company only what a source says (their post's words, the news item, the source's own words
+   about what they build, as in the connecting line). No guesses about their product, users or problems ("this adds a step where users
+   drop off").
    **No new promises** about what the user would do in the job ("I'd like to improve your funnels as your analyst").
 2. **No fake warmth:** none of "we met", "we spoke", "as discussed", "following our chat", "X suggested I reach out", "X referred me",
    "great to connect again", unless the user typed it for this person.
@@ -21,14 +22,17 @@ Every message passes all of these. Ported from the JOBSOR website (`lib/compose.
 4. **No stock phrases** (the website's banned list): passionate, just checking in, just following up, touching base, circling back,
    express my interest, dear hiring, excited about the opportunity, thrilled at the prospect, results-driven, spearheaded, leveraged,
    delve, hope this email finds you well, hope this message finds you well.
-5. **Length:** a pitch under about 150 words; a peer ask under about 60 words; a follow-up under about 80 words. Written short, never cut.
-6. **One ask:** exactly one question asking for something. A follow-up repeats the first message's ask; if it is not known, the default
-   "If this aligns with you, can we have a quick chat?". Never invent a new ask (a "15-minute call this week").
-6b. **One story:** a pitch or follow-up tells one confirmed fact as its story; other facts (degree, older work) stay in the resume.
-7. **The opening is real:** for a pitch, the opening names a real item with a date and a link the user can open (in the Messages row);
-   no made-up names or numbers in it.
-8. **Reads as a person wrote it:** plain sentences, no headings, no bullet walls (at most 3 bullets in a recruiter note), no emoji, no
+5. **Length:** a pitch or recruiter note about 120 to 180 words; a peer or referral ask under about 70 words; follow-ups are the fixed
+   text. Written short, never cut.
+6. **One ask:** exactly one question asking for something. A pitch may say "My resume is attached." plus the one ask; follow-ups use the
+   fixed text. Default ask: "If this aligns with you, can we have a quick chat?". Never invent a new ask (a "15-minute call this week").
+6b. **Proof:** 2 to 4 bullets, each one confirmed fact matched to one need the job states.
+7. **The opening is real:** when a pitch has an opening, it is a real item with a date and a link the user can open (in the Messages
+   row), relevant to the job or the user's work; no made-up names or numbers in it. Otherwise there is no opening line.
+8. **Reads as a person wrote it:** plain sentences, no headings, no bullet walls (at most 4 bullets in a pitch or recruiter note), no emoji, no
    "In today's fast-paced world".
 9. **Right person, right type:** a peer gets only the peer ask; a recruiter is not pitched as if they were the hiring manager; an MNC
    person is never asked "who is the hiring manager".
 10. **Names:** the person's first name is spelled as in their own profile or post.
+11. **No JOBSOR ids:** none of J001, P002, M003 (the tracker's ids) anywhere in a message or subject.
+12. **Signature:** it has the user's name and LinkedIn link (and phone if the profile has one).
