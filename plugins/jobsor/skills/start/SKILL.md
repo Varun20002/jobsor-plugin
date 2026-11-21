@@ -16,7 +16,7 @@ sends it from the user's Gmail or leaves a draft, tracks everything, and follows
 2. **Check the three connectors**, one harmless read each. Do not send, draft, or change anything.
    - **Gmail:** search the user's mail for one message from the last day (any message). Report only "works" or the error. Do not show
      the message.
-   - **Exa:** one web search for `hiring product manager Bengaluru`. Report "works" or the error.
+   - **Exa:** one web search for `jobs hiring in India this week`. Report "works" or the error.
    - **Firecrawl:** one search for `careers page Razorpay`. Report "works" or the error.
    Gmail is **Claude's own Gmail connector**, not one inside the plugin (Google's sign-in only works with the connector Claude itself
    registered with Google). If Gmail is missing, tell the user: on claude.ai open **Settings, then Connectors**, find **Gmail**, click

@@ -66,3 +66,8 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 ## 0.2.23
 - No step to run. A hidden debug log for whoever runs or builds JOBSOR: with the profile line "Debug log: on", every round writes each
   step to "Debug steps" and each alert email to "Debug emails" in the tracker. Setup and update never add it.
+
+## 0.2.24
+- Step **related-titles**: matching now works for any field and is decided by the job description, not the title. If the profile's
+  "What I want" has no "Related titles:" line, add one under Roles: 4 to 8 other titles used for the same work as the user's roles, from
+  their resume. Do not ask; say in one line "Added related titles: ...; change them any time."

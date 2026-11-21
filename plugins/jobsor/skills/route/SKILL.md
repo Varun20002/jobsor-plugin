@@ -33,9 +33,10 @@ Ported from the JOBSOR website: MASTER decisions 9 and 38, Journeys 5 and 6, and
 
 ## 3. Match the function (owner's rules)
 - The person who posted the job always comes first.
-- Engineering jobs go to engineering leaders (VP or head of engineering, engineering manager); product jobs to product leaders (head of
-  product, a product manager); pick head of engineering or head of product by whether the job reads more technical or more product.
-- At an MNC, an analyst job never goes to a director: use the recruiter or a product manager.
+- Each job goes to leaders of its own function: engineering to engineering leaders (head of engineering, engineering manager), product
+  to product leaders, design to design leaders, data and analytics to their heads, sales, marketing, finance or operations to theirs.
+  When a job spans two functions, pick by what the description says the person does most.
+- At an MNC, an analyst or junior job never goes to a director: use the recruiter or a manager in the same team.
 - Contact a named team only if the job or its poster names it.
 - University recruiters are not for this (unless the user is a student looking for campus roles).
 - If nobody in the same function can be found, list people from other teams at the company, same city first, rather than nobody. This

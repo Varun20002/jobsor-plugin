@@ -12,10 +12,10 @@ Every JOBSOR skill reads this first. Change it by asking JOBSOR ("change my citi
 
 ## Confirmed facts (the ONLY claims allowed in any message)
 Numbered, one per line, with where and when. Example shape:
-F1. Product intern, Acme (Jan to Jun 2026): built the onboarding checklist; activation went from 31% to 44%.
-F2. Project, Voice agent for clinics (2026): handles 1,000 calls a day; demo: <link>.
-F3. B.Tech EEE, RVCE Bengaluru (2025).
-F4. Skills: SQL, Python, Figma.
+F1. <Role>, <Company> (<from> to <to>): <what they did>; <the result with its number>.
+F2. Project, <name> (<year>): <what it does>; demo: <link>.
+F3. <Degree>, <College>, <City> (<year>).
+F4. Skills: <as written on the resume>.
 
 ## Links
 - Portfolio:
@@ -26,20 +26,21 @@ F4. Skills: SQL, Python, Figma.
 ## Resume source (my resume, word for word; tailored resumes use only these lines)
 Same sections and order as the resume. Example shape:
 ### Summary
-- Entry-level product analyst who builds with SQL and Python; shipped an onboarding flow that lifted activation from 31% to 44%.
+- <the resume's own summary, word for word>
 ### Education
-- B.Tech, Electrical and Electronics | RVCE, Bengaluru | 2021 - 2025 | CGPA 8.4
+- <Degree> | <College>, <City> | <years> | <grade if shown>
 ### Experience
-- Product Intern | Acme Fintech, Bengaluru | Jan 2026 - Jun 2026
-  - Built the onboarding checklist with SQL funnels; activation went from 31% to 44% in 6 weeks
+- <Title> | <Company>, <City> | <from> - <to>
+  - <bullet, word for word>
 ### Projects
-- Voice agent for clinics | Demo: <link> | 2026
-  - Action: built a voice agent in Python handling 1,000 calls a day
+- <Project> | Demo: <link> | <year>
+  - <bullet, word for word>
 ### Skills
-- SQL, Python, Figma, Excel
+- <skills, word for word>
 
 ## What I want
 - Roles: (up to 5)
+- Related titles: (other titles for the same work; jobs with these titles are read too. The description decides the fit, not the title)
 - Cities: (Indian cities; "Remote" if remote is fine)
 - Pay floor: <N LPA> | none
 - Company kinds: startup, product MNC, GCC (IT services hidden unless listed)

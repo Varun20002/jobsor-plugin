@@ -28,7 +28,7 @@ The plugin can change after the user set it up. This skill runs only what is new
    to the tracker: today's date, "Updated to X: <steps done>; skipped: <steps skipped or none>".
 
 6. **Report** in three lines at most: version now, steps done, anything the user still has to do (for example "turn on Naukri alerts
-   for Product Analyst").
+   for <role>").
 
 ## Rules (every JOBSOR skill keeps these)
 

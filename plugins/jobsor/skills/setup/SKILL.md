@@ -23,7 +23,8 @@ Setup is quick and leads straight into autopilot. Ask nothing that can be read f
    - Take every link out of it yourself, including links hidden behind words (PDF: `pypdf` `/Annots` `/URI` or `pdfplumber`
      `page.hyperlinks`; DOCX: its relationships file). Never ask for links; never guess one.
    - Save the resume line for line (summary included) as the profile's **Resume source**; tailored resumes use only it.
-   - Fill the rest from the resume with defaults: roles = the 2 or 3 titles it fits, level and years from the dates, cities = the city on
+   - Fill the rest from the resume with defaults: roles = the 2 or 3 titles it fits, related titles = 4 to 8 other titles
+     used for the same work in the user's field (any field: engineering, design, data, sales, finance, operations...), level and years from the dates, cities = the city on
      the resume (plus "Remote"), company kinds = startup, product MNC, GCC, never contact = current employer.
    - Find the connected Gmail address and check which alert senders reached it in the last 30 days (Naukri, LinkedIn, Wellfound,
      Instahyre, Cutshort, Hirist, Foundit, Internshala, Jack & Jill). Never show mail text.
@@ -31,7 +32,7 @@ Setup is quick and leads straight into autopilot. Ask nothing that can be read f
    ```
    Facts I'll use (only these, ever):
    1. ... 2. ... (one short line each)
-   Roles: A, B · Level: Entry · Cities: Bengaluru, Remote · Skip: <current employer>
+   Roles: A, B (also: related titles) · Level: Entry · Cities: Bengaluru, Remote · Skip: <current employer>
    Sending: send for me, up to 20 a day, 9 AM to midnight (or say "drafts")
    Reply "ok", or fix anything (for example "remove 4, add Pune").
    ```
@@ -75,7 +76,7 @@ Run the first round now (round skill), without asking. Then reply with only the 
 ```
 Done. Profile, tracker and hourly round are set; JOBSOR now runs by itself.
 First round: 6 jobs, 4 emails sent, 2 drafts (guessed addresses).
-To do once: turn on Naukri and LinkedIn alerts for Product Analyst to you@gmail.com.
+To do once: turn on Naukri and LinkedIn alerts for <your roles> to you@gmail.com.
 Files: <link>
 ```
 Name only alert sites that are missing. No other explanations.

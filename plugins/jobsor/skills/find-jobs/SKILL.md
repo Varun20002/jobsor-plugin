@@ -23,7 +23,7 @@ below, in this order, filter and score them with `references/job-rules.md`, and 
      message; if no job is named, ask which job it is for. Never guess.
 2. **Job-alert emails in Gmail** (only the senders the profile lists). Follow `references/alert-mail-rules.md` exactly. Read each alert
    mail once: skip any whose Gmail id is in the Seen tab. Keep only links, title, company, city and date; never copy the mail's text anywhere.
-   **Every job in a mail is handled, not only the first or the best one.** A digest ("Visa Product Analyst and 5 other jobs", "Jobs
+   **Every job in a mail is handled, not only the first or the best one.** A digest ("Acme Data Analyst and 5 other jobs", "Jobs
    similar to ...", a Naukri list of 8) is opened in full and each job link in it is listed, then filtered and scored one by one. Each
    job ends as added, merged into an existing row, or hidden with its reason; none is silently left out. Add the mail's id to Seen only
    when every job in it has been handled; if the round's limits stop part way, leave the mail unseen so the next round finishes it.
@@ -41,7 +41,7 @@ below, in this order, filter and score them with `references/job-rules.md`, and 
      resume", "referrals open"), names the company, is for one of the user's roles, and is no older than 48 hours. LinkedIn's search is
      fresh but noisy; **drop**: job digests and lists of many roles from job-sharing pages ("20 new roles this week", "daily job drop",
      "jobs bulletin"); people looking for a job ("open to work", "looking for my next role", "seeking opportunities"); posts that name no
-     company; roles outside the user's role families.
+     company; posts plainly in another field (the gate in `references/job-rules.md`).
    - The poster is the first person to contact. Their headline, when it names the company, is their proof of working there; a recruitment
      agency or a job-sharing account is a recruiter, not the hiring manager. Read the links in the post as in step 1.
 4. **Companies the user named** (target companies in the profile). Look the company up in `references/boards.json` (company name to
@@ -80,7 +80,7 @@ below, in this order, filter and score them with `references/job-rules.md`, and 
    job or paste its text." When the user sends one, read it (as in source 1), fill the job's description, and carry on with the job.
 2. **Date it.** Keep the date and how it is known (see `references/alert-mail-rules.md`). Jobs older than 3 days, or with no date, go in
    with Status "Listed earlier" and are never drafted for, unless the user pasted them.
-3. **Filter it** with `references/job-rules.md`: role family, level and years, city or India remote, never-contact companies, IT
+3. **Filter it** with `references/job-rules.md`: the wide field gate (title or description), level and years, city or India remote, never-contact companies, IT
    services (hidden unless the user asked for them), scams. A job that fails a rule is not added; count it under "hidden" with the reason.
 4. **Score it**: Match N / 100 as in `references/job-rules.md`, only from a description that was read. Write the must-haves met and missing.
 5. **Dedupe** against the tracker: the same company and role (or the same job id, or the same link) is one job. A company-board copy
@@ -95,10 +95,10 @@ When the user ran this by hand (not inside a round), do not stop at the list: ca
 with Match 50 or more, and for any pasted job (route, find-people, find-email, write, resume, send), then report once.
 
 A table of the jobs, best first: Match, Job (role at company, as a link), City, What happened (emailed <name>, draft, no person found). **Every job's role is a clickable
-link to the job page**, written as a Markdown link, for example `[Product Analyst at Razorpay](https://...)`, so the user can open the job
+link to the job page**, written as a Markdown link, for example `[Backend Engineer at Acme](https://...)`, so the user can open the job
 before going ahead. Use the job's own link from the tracker (the company or job-site page; for an alert-mail job, the job link from the
 mail, never the mail itself). If a job has no link, write "(no link)" after it. Never show a link that was not read or found for that job. Then one line of counts (more found, hidden, emails sent or
-drafted), one "Couldn't read" line per job no reader could open (as in "Describe it"), and, only if needed, one line the user must act on (for example "add Naukri alerts for Product Analyst in Pune").
+drafted), one "Couldn't read" line per job no reader could open (as in "Describe it"), and, only if needed, one line the user must act on (for example "add Naukri alerts for <role> in <city>").
 
 ## Rules (every JOBSOR skill keeps these)
 - **Debug log:** if the profile says "Debug log: on", log every step of this skill as `skills/round/references/debug-log.md` says.

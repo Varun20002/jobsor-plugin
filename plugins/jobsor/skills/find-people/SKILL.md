@@ -49,10 +49,10 @@ Proof column.
 5. **Then pitch.** Only once the right person is found does the write skill write to them.
 
 ## Who counts as the hiring manager
-**The person whose own post hires for this role** ("We're hiring a Product Analyst... DM me") counts as Hiring manager, even when their
+**The person whose own post hires for this role** ("We're hiring a backend engineer... DM me") counts as Hiring manager, even when their
 title is not known, unless their title or post shows they are a recruiter, HR or an agency (then Recruiter). Otherwise:
 same function as the job **and** more senior than the job (lead, manager, head, director, VP, founder over an entry or associate role). A
-peer with the same title ("Product Manager" for a "Product Manager" job) is a colleague to ask or a referrer, not the hiring manager.
+peer with the same title ("Data Analyst" for a "Data Analyst" job) is a colleague to ask or a referrer, not the hiring manager.
 At an MNC, never a director for an analyst job.
 
 ## How many

@@ -37,7 +37,7 @@ Your post on 12 Nov about Brightpay's sign-up drop-off at the PAN step ("most us
 
 I think the fix is usually fewer fields, not more nudges.
 
-Writing about the Product Analyst role at Brightpay: <link>
+Writing about the open role at Brightpay: <link>
 
 At Beta (Jan to Jun 2026) I found that half of new users stopped at the address step; I cut it to one field and activation went from 31%
 to 44%.
