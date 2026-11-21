@@ -37,9 +37,11 @@ Ported from the JOBSOR website: MASTER decisions 9 and 38, Journeys 5 and 6, and
 
 **Startup** (reach the person who decides):
 1. The job poster, if a person posted it.
-2. The hiring manager for the role. If not found, a founder (at 50 people or fewer, a founder first).
+2. The hiring manager for the role, only when confirmed (own post, named in the post or job page, LinkedIn's hiring team box, or
+   named by someone at the company). A title alone (founder, head, lead) is never enough.
 3. One recruiter or HR person, if the company has one.
-4. If no hiring manager can be found: 1 or 2 peers in the same team, only to ask who the hiring manager is (the find-people skill).
+4. If no hiring manager is confirmed: 2 peers in the same team, only to ask who the hiring manager is (the find-people skill); a
+   founder gets that same question only when no peer can be found.
 
 **MNC** (referral and recruiter first; never hunt the hiring manager):
 1. The recruiter for this role (the job poster, or a recruiter whose title or posts cover this kind of role).

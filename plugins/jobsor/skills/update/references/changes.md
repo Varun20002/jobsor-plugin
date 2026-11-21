@@ -91,3 +91,8 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
   then a peer ask; a recruiter poster is contacted together with the hiring manager or founder; the company's website comes from its
   LinkedIn page (never a guessed domain); when no address is found or checked, the best guess is built and labelled; the address sent
   is exactly the one in the tracker, and any difference is logged.
+
+## 0.2.29
+- No step to run. A hiring manager is contacted only when confirmed (their own post, named in the post or job page, LinkedIn's hiring
+  team box, or named by someone at the company); a title alone (founder, founding team, head) is never enough. Without a confirmed
+  hiring manager, 2 peers are asked who it is (a founder only when no peer can be found).

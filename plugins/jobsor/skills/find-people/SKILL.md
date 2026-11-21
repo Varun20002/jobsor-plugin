@@ -6,8 +6,8 @@ description: Find the right people to contact for a job in the JOBSOR tracker (h
 # Find people, with proof
 
 Read the JOBSOR profile and the job's row first. The route skill has set Size (Startup, MNC, Agency) and who to look for; if it has not,
-run route first. Then search in the order below and **stop as soon as the right person is found with proof**: a hiring manager or founder
-at a startup; the recruiter and up to 2 referrers at an MNC; the posting recruiter for an agency.
+run route first. Then search in the order below and **stop as soon as the right person is found with proof**: a confirmed hiring manager
+at a startup (or, without one, the peers to ask); the recruiter and up to 2 referrers at an MNC; the posting recruiter for an agency.
 
 **Before anyone is written to the People tab, apply `references/proof-rules.md`.** A person goes in only with a proof they work at this
 company now and no contradiction. Unsure means left out. Never relax the proof to fill the list. Write the proof in plain words in the
@@ -48,29 +48,37 @@ Proof column.
      (hiring manager's function, founder, recruiter or talent acquisition, India). At most 1 search a job, to save its small free credits.
      A Vibe record alone is not proof: it needs a public line that agrees (post, headline, team page). If it says no credits, skip it
      for the rest of the day.
-4. **Order for a Startup when no poster is at the company.** Strictly: (a) the hiring manager (same function, more senior: lead, head,
-   manager, director, VP; "founding team" in that function counts as the hiring manager); then (b) a founder (at 50 people or fewer, a
-   founder first); then (c) only if neither a hiring manager nor a founder can be found with proof, ask a peer. A person with an email
-   always beats a better-titled person without one, but only after the email step has been tried for both. Never use the peer step while
-   a founder with proof is available.
-   **Ask a peer (startups only, step c).** Find 1 or 2 people in the same team (same function, with proof they work there
+4. **Startup with no confirmed hiring manager: ask peers.** Never guess the hiring manager from a title. If steps 1 to 3 did not find a
+   person confirmed as hiring for this role (see "Who counts as the hiring manager"), do not pitch anyone: ask 2 peers who the hiring
+   manager is. A founder, a "founding team" member or a head of the function is **not** assumed to be the hiring manager; they are
+   pitched only when confirmed. If no peer in the same team can be found (a very small company), ask a founder the same question
+   instead of pitching them.
+   **Ask a peer (startups only).** Find 2 people in the same team (1 if only one exists) (same function, with proof they work there
    now) and add them with Contact as "Peer (to ask)". The write skill gives them the peer ask: "Do you know who the hiring manager for this
    role is?" It is never a pitch and never asks for a referral. When a peer replies with a name, the round adds that person with the proof
    "Named by <peer> in a reply" and drafts the pitch to them. At an MNC the peer step is not used.
 5. **Then pitch.** Only once the right person is found does the write skill write to them.
 
 ## Who counts as the hiring manager
-**The person whose own post hires for this role** ("We're hiring a backend engineer... DM me") counts as Hiring manager, even when their
-title is not known, unless their title or post shows they are a recruiter, HR or an agency (then Recruiter). Otherwise:
-same function as the job **and** more senior than the job (lead, manager, head, director, VP, founder over an entry or associate role). A
-peer with the same title ("Data Analyst" for a "Data Analyst" job) is a colleague to ask or a referrer, not the hiring manager.
-At an MNC, never a director for an analyst job.
+Only a person **confirmed** as hiring for this role, by one of these:
+1. They posted this job themselves ("We're hiring a backend engineer... DM me"), unless their title or post shows they are a recruiter,
+   HR or an agency (then Recruiter).
+2. The post or the job page names them as the hiring manager or the person the role reports to ("you will report to Priya").
+3. LinkedIn's "Meet the hiring team" box for this job (from Exa's copy of the job page, or a screenshot the user pasted).
+4. Someone at the company names them in a reply (a peer's answer): proof "Named by <who> in a reply".
+A title alone never makes someone the hiring manager: not "founder", "founding team", "head of", "lead" or "manager". Without a
+confirmation, step 4 (ask peers) applies. A peer with the same title as the job is a colleague to ask or a referrer, not the hiring
+manager. At an MNC, never a director for an analyst job.
 
 ## How many
-Startup: the poster if they are at the company (step 1), plus the hiring manager or a founder, plus at most one recruiter; peers only
-when step 4(c) is needed (at most 2). So when the poster is a recruiter, the hiring manager or founder is contacted too, and the
-recruiter gets the recruiter note. MNC: one recruiter and
-at most 2 referrers. Gather about 10% more people than you need across the round, so a bounced email can be replaced.
+- **Startup, confirmed hiring manager:** the hiring manager (pitch), plus the poster if they are a recruiter at the company (recruiter
+  note), plus at most one other recruiter if none posted: 1 to 2 people.
+- **Startup, no confirmed hiring manager:** 2 peers (the peer ask), plus the poster if they are a recruiter at the company: 2 to 3
+  people. When a peer names the hiring manager, that person is added and pitched (one more).
+- **MNC:** one recruiter (the poster if a recruiter posted it) and up to 2 referrers in the same function in India: 1 to 3 people.
+- **Agency:** the posting recruiter only: 1 person.
+- **Size unknown:** as a Startup, plus one recruiter: 2 to 3 people.
+Gather about 10% more people than you need across the round, so a bounced email can be replaced.
 Prefer, at equal fit: the person who posted the job; someone from the user's college or a past company (say so in Notes, and the message
 may say so, because it is true); someone in India for an India job.
 
