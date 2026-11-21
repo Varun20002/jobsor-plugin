@@ -96,7 +96,9 @@ For an Intern or Entry user, add "entry level" (Intern: "internship") to the wor
 3. **Filter it** with `references/job-rules.md`: the wide field gate (title or description), level and years, city or India remote, never-contact companies, IT
    services (hidden unless the user asked for them), scams. A job that fails a rule is not added; count it under "hidden" with the reason.
 4. **Score it**: Match N / 100 as in `references/job-rules.md`, only from a description that was read. Write the must-haves met and missing.
-5. **Dedupe** against the tracker: the same company and role (or the same job id, or the same link) is one job. A company-board copy
+5. **Dedupe** against the tracker: the same job id (a LinkedIn `jobs/view/<id>`, a hiring-system id, a Naukri id) or the same link is one
+   job. A different job id is a different job, even with the same company and title (big companies post the same title for several
+   teams). Company and title together mean the same job only when neither copy has an id or link (for example two posts about one role). A company-board copy
    wins over an alert copy (it has the real description and date). An Apify copy of a job that already came from a LinkedIn alert or a
    hiring post is **not a new job**: merge it into the existing row and use it only to fill what is missing there (the description, the
    real posted date, the job poster's name). Count it in the report as "enriched", not as new.

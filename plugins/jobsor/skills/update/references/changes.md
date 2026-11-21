@@ -114,3 +114,8 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 
 ## 0.2.33
 - No step to run. Ready messages are sent in the same run with a random 1 to 5 second wait between two sends.
+
+## 0.2.34
+- No step to run. People: Exa's people search (category:people) is used first for peers, referrers, recruiters and founders, keeping only
+  profiles that show the company as "(Current)", with searches by the user's college and past companies first. Jobs: two postings are
+  merged only when they share a job id or a link; the same company and title with different ids are separate jobs.

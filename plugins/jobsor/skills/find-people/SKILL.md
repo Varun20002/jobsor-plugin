@@ -38,8 +38,20 @@ Proof column.
    work at the company.
 3. **The usual sources.**
    - A "Meet the hiring team" screenshot the user pasted: trusted as is for this job (LinkedIn's own box), even an agency recruiter.
-   - Headline searches with Exa: `"<role or function> at <company>"`, `"head of <function>" "<company>"`, `"founder" "<company>"`
-     (startups), `"talent acquisition" "<company>" India` (MNC recruiter). Read results as people only when the line is theirs.
+   - **Exa people search first** (free): `web_search_exa` with `category:people` and plain words, about 10 to 15 results a search, one
+     search at a time (Exa's free plan refuses several at once). Each result is a profile with the current job marked "(Current)", the
+     city, the school and past jobs. Searches, as the job needs them:
+     - peers and referrers: `category:people <job title or function> at <company>, <city> India`;
+     - recruiters: `category:people Talent Acquisition recruiter at <company>, <city> India, hiring <function> roles`;
+     - the user's college and past companies first: `category:people <company> <city> <function>, studied at <user's college>` and
+       `... previously at <user's past company>`;
+     - startups: `category:people founder of <company>` and `category:people head of <function> at <company>`.
+     Keep a person only when their profile shows this company as "(Current)" (proof: "Current job on profile: <title>, <company>") and
+     passes `references/proof-rules.md` (in India for an India job; not a namesake company). An address they show on their own profile
+     is a `published` email. Run more searches (other titles in the same function, a second city) until the numbers in "How many" are
+     reached or nothing new comes back.
+   - Headline searches with Exa (without `category:people`) only as a backup: `"<role or function> at <company>"`,
+     `"talent acquisition" "<company>" India`. Read results as people only when the line is theirs.
    - The company's own team or about page (`/team`, `/about`, `/company`), read with Firecrawl.
    - Hunter's people at the company's domain, if Hunter is connected (a Hunter record alone is not proof; it needs a public line that
      agrees).
