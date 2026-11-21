@@ -29,16 +29,24 @@ below, in this order, filter and score them with `references/job-rules.md`, and 
    when every job in it has been handled; if the round's limits stop part way, leave the mail unseen so the next round finishes it.
    Once a week (the first round on Monday), check each alert site in the profile: if one has sent nothing in 7 days, tell the user once
    ("No Naukri alerts reached <connected address> this week; check the alert is on and sent to this address").
+
+**Search words for sources 3, 5 and 6:** the user's roles (up to 3) plus their related titles from the profile ("What I want"). Use
+every role each time; use 2 related titles per run, taking the next 2 in the list each run so all of them are covered within a day.
+For an Intern or Entry user, add "entry level" (Intern: "internship") to the words for sources 5 and 6, so senior jobs are not returned.
+
 3. **Hiring posts from the last 24 to 48 hours.**
-   - **LinkedIn's own post search first** (through Firecrawl; no LinkedIn login, LinkedIn is never opened by us). For each target role (up
-     to 3), one call: `firecrawl_scrape` with an `alexandria` body `{"provider": "harvestapi", "capability": "linkedin/search-posts",
-     "options": {"search": "hiring <role> <city>", "postedLimit": "24h", "sortBy": "date"}}` (the first city in the profile; add the second
-     city only if the first gave nothing useful). About 2 Firecrawl credits a call. Each post comes with its text, its time, and the author's
-     name, headline and profile link.
-   - **Then Exa**, for X posts and as a backup when the LinkedIn search fails or finds nothing: one search like
-     `"hiring" "<role>" "<city>" site:x.com` (and `site:linkedin.com/posts` only as the backup).
+   - **LinkedIn's own post search first** (through Firecrawl; no LinkedIn login, LinkedIn is never opened by us). For each search word
+     (above), one call: `firecrawl_scrape` with an `alexandria` body `{"provider": "harvestapi", "capability": "linkedin/search-posts",
+     "options": {"search": "hiring <words> <city>", "postedLimit": "24h", "sortBy": "date"}}` (the first city in the profile; add the
+     second city only if the first gave nothing useful). About 1 to 2 Firecrawl credits a call. Each post comes with its text, its time,
+     and the author's name, headline and profile link.
+   - **X posts:** one `firecrawl_search` per run with `includeDomains: ["x.com"]`, `tbs: "qdr:w"`, `sources: ["web"]`, `limit: 10` and the
+     query `hiring ("<role 1>" OR "<role 2>" OR "<role 3>") <city>` (about 2 credits). Keep only posts from the last 3 days. Never use Exa
+     for X: it cannot limit results to x.com or to recent dates.
+   - **Exa** only as a backup when the LinkedIn post search fails: one search for recent LinkedIn hiring posts for the role and city;
+     keep only posts from the last 3 days.
    - **Keep a post only if** it is really offering a job (it says "we're hiring", "we are looking for", "apply", "DM me", "share your
-     resume", "referrals open"), names the company, is for one of the user's roles, and is no older than 48 hours. LinkedIn's search is
+     resume", "referrals open"), names the company, fits the user's field (the gate in `references/job-rules.md`), and is no older than 48 hours. LinkedIn's search is
      fresh but noisy; **drop**: job digests and lists of many roles from job-sharing pages ("20 new roles this week", "daily job drop",
      "jobs bulletin"); people looking for a job ("open to work", "looking for my next role", "seeking opportunities"); posts that name no
      company; posts plainly in another field (the gate in `references/job-rules.md`).
@@ -48,17 +56,21 @@ below, in this order, filter and score them with `references/job-rules.md`, and 
    careers board address, India openings count). If it is there, read that board with Firecrawl; if not, search "<company> careers" once
    and read the careers page. Never read the whole boards list in a round: it is a lookup for named companies only.
 5. **LinkedIn jobs through Apify**, only if the user connected Apify (optional; it runs on the user's own Apify account and credits).
-   Once a day, in the first round after 9 AM: for each target role (up to 3), `call-actor` with actor `curious_coder/linkedin-jobs-scraper`,
-   input `{"keywords": "<role>", "location": "<first city>, India", "datePosted": "past24Hours", "limitPerSource": 25, "scrapeCompany": true}`
-   and, in `callOptions`, `maxTotalChargeUsd: 0.07`; then read the run's items (`get-dataset-items`). About $0.002 a job, so at most about
-   $0.15 a day. No LinkedIn login. Each job gives the title, company, place, posted time, description and, when LinkedIn shows one, the
+   Once a day, in the first round after 9 AM: for each search word (above, at most 4 a day), `call-actor` with actor
+   `curious_coder/linkedin-jobs-scraper`, input `{"keywords": "<words>", "location": "<first city>, India", "datePosted": "past24Hours",
+   "limitPerSource": 25, "scrapeCompany": true}` and, in `callOptions`, `maxTotalChargeUsd: 0.07`; then read the run's items
+   (`get-dataset-items`). The actor has no experience filter, so the level words go in the keywords, and jobs above the user's level are
+   still hidden by `references/job-rules.md`. About $0.002 a job, so at most about $0.20 a day. No LinkedIn login. Each job gives the title, company, place, posted time, description and, when LinkedIn shows one, the
    person who posted it: that person is the first one for find-people (proof: "Posted this job on LinkedIn"). Reduce the link to
    `linkedin.com/jobs/view/<id>` so it matches the same job from an alert email. Run this source **after** the alert emails (source 2),
    so jobs the alerts already brought are recognised by their LinkedIn job id.
-6. **Indeed or Jobs and Careers**, only if the user connected them: one search per target role and city (for Indeed, location as
-   "<city>, India"). Indeed's connector is free (the user's own Indeed sign-in), gives salary when listed and the apply link, and its job
-   details call gives the full description. **India check:** if two Indeed searches in a row return no job located in India, stop using
-   Indeed for this user, note it in the Log tab, and tell the user once ("Indeed's connector returned no India jobs, so JOBSOR skips it").
+6. **Indeed or Jobs and Careers**, only if the user connected them (the plugin's Indeed connector or Claude's own Indeed connector; either
+   works). One search per search word (above, at most 4 a round, in the same rounds as source 3): Indeed `search_jobs` with
+   `country_code: "IN"` and `location: "<city>, <state>"` (for example "Bengaluru, Karnataka"; "remote" for remote). Indeed ranks by
+   relevance, not date, and returns old jobs too: keep only jobs whose "Posted on" date is within the last 3 days. Its job details call
+   gives the full description; its link is the apply link. **India check:** if two Indeed searches in a row return no job located in
+   India, stop using Indeed for this user, note it in the Log tab, and tell the user once ("Indeed's connector returned no India jobs, so
+   JOBSOR skips it").
 
 ## Then, for every job collected
 

@@ -42,7 +42,7 @@ then hand to send.
 
 ## 3. New jobs (every round)
 Run find-jobs in every round (9 AM to 12 midnight): new alert emails and unfinished alert emails each round; jobs with Status
-"Can't read" are tried again once a day (first round after 9 AM), not every hour. To save Firecrawl and Apify credits, the LinkedIn post search (source 3) and Apify (source 5) run only in the
+"Can't read" are tried again once a day (first round after 9 AM), not every hour. To save Firecrawl and Apify credits, the LinkedIn and X post searches (source 3), Apify (source 5) and Indeed (source 6) run only in the
 first round after 9 AM, after 3 PM and after 9 PM India time (check the Log for whether that window already ran). For each new job with Status Found and Match 50 or more (best first, at most 5 a round): route, find-people, find-email,
 write, resume (the tailored one-page resume for this job), then send (send by default; draft only if the profile says drafts), all without asking. Jobs under
 50 stay Found; never list them unless asked. Jobs with Status "Can't read" are not contacted; the report asks the user for a screenshot

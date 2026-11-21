@@ -75,3 +75,8 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 ## 0.2.25
 - No step to run. Only jobs posted in the last 3 days are kept; older or undated jobs are hidden ("older than 3 days") instead of
   being added as "Listed earlier" (a job the user pastes still goes ahead).
+
+## 0.2.26
+- No step to run. Job sources: searches use the roles plus the related titles; X posts are searched with Firecrawl (x.com only, recent)
+  instead of Exa; Apify and Indeed add "entry level" for Intern or Entry users; Indeed (the plugin's or Claude's own connector) keeps only
+  jobs posted in the last 3 days.
