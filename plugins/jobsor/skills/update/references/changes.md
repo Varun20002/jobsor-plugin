@@ -108,3 +108,6 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 ## 0.2.31
 - No step to run. New profiles start with a daily cap of 50 emails (the most allowed), since more people are contacted per job. An
   existing profile keeps its cap; the user can say "set my daily cap to 50".
+
+## 0.2.32
+- No step to run. Messages that are ready are sent in the same run, back to back, with no 50-second wait between them.
