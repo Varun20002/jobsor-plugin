@@ -28,7 +28,9 @@ Every message passes all of these. Ported from the JOBSOR website (`lib/compose.
    fixed text. Default ask: "If this aligns with you, can we have a quick chat?". Never invent a new ask (a "15-minute call this week").
 6b. **Proof:** 2 to 4 bullets, each one confirmed fact matched to one need the job states.
 7. **The opening is real:** when a pitch has an opening, it is a real item with a date and a link the user can open (in the Messages
-   row), relevant to the job or the user's work; no made-up names or numbers in it. Otherwise there is no opening line.
+   row), and it passes the "so what" test: the next sentence connects it to the job's work or a confirmed fact of the user's. An opening
+   that only restates their post, or a milestone or celebration post (funding, award, accelerator, demo day), fails: remove it. No made-up
+   names or numbers in it. Otherwise there is no opening line.
 8. **Reads as a person wrote it:** plain sentences, no headings, no bullet walls (at most 4 bullets in a pitch or recruiter note), no emoji, no
    "In today's fast-paced world".
 9. **Right person, right type:** a peer gets only the peer ask; a recruiter is not pitched as if they were the hiring manager; an MNC

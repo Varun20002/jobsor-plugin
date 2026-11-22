@@ -132,3 +132,8 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 - No step to run. Debug log (only when the profile says "Debug log: on"): a third tab "Debug jobs" (one row per job seen, with source,
   reader, gate, the three Match parts and the decision); rows are written part by part, one per item, never a summary; every round must
   write rows and ends its Log row with "debug: N rows".
+
+## 0.2.37
+- No step to run. Pitch openings must pass a "so what" test: a post or news line stays only if the next sentence connects it to the job's
+  work or to one of the user's confirmed facts; milestone or celebration posts are never the opening. Otherwise the pitch starts with its
+  purpose line.
