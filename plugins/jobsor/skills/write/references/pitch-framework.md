@@ -11,9 +11,8 @@ name, reads it, can tell the user did their homework, sees one real thing the us
 3. **Pick the opening: newest first.** Among the 3 newest good items, pick the one closest to the job. Note it in the Messages row with its
    date and link, but use it only if it passes the **"so what" test** below. If nothing passes, the message has no opening about them
    (purpose first line only) and Notes say "No opening: nothing passed the so-what test".
-   - Prefer items about their product, a problem their team works on, what they are building or hiring for. **Milestone and celebration
-     items** (funding, awards, accelerators, anniversaries, demo days, "we're proud") are never the opening; use them only as a source for
-     what the company builds, in the connecting line.
+   - Any kind of item can be the opening (a product post, a problem their team works on, hiring, a milestone or celebration such as
+     funding, an award or a demo day), as long as it passes the test.
 4. Warnings to tell the user before writing: comments or a post say the role is closed; a post says the person left or joined another
    company. Then stop for that person.
 
@@ -24,9 +23,9 @@ name, reads it, can tell the user did their homework, sees one real thing the us
    its date, **only if it passes the "so what" test**:
    - **The "so what" test:** the very next sentence must connect that item to the job's work or to one of the user's confirmed facts, in
      plain words ("Your post on 12 Nov about users quitting at the PAN step: that drop-off is what I worked on at Beta, below."). If that
-     connecting sentence cannot be written truthfully, leave the item out. Never restate their post back to them on its own: it tells them
-     nothing and reads as filler.
-   - Ask before keeping it: would the reader see why this email mentions it? If not, drop it.
+     connecting sentence cannot be written truthfully, leave the item out.
+   - It must make sense to the person reading it: they should see at once why this email mentions it, and the opening, the connecting
+     line, the proof and the ask should read as one thread. If any part does not connect, drop the opening.
 3. **Connecting line (optional, one sentence):** what they build or what the role does, in the post's or company's own words, then that it
    is close to the user's work, only when a confirmed fact shows it ("Acme builds billing APIs for clinics, and APIs for payments are what I
    built at Beta."). No guesses about their problems.

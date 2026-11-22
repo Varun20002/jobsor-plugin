@@ -137,3 +137,7 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 - No step to run. Pitch openings must pass a "so what" test: a post or news line stays only if the next sentence connects it to the job's
   work or to one of the user's confirmed facts; milestone or celebration posts are never the opening. Otherwise the pitch starts with its
   purpose line.
+
+## 0.2.38
+- No step to run. Any post or news (milestones and celebrations included) can be a pitch opening, as long as it passes the "so what"
+  test: the next sentence connects it to the job or the user's facts and the reader sees why it is there; otherwise it is dropped.
