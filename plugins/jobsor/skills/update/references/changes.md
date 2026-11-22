@@ -141,3 +141,6 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 ## 0.2.38
 - No step to run. Any post or news (milestones and celebrations included) can be a pitch opening, as long as it passes the "so what"
   test: the next sentence connects it to the job or the user's facts and the reader sees why it is there; otherwise it is dropped.
+
+## 0.2.39
+- No step to run. Pitch openings never mention a date ("your post", not "your post on 2 Nov"); the date stays only in the tracker.

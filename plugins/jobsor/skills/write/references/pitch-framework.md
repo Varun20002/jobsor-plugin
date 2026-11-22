@@ -19,10 +19,10 @@ name, reads it, can tell the user did their homework, sees one real thing the us
 ## The message, in order
 1. **Greeting:** "Hi {first_name},". To a team inbox: "Hi {company} team,".
 2. **Purpose, first line:** if this person posted the job: "I saw your post about the {role} role at {company}." Otherwise: "I'd like to
-   apply for the {role} role at {company}: {job link}". A post or news item of theirs from the last 90 days may follow, in one sentence with
-   its date, **only if it passes the "so what" test**:
+   apply for the {role} role at {company}: {job link}". A post or news item of theirs from the last 90 days may follow, in one sentence, **without its date** (the date goes only in the
+   Messages row), **only if it passes the "so what" test**:
    - **The "so what" test:** the very next sentence must connect that item to the job's work or to one of the user's confirmed facts, in
-     plain words ("Your post on 12 Nov about users quitting at the PAN step: that drop-off is what I worked on at Beta, below."). If that
+     plain words ("Your post about users quitting at the PAN step: that drop-off is what I worked on at Beta, below."). If that
      connecting sentence cannot be written truthfully, leave the item out.
    - It must make sense to the person reading it: they should see at once why this email mentions it, and the opening, the connecting
      line, the proof and the ask should read as one thread. If any part does not connect, drop the opening.

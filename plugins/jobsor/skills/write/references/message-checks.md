@@ -30,7 +30,8 @@ Every message passes all of these. Ported from the JOBSOR website (`lib/compose.
 7. **The opening is real:** when a pitch has an opening, it is a real item with a date and a link the user can open (in the Messages
    row), and it passes the "so what" test: the next sentence connects it to the job's work or a confirmed fact of the user's, and the
    reader would see why it is there; the whole message reads as one connected thread. If not, remove the opening. No made-up names or
-   numbers in it. Otherwise there is no opening line.
+   numbers in it, and **no date** in the opening ("your post on 2 Nov" becomes "your post"); the date is kept only in the
+   Messages row. Otherwise there is no opening line.
 8. **Reads as a person wrote it:** plain sentences, no headings, no bullet walls (at most 4 bullets in a pitch or recruiter note), no emoji, no
    "In today's fast-paced world".
 9. **Right person, right type:** a peer gets only the peer ask; a recruiter is not pitched as if they were the hiring manager; an MNC
