@@ -5,7 +5,7 @@ description: Find fresh jobs for a JOBSOR user in India and add the ones that fi
 
 # Find jobs
 
-Read the JOBSOR profile and tracker first (setup made them; if there is no profile, run setup first). Then collect jobs from the sources
+Read the JOBSOR profile and, from the tracker, the Jobs tab and the Seen tab's mail ids first (never the Debug tabs) (setup made them; if there is no profile, run setup first). Then collect jobs from the sources
 below, in this order, filter and score them with `references/job-rules.md`, and add the ones that fit to the tracker's Jobs tab.
 
 ## Sources, in order
@@ -115,17 +115,6 @@ before going ahead. Use the job's own link from the tracker (the company or job-
 mail, never the mail itself). If a job has no link, write "(no link)" after it. Never show a link that was not read or found for that job. Then one line of counts (more found, hidden, emails sent or
 drafted), one "Couldn't read" line per job no reader could open (as in "Describe it"), and, only if needed, one line the user must act on (for example "add Naukri alerts for <role> in <city>").
 
-## Rules (every JOBSOR skill keeps these)
-- **Debug log:** if the profile says "Debug log: on", log every step of this skill as `skills/round/references/debug-log.md` says.
-
-- Write only what the user confirmed about themselves. Never invent a fact, a number, a skill, a company or a warm connection.
-- Never log in to LinkedIn and never open linkedin.com pages; never message anyone on LinkedIn for the user.
-- Send by default (up to the daily cap, 9 AM to midnight India time). Leave a draft only if the user chose drafts, the address is a guess, or it is a reply to someone.
-- Never copy the text of the user's mail into any file; keep only links, titles, companies, names and dates.
-- Never try to get past a "not a robot" check on any website; skip that page.
-- Plain, short words.
-
-## Autopilot and short replies (every JOBSOR skill)
-- Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
-  Ask only when nothing can be done without an answer.
-- Replies show only the results, precise and short: a table is fine for results (jobs, people, messages sent); no plans, no filler, no explanations unless asked.
+## Rules
+- **Shared rules:** follow `skills/round/references/shared-rules.md` (read it once per run; a round has already read it).
+- Never open linkedin.com pages.

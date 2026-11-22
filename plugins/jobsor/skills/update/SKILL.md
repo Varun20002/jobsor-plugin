@@ -30,11 +30,5 @@ The plugin can change after the user set it up. This skill runs only what is new
 6. **Report** in three lines at most: version now, steps done, anything the user still has to do (for example "turn on Naukri alerts
    for <role>").
 
-## Rules (every JOBSOR skill keeps these)
-
-- Write only what the user confirmed about themselves. Never invent a fact, a number, a skill, a company or a warm connection.
-- Never log in to LinkedIn and never message anyone on LinkedIn for the user.
-- Send by default (up to the daily cap, 9 AM to midnight India time). Leave a draft only if the user chose drafts, the address is a guess, or it is a reply to someone.
-- Never copy the text of the user's mail into any file; keep only links, titles, companies, names and dates.
-- Plain, short words. Never stop to ask the user to pick a job or a person or to approve a message: carry on.
-- Replies show only the results, precise and short: a table is fine for results (jobs, people, messages sent); no plans, no filler, no explanations unless asked.
+## Rules
+- **Shared rules:** follow `skills/round/references/shared-rules.md` (read it once per run; a round has already read it).

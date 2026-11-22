@@ -73,3 +73,4 @@ Three tabs in the tracker. If a tab is missing, add it with its header row first
 - Never put mail text, message text or resume text in these tabs: only ids, links, titles, companies, names, tool names, numbers and
   one-line reasons.
 - A round in quiet hours writes one row: Step "Reply check", Result "Skipped", Why "quiet hours".
+- Never read these tabs back in a round; only append. To count this round's rows, count what you wrote.

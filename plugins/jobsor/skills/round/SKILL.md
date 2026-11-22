@@ -5,8 +5,10 @@ description: Run one JOBSOR round - check replies and bounces, stop jobs where t
 
 # The JOBSOR round
 
-Read the profile and the whole tracker first. If the profile's "Plugin version:" is older than this plugin's version (or missing), carry
-on with the round and add one line to the report: "JOBSOR was updated; type /jobsor:update when you have a minute." (once a day at most). Note the time in India (IST, UTC+5:30) and the last round's time (last row of Log).
+Read the profile and, from the tracker, only: the Jobs, People and Messages tabs, the Seen tab's mail ids, and the last 3 rows of the
+Log tab. **Never read the Debug tabs** (Debug steps, Debug emails, Debug jobs): only append rows to them. Never read older Log rows unless
+a step needs a past date it cannot find elsewhere. Read `references/shared-rules.md` once at the start; every skill this round runs follows it. If the profile's "Plugin version:" is older than this plugin's version (or missing), carry
+on with the round and add one line to the report: "JOBSOR was updated; type /jobsor:update when you have a minute." (once a day at most). Note the time in India (IST, UTC+5:30) and the last round's time (last row of Log, from the 3 rows read).
 
 **Debug log:** if the profile says "Debug log: on", every part of this round and every skill it runs writes its rows to the
 "Debug steps", "Debug emails" and "Debug jobs" tabs as `references/debug-log.md` says, part by part as it goes, one row per item. A
@@ -44,7 +46,7 @@ then hand to send.
 ## 3. New jobs (every round)
 Run find-jobs in every round (9 AM to 12 midnight): new alert emails and unfinished alert emails each round; jobs with Status
 "Can't read" are tried again once a day (first round after 9 AM), not every hour. To save Firecrawl and Apify credits, the LinkedIn and X post searches (source 3), Apify (source 5) and Indeed (source 6) run only in the
-first round after 9 AM, after 3 PM and after 9 PM India time (check the Log for whether that window already ran). For each new job with Status Found and Match 50 or more (best first, at most 5 a round): route, find-people, find-email,
+first round after 9 AM, after 3 PM and after 9 PM India time (check the last Log rows for whether that window already ran). For each new job with Status Found and Match 50 or more (best first, at most 5 a round): route, find-people, find-email,
 write, resume (the tailored one-page resume for this job), then send (send by default; draft only if the profile says drafts), all without asking. Jobs under
 50 stay Found; never list them unless asked. Jobs with Status "Can't read" are not contacted; the report asks the user for a screenshot
 of each (once per job).
@@ -72,9 +74,3 @@ setup skill says (a cloud schedule first, so it runs with the laptop closed).
 - Never send outside 9 AM to 12 midnight India time or above the cap.
 - Never copy mail text into the tracker; one line in your own words.
 - Never log in to LinkedIn.
-
-## Autopilot and short replies (every JOBSOR skill)
-- **Debug log:** if the profile says "Debug log: on", log every step of this skill as `skills/round/references/debug-log.md` says.
-- Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
-  Ask only when nothing can be done without an answer.
-- Replies show only the results, precise and short: a table is fine for results (jobs, people, messages sent); no plans, no filler, no explanations unless asked.

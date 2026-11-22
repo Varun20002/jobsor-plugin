@@ -61,8 +61,5 @@ One line of counts (sent, drafts, bounced, skipped), then at most 2 lines the us
 - Never answer a recruiter or anyone who replied; replies are drafts for the user (the round makes them).
 - Never send from any address other than the user's own Gmail.
 
-## Autopilot and short replies (every JOBSOR skill)
-- **Debug log:** if the profile says "Debug log: on", log every step of this skill as `skills/round/references/debug-log.md` says.
-- Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
-  Ask only when nothing can be done without an answer.
-- Replies show only the results, precise and short: a table is fine for results (jobs, people, messages sent); no plans, no filler, no explanations unless asked.
+## Rules
+- **Shared rules:** follow `skills/round/references/shared-rules.md` (read it once per run; a round has already read it).

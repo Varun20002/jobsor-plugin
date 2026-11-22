@@ -30,9 +30,12 @@ bolds those lines for this job. It never writes a new line, never rewords one, a
    - Skills: matched skills first, then the rest, as written.
    - Bold at most 2 short phrases per bullet: a must-have the line already names, or a number already in the line. Mark bold with
      `**...**` in the JSON.
-3. **Build** `resume.json` in the shape the script's header shows (name, contact from About me and Links with their URLs, sections,
-   entries, bullets) and run:
+3. **Build** `resume.json` in this shape and run:
    `python3 -I <this skill's folder>/scripts/resume_pdf.py resume.json "<out folder>/<Name>_Resume_<Company>.pdf"`
+   Shape: `{"name": "Asha Rao", "contact": [{"text": "+91 98xxxxxx"}, {"text": "asha@x.com", "url": "mailto:asha@x.com"}, {"text": "GitHub", "url": "https://github.com/x"}], "sections": [{"heading": "Experience", "entries": [{"title": "Product Intern", "right": "Jan 2026 - Jun 2026", "sub": "Acme", "sub_right": "Bengaluru", "link": {"text": "Demo", "url": "https://..."}, "text": "optional plain paragraph", "bullets": ["Built the onboarding checklist; activation went from **31% to 44%**"]}]}]}`
+   `contact` is a list of `{text, url?}`; every section has `heading` and `entries`; an entry has `title`, `right`, `sub`, `sub_right`, `link`, `text`,
+   `bullets` (all but `title` optional). `**text**` is bold. The rupee sign becomes "Rs.". Exit codes: 0 ok, 3 too long by N lines, 2 bad input.
+   **Never open or read the script; only run it.**
    The script is plain Python with nothing to install, so it runs on Claude's cloud computer as well as on a laptop. The out folder is
    `JOBSOR/resumes/` when the files are on the laptop, else any working folder of this run (the PDF is attached in the same run).
    - "ok": done. "too long by N lines": drop the least relevant line (the last bullet of the weakest project first, then the last
@@ -48,11 +51,5 @@ there may be gone after the run, which is fine: the PDF is attached in the same 
 follow-up (a reply in the same thread) never needs it again. Only if Python cannot run at all, attach the original resume file named in
 the profile's Links and note "original resume attached".
 
-## Rules (every JOBSOR skill keeps these)
-- **Debug log:** if the profile says "Debug log: on", log every step of this skill as `skills/round/references/debug-log.md` says.
-- Write only what the user confirmed about themselves. Never invent a fact, a number, a skill, a company or a warm connection.
-- Never log in to LinkedIn and never message anyone on LinkedIn for the user.
-- Send by default (up to the daily cap, 9 AM to midnight India time). Leave a draft only if the user chose drafts, the address is a guess, or it is a reply to someone.
-- Never copy the text of the user's mail into any file; keep only links, titles, companies, names and dates.
-- Plain, short words. Never stop to ask the user to pick a job or a person or to approve a message: carry on.
-- Replies show only the results, precise and short: a table is fine for results (jobs, people, messages sent); no plans, no filler, no explanations unless asked.
+## Rules
+- **Shared rules:** follow `skills/round/references/shared-rules.md` (read it once per run; a round has already read it).

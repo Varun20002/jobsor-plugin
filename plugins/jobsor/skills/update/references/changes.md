@@ -150,3 +150,7 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
   fixed follow-up text, no date in the opening, the signature, length, one ask, at most 4 bullets, every number found in the user's facts or
   the job). A failed message is fixed and checked again, or left as a draft. Where hooks run (Cowork, Claude Code), the send hook also runs
   the checks that need no facts.
+
+## 0.2.41
+- No step to run. Fewer tokens per round: the round reads only the tracker tabs it needs (never the Debug tabs, only the last Log rows),
+  the resume skill never reads its script, and the rules shared by every skill live once in `skills/round/references/shared-rules.md`.

@@ -106,15 +106,9 @@ One row per person in the People tab: Name, Title, Contact as, LinkedIn link (on
 "To contact". Then hand over to find-email and carry on (write, resume, send) without asking. Report in one line: who will be contacted (name, title)
 and how many were left out.
 
-## Rules (every JOBSOR skill keeps these)
-- **Debug log:** if the profile says "Debug log: on", log every step of this skill as `skills/round/references/debug-log.md` says.
-  Each person checked writes one row: Step "Find people", Item the person or the job, Tool, Input (search words), Result (OK / Empty /
+## Rules
+- **Shared rules:** follow `skills/round/references/shared-rules.md` (read it once per run; a round has already read it).
+- **Debug rows:** each person checked writes one row: Step "Find people", Item the person or the job, Tool, Input (search words), Result (OK / Empty /
   Hidden / Failed), Why (for example "poster is a job-sharing page", "Hunter: no result").
 - Never invent a person, a title, a connection or a reason. Never write "we met" or "X suggested" unless the user said so.
-- Never log in to LinkedIn and never open linkedin.com pages; read LinkedIn only through Exa's copy or Firecrawl's post reader.
-- Never try to get past a "not a robot" check on any website; skip that page.
-
-## Autopilot and short replies (every JOBSOR skill)
-- Never stop to ask the user to pick a job or a person, or to approve a message. Carry on through the next steps the round would take.
-  Ask only when nothing can be done without an answer.
-- Replies show only the results, precise and short: a table is fine for results (jobs, people, messages sent); no plans, no filler, no explanations unless asked.
+- Never open linkedin.com pages; read LinkedIn only through Exa's copy or Firecrawl's post reader.
