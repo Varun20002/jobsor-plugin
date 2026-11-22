@@ -144,3 +144,9 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 
 ## 0.2.39
 - No step to run. Pitch openings never mention a date ("your post", not "your post on 2 Nov"); the date stays only in the tracker.
+
+## 0.2.40
+- No step to run. Every message is checked by a script before it is sent (no JOBSOR ids, no unfilled placeholders, no banned phrases, the
+  fixed follow-up text, no date in the opening, the signature, length, one ask, at most 4 bullets, every number found in the user's facts or
+  the job). A failed message is fixed and checked again, or left as a draft. Where hooks run (Cowork, Claude Code), the send hook also runs
+  the checks that need no facts.

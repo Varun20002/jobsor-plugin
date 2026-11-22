@@ -33,6 +33,17 @@ the same thread and attach nothing. Filename `<Name>_Resume_<Company>.pdf`, type
 The same attachment goes on a message sent in send-for-me mode.
 Set Status "Draft ready", Gmail id = the draft id. Tell the user how many drafts are waiting and that they send them from Gmail.
 
+## Check every message before it goes out (code, not judgement)
+- Before each send or draft, write `message.json` (type, subject, body, facts = the profile's Confirmed facts and Resume source, job_text =
+  the job's row (role, must-haves, notes) plus the description read this round and the person's post if the message uses it, name,
+  linkedin, first_name) and run `python3 -I <this skill's folder>/scripts/check_message.py message.json`.
+- Pass: send. Fail: fix exactly the problems it prints (the write skill's rules), run it again; at most 3 tries, then leave the message as
+  a draft with the problems in Notes. Never send a message that failed, and never edit the script's output.
+- Every run writes a debug row (Step "Check", Item the message id, Result Pass/Fail, Why the problems).
+- If Python cannot run at all, send nothing that round and write a debug row "Check: Python unavailable".
+- The daily cap: count today's Messages rows with Status Sent (the round's own count); the hook's file count does not survive between
+  cloud runs.
+
 ## Send for me
 - Send every ready message in the same run, one after another, up to the daily cap and the hours. Wait a random 1 to 5 seconds between
   two sends (different each time; on a computer, `python3 -c "import random,time; time.sleep(random.uniform(1,5))"`). After each send,

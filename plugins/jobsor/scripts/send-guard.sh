@@ -1,7 +1,10 @@
 #!/bin/bash
 # JOBSOR send guard (Cowork and Claude Code only; Chat ignores hooks). Runs before any Gmail send tool call and refuses it outside
 # 9 AM to 12 midnight India time or above 50 sends in an India day, the hard ceiling (the user's own lower cap is kept by the send skill).
-# Counts are kept in the plugin's data directory, one file per day; nothing else is stored.
+# It then runs the content check (skills/send/scripts/check_message.py --hook: no JOBSOR ids, placeholders, banned phrases) and refuses a
+# message that fails it. A missing python3 or a broken check lets the send through, so a broken check never blocks all mail.
+# Counts are kept in the plugin's data directory, one file per day; nothing else is stored. The day count file does not survive between
+# cloud runs, so in the cloud the send skill's own count of today's Sent rows is the cap.
 set -u
 CAP=50
 dir="${CLAUDE_PLUGIN_DATA:-$HOME/.claude/plugins/data/jobsor}"
@@ -24,6 +27,14 @@ count=$( [ -f "$log" ] && wc -l <"$log" | tr -d ' ' || echo 0 )
 if [ "$count" -ge "$CAP" ]; then
   echo "JOBSOR: $CAP emails already sent today (India time), the most JOBSOR allows. Leave the rest as drafts for tomorrow." >&2
   exit 2
+fi
+if command -v python3 >/dev/null 2>&1; then
+  result=$(printf '%s' "$input" | python3 -I "${CLAUDE_PLUGIN_ROOT:-.}/skills/send/scripts/check_message.py" --hook 2>/dev/null)
+  if [ "$?" -eq 3 ]; then
+    problems=$(printf '%s' "$result" | python3 -I -c 'import json,sys; print("; ".join(json.load(sys.stdin)["problems"]))' 2>/dev/null)
+    echo "JOBSOR check refused this email: ${problems:-see the JOBSOR check}" >&2
+    exit 2
+  fi
 fi
 date +%T >>"$log"
 # Old day files are removed after 7 days.

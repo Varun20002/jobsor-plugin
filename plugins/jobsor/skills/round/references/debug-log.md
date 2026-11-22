@@ -12,7 +12,7 @@ Three tabs in the tracker. If a tab is missing, add it with its header row first
 |---|---|
 | Time | India time, `YYYY-MM-DD HH:MM` |
 | Round | The round's start time (the same for every row of one round), or "by hand: <skill>" |
-| Step | One of: Alert mail, Post search, Apify, Indeed, Read job, Filter, Score, Dedupe, Add job, Route, Find people, Find email, Check email, Write, Resume, Send, Draft, Follow-up, Reply check, Bounce check |
+| Step | One of: Alert mail, Post search, Apify, Indeed, Read job, Filter, Score, Dedupe, Add job, Route, Find people, Find email, Check email, Write, Check, Resume, Send, Draft, Follow-up, Reply check, Bounce check |
 | Item | What it was about: the Gmail id, a job (J007 or "Title at Company" before it has an id), a person (P005), a message (M004) |
 | Tool | The tool or connector called (Firecrawl scrape, Firecrawl search, Exa fetch, Exa search, Apify, Indeed, Hunter finder, Hunter verifier, Vibe, Gmail search, Gmail send, Gmail draft, Python), or "none" |
 | Input | The address read, the search words or the name looked up, short |
