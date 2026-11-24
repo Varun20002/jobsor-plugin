@@ -6,7 +6,7 @@ description: Find the right people to contact for a job in the JOBSOR tracker (h
 # Find people, with proof
 
 Read the JOBSOR profile and the job's row first. The route skill has set Size (Startup, MNC, Agency) and who to look for; if it has not,
-run route first. Then search in the order below and keep going until the numbers in "How many" are reached: they are targets, not limits to stop under. After each search run `python3 -I <round skill folder>/scripts/jobsor.py people --route <startup-hm|startup-no-hm|mnc|agency> --found N --searches S --empty-in-row E` and do its `next` until it says done.
+run route first. Then search in the order below and keep going until the numbers in "How many" are reached: they are targets, not limits to stop under. After each search run `python3 -I <round skill folder>/scripts/jobsor.py people --job <Job ID> --route <startup-hm|startup-no-hm|mnc|agency> --found N --searches S --empty-in-row E` and do its `next` until it says done. A hook checks at the end of the round: a job that got a new message must have a people run that says done.
 
 **Before anyone is written to the People tab, apply `references/proof-rules.md`.** A person goes in only with a proof they work at this
 company now and no contradiction. Unsure means left out. Never relax the proof to fill the list. Write the proof in plain words in the
@@ -112,4 +112,4 @@ and how many were left out.
 - Never invent a person, a title, a connection or a reason. Never write "we met" or "X suggested" unless the user said so.
 - Never open linkedin.com pages; read LinkedIn only through Exa's copy or Firecrawl's post reader.
 
-**Debug log:** each `people` run writes a debug row (Step "Find people", Item the job, Tool "jobsor.py people", Result Done / Search more).
+**Debug log:** each `people` run writes a debug row (Step "Find people", Item the job ID, Tool "jobsor.py people", Result Done / Search more).

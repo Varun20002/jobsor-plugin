@@ -3,7 +3,7 @@
 
 Usage: python3 -I jobsor.py plan --log "<last 3 Log rows>" --sources apify,indeed [--now YYYY-MM-DDTHH:MM]
        python3 -I jobsor.py score --work W --must M --user-years U [--job-min-years Y] [--duties-above]
-       python3 -I jobsor.py people --route startup-hm|startup-no-hm|mnc|agency --found N --searches S --empty-in-row E
+       python3 -I jobsor.py people --job J019 --route startup-hm|startup-no-hm|mnc|agency --found N --searches S --empty-in-row E
        python3 -I jobsor.py indeed-hook   (PreToolUse hook: reads a tool call's JSON on stdin)
        python3 -I jobsor.py stop-hook     (Stop hook: reads the Stop JSON on stdin)
 Prints one JSON object on stdout. Exit 0 = ok/done, 3 = not ok (act on "problems" / "next"), 2 = bad input (hooks: 2 = block).
@@ -18,6 +18,7 @@ from datetime import datetime, timedelta, timezone
 
 IST = timezone(timedelta(hours=5, minutes=30))
 PLAN_FILE = os.path.join("~", ".jobsor", "round-plan.json")
+PEOPLE_LOG = os.path.join("~", ".jobsor", "people-log.jsonl")
 LEVEL_WORDS = ["entry level", "entry-level", "fresher", "freshers", "0-1 year", "0 to 1 year", "graduate trainee"]
 TARGETS = {"startup-hm": 4, "startup-no-hm": 10, "mnc": 13, "agency": 1}
 NEXT = [
@@ -106,11 +107,26 @@ def cmd_score(a):
          "notes": "Work %g/45, Must %g/40, Level %d/15 = %d" % (a.work, a.must, level, match)})
 
 
+def log_people(rec):
+    try:
+        p = os.path.expanduser(PEOPLE_LOG)
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        rec["at"] = datetime.now(timezone.utc).astimezone(IST).isoformat(timespec="seconds")
+        with open(p, "a") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
 def cmd_people(a):
     t = TARGETS[a.route]
+    rec = {"job": a.job, "route": a.route, "found": a.found, "target": t, "searches": a.searches}
     if a.found >= t or a.empty_in_row >= 2 or a.searches >= 8:
+        log_people(dict(rec, done=True))
         out({"done": True, "target": t, "found": a.found})
-    out({"done": False, "target": t, "found": a.found, "next": NEXT[a.searches % len(NEXT)]}, 3)
+    nxt = NEXT[a.searches % len(NEXT)]
+    log_people(dict(rec, done=False, next=nxt))
+    out({"done": False, "target": t, "found": a.found, "next": nxt}, 3)
 
 
 def read_stdin_json():
@@ -214,6 +230,49 @@ def cmd_stop_hook(a):
                              "If a connector is not connected or failed, write that in the Log row and the debug log, then end.\n"
                              % ", ".join(missing))
             sys.exit(2)
+        # New messages this round (not "Re:" follow-ups or replies) need a finished people run for their job.
+        new_msgs = 0
+        for e in entries:
+            if not isinstance(e, dict):
+                continue
+            t = parse_time(e.get("timestamp"))
+            if not (t is None or t >= made):
+                continue
+            for n in walk(e):
+                if n.get("type") != "tool_use":
+                    continue
+                name = str(n.get("name", "")).lower()
+                if not (name.endswith("send_message") or name.endswith("create_draft")):
+                    continue
+                inp = n.get("input") if isinstance(n.get("input"), dict) else {}
+                if str(inp.get("subject", "")).strip().lower().startswith("re:"):
+                    continue
+                new_msgs += 1
+        if new_msgs:
+            last = {}
+            try:
+                with open(os.path.expanduser(PEOPLE_LOG)) as f:
+                    for line in f:
+                        try:
+                            r = json.loads(line)
+                            at = parse_time(r["at"])
+                            if at is not None and at >= made and r.get("job"):
+                                last[str(r["job"])] = r
+                        except Exception:
+                            pass
+            except Exception:
+                pass
+            if not last:
+                sys.stderr.write("JOBSOR round not finished: new messages were sent or drafted but the people step was not run. "
+                                 "For each job contacted this round run skills/round/scripts/jobsor.py people --job <J> --route ... "
+                                 "and keep searching until it says done; then write to the new people found.\n")
+                sys.exit(2)
+            short = ["%s (%s of %s): next: %s" % (j, r.get("found"), r.get("target"), r.get("next", ""))
+                     for j, r in last.items() if r.get("done") is False]
+            if short:
+                sys.stderr.write("JOBSOR round not finished: people count short for %s. Search more and write to the people found, "
+                                 "or run the people step again with the real counts.\n" % "; ".join(short))
+                sys.exit(2)
     except SystemExit:
         raise
     except Exception:
@@ -235,6 +294,7 @@ def main():
     s.add_argument("--job-min-years", type=float)
     s.add_argument("--duties-above", action="store_true")
     s = sub.add_parser("people")
+    s.add_argument("--job", required=True)
     s.add_argument("--route", choices=sorted(TARGETS), required=True)
     s.add_argument("--found", type=int, required=True)
     s.add_argument("--searches", type=int, required=True)

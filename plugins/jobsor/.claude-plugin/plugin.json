@@ -1,7 +1,7 @@
 {
   "name": "jobsor",
   "displayName": "JOBSOR",
-  "version": "0.2.43",
+  "version": "0.2.44",
   "description": "Job search for India that gets you to a person: finds fresh jobs, finds the hiring manager with proof they work there, writes a short researched message from your confirmed facts only, sends it from your Gmail or leaves a draft, and follows up until someone replies.",
   "author": { "name": "JOBSOR" },
   "license": "MIT",
