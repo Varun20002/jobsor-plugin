@@ -9,6 +9,25 @@
             "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/send-guard.sh\""
           }
         ]
+      },
+      {
+        "matcher": "search_jobs$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -I \"${CLAUDE_PLUGIN_ROOT}/skills/round/scripts/jobsor.py\" indeed-hook"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -I \"${CLAUDE_PLUGIN_ROOT}/skills/round/scripts/jobsor.py\" stop-hook"
+          }
+        ]
       }
     ]
   }

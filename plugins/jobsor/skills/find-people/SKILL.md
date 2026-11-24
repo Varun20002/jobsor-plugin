@@ -6,8 +6,7 @@ description: Find the right people to contact for a job in the JOBSOR tracker (h
 # Find people, with proof
 
 Read the JOBSOR profile and the job's row first. The route skill has set Size (Startup, MNC, Agency) and who to look for; if it has not,
-run route first. Then search in the order below and **stop as soon as the right person is found with proof**: a confirmed hiring manager
-at a startup (or, without one, the peers to ask); the recruiters and referrers at an MNC, up to the numbers in "How many"; the posting recruiter for an agency.
+run route first. Then search in the order below and keep going until the numbers in "How many" are reached: they are targets, not limits to stop under. After each search run `python3 -I <round skill folder>/scripts/jobsor.py people --route <startup-hm|startup-no-hm|mnc|agency> --found N --searches S --empty-in-row E` and do its `next` until it says done.
 
 **Before anyone is written to the People tab, apply `references/proof-rules.md`.** A person goes in only with a proof they work at this
 company now and no contradiction. Unsure means left out. Never relax the proof to fill the list. Write the proof in plain words in the
@@ -67,7 +66,7 @@ Proof column.
    person confirmed as hiring for this role (see "Who counts as the hiring manager"), do not pitch anyone: ask up to 10 peers who the
    hiring manager is. A founder, a "founding team" member or a head of the function is **not** assumed to be the hiring manager; they are
    pitched only when confirmed. If no peer in the same team can be found (a very small company), ask a founder the same question
-   instead of pitching them.
+   instead of pitching them. Peers include everyone in the same function at the company, junior or senior (a head or lead of the function too: they get the same peer ask, never a pitch). Never leave out a person because enough peers were already found; only the target number stops the search.
    **Ask peers (startups only).** Find up to 10 people in the same team (same function, with proof they work there
    now) and add them with Contact as "Peer (to ask)". The write skill gives them the peer ask: "Do you know who the hiring manager for this
    role is?" It is never a pitch and never asks for a referral. When a peer replies with a name, the round adds that person with the proof
@@ -112,3 +111,5 @@ and how many were left out.
   Hidden / Failed), Why (for example "poster is a job-sharing page", "Hunter: no result").
 - Never invent a person, a title, a connection or a reason. Never write "we met" or "X suggested" unless the user said so.
 - Never open linkedin.com pages; read LinkedIn only through Exa's copy or Firecrawl's post reader.
+
+**Debug log:** each `people` run writes a debug row (Step "Find people", Item the job, Tool "jobsor.py people", Result Done / Search more).

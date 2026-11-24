@@ -32,7 +32,7 @@ below, in this order, filter and score them with `references/job-rules.md`, and 
 
 **Search words for sources 3, 5 and 6:** the user's roles (up to 3) plus their related titles from the profile ("What I want"). Use
 every role each time; use 2 related titles per run, taking the next 2 in the list each run so all of them are covered within a day.
-For an Intern or Entry user, add "entry level" (Intern: "internship") to the words for sources 5 and 6, so senior jobs are not returned.
+For an Intern or Entry user, add "entry level" (Intern: "internship") to the Apify keywords only. **Indeed is searched with plain role words only** (level words make it return unrelated jobs; a hook refuses them); jobs above the user's level are hidden later by `references/job-rules.md`.
 
 3. **Hiring posts from the last 24 to 48 hours.**
    - **LinkedIn's own post search first** (through Firecrawl; no LinkedIn login, LinkedIn is never opened by us). For each search word
@@ -56,7 +56,7 @@ For an Intern or Entry user, add "entry level" (Intern: "internship") to the wor
    careers board address, India openings count). If it is there, read that board with Firecrawl; if not, search "<company> careers" once
    and read the careers page. Never read the whole boards list in a round: it is a lookup for named companies only.
 5. **LinkedIn jobs through Apify**, only if the user connected Apify (optional; it runs on the user's own Apify account and credits).
-   Once a day, in the first round after 9 AM: for each search word (above, at most 4 a day), `call-actor` with actor
+   Once a day, when the round's plan lists "apify" (the morning window). **Never skip it to save credits**: its cost is capped by maxTotalChargeUsd. If it fails, write why in the debug log. For each search word (above, at most 4 a day), `call-actor` with actor
    `curious_coder/linkedin-jobs-scraper`, input `{"keywords": "<words>", "location": "<first city>, India", "datePosted": "past24Hours",
    "limitPerSource": 25, "scrapeCompany": true}` and, in `callOptions`, `maxTotalChargeUsd: 0.07`; then read the run's items
    (`get-dataset-items`). The actor has no experience filter, so the level words go in the keywords, and jobs above the user's level are
@@ -65,7 +65,7 @@ For an Intern or Entry user, add "entry level" (Intern: "internship") to the wor
    `linkedin.com/jobs/view/<id>` so it matches the same job from an alert email. Run this source **after** the alert emails (source 2),
    so jobs the alerts already brought are recognised by their LinkedIn job id.
 6. **Indeed or Jobs and Careers**, only if the user connected them (the plugin's Indeed connector or Claude's own Indeed connector; either
-   works). One search per search word (above, at most 4 a round, in the same rounds as source 3): Indeed `search_jobs` with
+   works). One search per search word (above, at most 4 a round, when the round's plan lists "indeed"): Indeed `search_jobs` with
    `country_code: "IN"` and `location: "<city>, <state>"` (for example "Bengaluru, Karnataka"; "remote" for remote). Indeed ranks by
    relevance, not date, and returns old jobs too: keep only jobs whose "Posted on" date is within the last 3 days. Its job details call
    gives the full description; its link is the apply link. **India check:** if two Indeed searches in a row return no job located in
@@ -95,7 +95,7 @@ For an Intern or Entry user, add "entry level" (Intern: "internship") to the wor
    earlier" and still goes ahead, as the user chose it).
 3. **Filter it** with `references/job-rules.md`: the wide field gate (title or description), level and years, city or India remote, never-contact companies, IT
    services (hidden unless the user asked for them), scams. A job that fails a rule is not added; count it under "hidden" with the reason.
-4. **Score it**: Match N / 100 as in `references/job-rules.md`, only from a description that was read. Write the must-haves met and missing.
+4. **Score it**: Match N / 100 as in `references/job-rules.md`, only from a description that was read. Write the must-haves met and missing. Run `python3 -I <round skill folder>/scripts/jobsor.py score --work W --must M --user-years U [--job-min-years Y] [--duties-above]` and write its `notes` and `match` exactly. If it says hide, hide the job with its `why`. Never write a Level other than the script's.
 5. **Dedupe** against the tracker: the same job id (a LinkedIn `jobs/view/<id>`, a hiring-system id, a Naukri id) or the same link is one
    job. A different job id is a different job, even with the same company and title (big companies post the same title for several
    teams). Company and title together mean the same job only when neither copy has an id or link (for example two posts about one role). A company-board copy

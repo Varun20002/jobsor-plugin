@@ -154,3 +154,9 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 ## 0.2.41
 - No step to run. Fewer tokens per round: the round reads only the tracker tabs it needs (never the Debug tabs, only the last Log rows),
   the resume skill never reads its script, and the rules shared by every skill live once in `skills/round/references/shared-rules.md`.
+
+## 0.2.42
+- No step to run. Code now keeps the rules that rounds missed: a plan script says which sources are due each window (Apify every
+  morning, never skipped to save credits), a hook refuses Indeed searches with level words, a hook stops the round from ending while a
+  due source has not run, the score script sets the Level (only 15, 12 or 8) and the 60 cap, and the people script keeps searching until
+  the target number is reached. A post that names the client company is routed to the agency recruiter and to the client's own people.

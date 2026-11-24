@@ -29,8 +29,11 @@ Ported from the JOBSOR website: MASTER decisions 9 and 38, Journeys 5 and 6, and
 - **Size still unknown** after the steps above (rare): never assume. Write "Size unknown" and contact both ways: the poster or hiring
   manager (as for a Startup) **and** a recruiter (as for an MNC).
 - **Agency:** the post is by a staffing, recruitment, consulting-placement or overseas-placement firm and the client company is hidden or
-  named only as "our client". Contact only the recruiter who posted it; no founders, no employees. If the client is named, route the job
-  as the client company.
+  named only as "our client". Contact only the recruiter who posted it; no founders, no employees. **If the client is named**
+  (in the title, the company field or the text), the job is routed twice: the posting recruiter gets the recruiter note (if the agency is
+  legitimate), **and** the client company is sized and routed as a Startup or MNC with its own people, as if it posted the job itself.
+  When unsure whether the poster is an agency or the company, check the poster's company page; a staffing or recruiting firm with a named
+  client is this case.
 - **Debug log:** write one row for this step: the size, the source, the founded year and the call.
 
 ## 2. Who to contact
@@ -44,7 +47,7 @@ Ported from the JOBSOR website: MASTER decisions 9 and 38, Journeys 5 and 6, and
 **MNC** (referral and recruiter first; never hunt the hiring manager): up to 3 recruiters for this kind of role (the poster first) +
 up to 10 referrers in the same function in India. No founders and no general HR at an MNC.
 
-**Agency:** only the posting recruiter, and only if the agency is legitimate (own website and LinkedIn company page, no fee asked).
+**Agency:** only the posting recruiter, and only if the agency is legitimate (own website and LinkedIn company page, no fee asked); with a named client, also the client's people as above.
 
 The exact numbers and order are in the find-people skill ("How many").
 

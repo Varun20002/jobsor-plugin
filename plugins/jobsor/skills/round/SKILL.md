@@ -8,7 +8,7 @@ description: Run one JOBSOR round - check replies and bounces, stop jobs where t
 Read the profile and, from the tracker, only: the Jobs, People and Messages tabs, the Seen tab's mail ids, and the last 3 rows of the
 Log tab. **Never read the Debug tabs** (Debug steps, Debug emails, Debug jobs): only append rows to them. Never read older Log rows unless
 a step needs a past date it cannot find elsewhere. Read `references/shared-rules.md` once at the start; every skill this round runs follows it. If the profile's "Plugin version:" is older than this plugin's version (or missing), carry
-on with the round and add one line to the report: "JOBSOR was updated; type /jobsor:update when you have a minute." (once a day at most). Note the time in India (IST, UTC+5:30) and the last round's time (last row of Log, from the 3 rows read).
+on with the round and add one line to the report: "JOBSOR was updated; type /jobsor:update when you have a minute." (once a day at most). Note the time in India (IST, UTC+5:30) and the last round's time (last row of Log, from the 3 rows read). **Plan (code, not judgement):** run `python3 -I <this skill's folder>/scripts/jobsor.py plan --log "<the last 3 Log rows>" --sources <apify,indeed: the ones connected>` and do everything in its `due` list this round. When the window's items are done, end this round's Log row with its `log_marker`. The plan decides the windows; never skip a due source to save credits (each source already has its own small cap). A hook checks at the end that the due sources ran.
 
 **Debug log:** if the profile says "Debug log: on", every part of this round and every skill it runs writes its rows to the
 "Debug steps", "Debug emails" and "Debug jobs" tabs as `references/debug-log.md` says, part by part as it goes, one row per item. A
@@ -45,8 +45,7 @@ then hand to send.
 
 ## 3. New jobs (every round)
 Run find-jobs in every round (9 AM to 12 midnight): new alert emails and unfinished alert emails each round; jobs with Status
-"Can't read" are tried again once a day (first round after 9 AM), not every hour. To save Firecrawl and Apify credits, the LinkedIn and X post searches (source 3), Apify (source 5) and Indeed (source 6) run only in the
-first round after 9 AM, after 3 PM and after 9 PM India time (check the last Log rows for whether that window already ran). For each new job with Status Found and Match 50 or more (best first, at most 5 a round): route, find-people, find-email,
+"Can't read" are tried again once a day (first round after 9 AM), not every hour. The post searches, Indeed and (in the morning) Apify run when the plan lists them. For each new job with Status Found and Match 50 or more (best first, at most 5 a round): route, find-people, find-email,
 write, resume (the tailored one-page resume for this job), then send (send by default; draft only if the profile says drafts), all without asking. Jobs under
 50 stay Found; never list them unless asked. Jobs with Status "Can't read" are not contacted; the report asks the user for a screenshot
 of each (once per job).

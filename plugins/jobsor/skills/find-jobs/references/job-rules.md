@@ -51,7 +51,7 @@ Score three parts separately and write each in Notes, for example "Work 30/45, M
   (a fact shows something close), **missing**. A general skill never proves a specific one (Python does not prove Django). Score
   40 x (met + half of partly) / number of must-haves. If the post names no specific must-have, this part takes the same fraction as work fit.
 - **Level and years (15):** 15 when the years and duties asked fit the user; 8 when they are a stretch; 12 when the post says nothing about
-  either. When the user has not set level or years, use the years since their last degree.
+  either. When the user has not set level or years, use the years since their last degree. The script `skills/round/scripts/jobsor.py score` works this out from the years; use its number. Only 15, 12 or 8 are allowed.
 - No description: no Match. Never score a job from its title, company or a snippet; it stays "Can't read" until a reader or the
   user's screenshot gives the description.
 - A short post is not punished for being short: score what it says.
