@@ -160,3 +160,7 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
   morning, never skipped to save credits), a hook refuses Indeed searches with level words, a hook stops the round from ending while a
   due source has not run, the score script sets the Level (only 15, 12 or 8) and the 60 cap, and the people script keeps searching until
   the target number is reached. A post that names the client company is routed to the agency recruiter and to the client's own people.
+
+## 0.2.43
+- No step to run. The end-of-round check now runs only in a real round (the round skill ran, or the chat started with "Run the JOBSOR
+  round" or "/jobsor:round"), not in other chats that only mention the round.

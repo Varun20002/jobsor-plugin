@@ -98,6 +98,9 @@ full = [ROUND, use("mcp__plugin_jobsor_apify__call-actor"), use("mcp__plugin_job
 check(stop(transcript("b.jsonl", full))[0] == 0, "stop all present")
 check(stop(transcript("c.jsonl", [use("mcp__x__other")]))[0] == 0, "not a round")
 check(stop(transcript("d.jsonl", [{"type": "user", "message": {"content": "/jobsor:round"}}]))[0] == 2, "round by user text")
+U = lambda t: {"type": "user", "message": {"content": t}}
+check(stop(transcript("f.jsonl", [U("This session is being continued ... mentions /jobsor:round ...")]))[0] == 0, "mention only")
+check(stop(transcript("g.jsonl", [U("Run the JOBSOR round (/jobsor:round). Profile: ...")]))[0] == 2, "round by first message")
 os.remove(os.path.join(HOME, ".jobsor", "round-plan.json"))
 check(stop(transcript("e.jsonl", [ROUND]))[0] == 2, "no plan")
 print("ok %d tests" % N)

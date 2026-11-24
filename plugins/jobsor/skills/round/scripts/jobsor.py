@@ -162,8 +162,9 @@ def cmd_stop_hook(a):
                     entries.append(json.loads(line))
                 except Exception:
                     pass
-        # A round: the round skill was run (Skill tool or the /jobsor:round command), or the session's first typed message asks for
-        # it (the scheduled task's prompt). Mentions inside files, tool results or later chat do not count.
+        # A round: the round skill was run (Skill tool or the /jobsor:round command), or the session's first typed message STARTS
+        # with "run the jobsor round" or "/jobsor:round" (the scheduled task's prompt). A first message that merely mentions the
+        # round, mentions inside files, tool results or later chat do not count.
         is_round = False
         calls = []  # (name, time)
         first_user = True
@@ -186,7 +187,8 @@ def cmd_stop_hook(a):
                 if not texts:
                     continue  # a tool result, not a typed message
                 low = " ".join(str(x) for x in texts).lower()
-                if "<command-name>/jobsor:round" in low or (first_user and "jobsor:round" in low):
+                if "<command-name>/jobsor:round" in low or (
+                        first_user and low.lstrip().startswith(("run the jobsor round", "/jobsor:round"))):
                     is_round = True
                 first_user = False
         if not is_round:
