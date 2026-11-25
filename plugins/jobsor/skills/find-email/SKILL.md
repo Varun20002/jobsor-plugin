@@ -24,7 +24,10 @@ Write the address and its label in the People tab: `published`, `checked`, `chec
    names without titles (Dr, Mr, Ms, Prof, Shri, Smt) and without accents; a double surname is joined ("Rao-Iyer" gives "raoiyer").
 4. **Build the address** from the format. With no known format, the common Indian formats in this order: `{first}.{last}`, `{first}`,
    `{first}{last}`, `{f}{last}`, `{first}_{last}`.
-5. **Check it (required before any send).** Every built or guessed address is checked: Hunter's email verifier; **only if Hunter is missing
+5. **Check it (required before any send).** Every built or guessed address is checked. **First, a free mail-server checker** if one is
+   connected (a connector with a `verify_email` tool, for example the owner's own JOBSOR email checker; optional): its `status` valid,
+   invalid or accept_all is used as below; `unknown` (checker offline, or the company's mail server would not answer) goes on to Hunter.
+   Then Hunter's email verifier; **only if Hunter is missing
    or out of credits**, Vibe Prospecting (optional; `enrich-prospects` with contact info for this person, which also returns its own found
    email: label that one `checked` only if Vibe marks it verified). Valid, not accept-all: `checked`. Accept-all or catch-all (also Hunter
    "valid" with accept_all true): `checked (accept-all)`. Unknown: `guessed (not checked)`. Invalid: try the next format (at most 3 checks

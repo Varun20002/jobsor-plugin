@@ -173,3 +173,7 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 - No step to run. Every guessed email address is now checked before it is sent (half a Hunter credit each); addresses that cannot be
   checked stay drafts. A new label, "checked (accept-all)", marks addresses the checker could not fully confirm; they may be sent. The
   profile line "Send to guessed, unchecked emails" is no longer used, and a hook refuses a new email to an unchecked address.
+
+## 0.2.46
+- No step to run. If a free email checker connector (a `verify_email` tool) is connected, guessed addresses are checked there first,
+  and Hunter only when it cannot tell. Without one, nothing changes.
