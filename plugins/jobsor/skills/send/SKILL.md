@@ -5,13 +5,14 @@ description: Send JOBSOR messages from the user's Gmail, or leave them as Gmail 
 
 # Send or draft
 
-Read the profile's Sending section (mode: send for me unless it says drafts; daily cap, hours, guessed emails) and the Messages rows with Status "Draft ready".
+Read the profile's Sending section (mode: send for me unless it says drafts; daily cap, hours) and the Messages rows with Status "Draft ready".
 
 ## Before each message (skip it, with the reason in Notes, if any check fails)
 1. **Stop rules:** no reply from anyone at the company since the last message (check Gmail now, not only the tracker); the person is not
    "Do not contact"; the company is not on the never-contact list; the job is not Replied, Interview, Rejected, Skipped or No response.
-2. **Address:** `published` or `checked`, or `guessed (not checked)` only when the profile allows sending to guesses. Otherwise it stays a
-   draft whatever the mode.
+2. **Address:** `published`, `checked` or `checked (accept-all)`. `guessed (not checked)` always stays a draft. Before sending to a
+   guess, run find-email step 5 on it. A hook refuses a new email to an address with no check in this run (read the People row, or run the
+   checker).
 3. **Not twice:** no message of the same type to the same person for the same job was already sent (look at Messages and at Gmail's Sent).
 4. **Cap and hours** (send mode): fewer than the daily cap sent today (count the Messages rows Sent today), and the time is between 9 AM and
    12 midnight India time.
@@ -22,7 +23,7 @@ sending (or making a draft), read the sent message's To address from Gmail. If i
 actually used into the People tab's Email and add a dated note "Sent to <address>, tracker had <old>"; log it in the debug log with
 Result "Failed" and Why "address changed".
 
-## Drafts (only if the profile says drafts, or the address is a guess)
+## Drafts (only if the profile says drafts, or the address is `guessed (not checked)`)
 Create a Gmail draft to the person with the subject and body, the resume attached, and for a follow-up as a reply in the same thread.
 
 **Which resume:** the job's tailored PDF, made by the resume skill in this same run (run it first if this job has none yet). If no PDF

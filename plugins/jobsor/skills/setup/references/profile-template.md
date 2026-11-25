@@ -63,7 +63,6 @@ Naukri, LinkedIn, Wellfound, Instahyre, Cutshort, Hirist, Foundit, Internshala, 
 - Mode: send for me (default) | drafts
 - Daily cap: 50 (never above 50)
 - Hours: 9 AM to 12 midnight India time
-- Send to guessed, unchecked emails: no | yes
 
 ## My voice (the same for every user; setup does not ask about it)
 - Opener: "Hi {first_name},"

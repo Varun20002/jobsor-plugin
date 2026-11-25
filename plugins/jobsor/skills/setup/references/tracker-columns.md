@@ -35,7 +35,7 @@ the sheet changed, read again and retry once.
 | LinkedIn | Profile link, if found |
 | Proof | Why we know they work there now: "Posted about this job on 10 Nov", "Headline: PM at Acme", "On acme.com/team", "Named by P004 in a reply" |
 | Email | |
-| Email label | published, checked, guessed (not checked) |
+| Email label | published, checked, checked (accept-all), guessed (not checked) |
 | Status | To contact, Asked, Contacted, Replied, Bounced, Do not contact |
 | Notes | |
 

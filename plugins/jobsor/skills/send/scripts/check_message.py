@@ -3,6 +3,7 @@
 
 Usage: python3 -I check_message.py message.json   (skill mode: every check)
        python3 -I check_message.py --hook          (hook mode: reads a Gmail tool call's JSON on stdin; only the checks that need no facts)
+Hook mode also refuses a new email (not a reply) to an address that was not checked in this transcript or read as labelled.
 Prints {"pass": true|false, "problems": ["..."]}. Exit 0 = pass, 3 = fail, 2 = bad input.
 
 message.json: type (pitch | recruiter | peer | referral | followup | thankyou | reply), subject, body,
@@ -177,6 +178,96 @@ def hook_parts(data):
     return subject, body
 
 
+def recipients_of(ti):
+    out = []
+    for k in ("to", "recipient", "recipients"):
+        v = ti.get(k)
+        vals = v if isinstance(v, list) else [v]
+        for x in vals:
+            if isinstance(x, str):
+                for part in x.split(","):
+                    part = part.strip().lower()
+                    mm = re.search(r"<([^<>]+)>", part)
+                    part = mm.group(1).strip() if mm else part
+                    if part:
+                        out.append(part)
+    return out
+
+
+def tool_blocks(node, uses, results):
+    if isinstance(node, dict):
+        t = node.get("type")
+        if t == "tool_use":
+            uses.append(node)
+        elif t == "tool_result":
+            results.append(node)
+        for v in node.values():
+            tool_blocks(v, uses, results)
+    elif isinstance(node, list):
+        for v in node:
+            tool_blocks(v, uses, results)
+
+
+def all_strings(node, out):
+    if isinstance(node, str):
+        out.append(node)
+    elif isinstance(node, dict):
+        for v in node.values():
+            all_strings(v, out)
+    elif isinstance(node, list):
+        for v in node:
+            all_strings(v, out)
+
+
+def unchecked_addresses(data, subject, addrs):
+    """Addresses with no check in this transcript. Any failure to read the transcript means no problem (fail open)."""
+    try:
+        name = str(data.get("tool_name", "")).lower()
+        if not (name.endswith("send_message") or name.endswith("send_email")):
+            return []
+        if subject.strip().lower().startswith("re:") or not addrs:
+            return []
+        path = data.get("transcript_path")
+        if not path:
+            return []
+        with open(path, encoding="utf-8") as f:
+            raw = f.read()
+        uses, results = [], []
+        for line in raw.splitlines():
+            line = line.strip()
+            if line:
+                try:
+                    tool_blocks(json.loads(line), uses, results)
+                except ValueError:
+                    pass
+        result_text = {}
+        for r in results:
+            strs = []
+            all_strings(r.get("content"), strs)
+            result_text.setdefault(r.get("tool_use_id"), []).append("\n".join(strs))
+        bad = []
+        for addr in addrs:
+            good = False
+            for u in uses:
+                if "verif" not in str(u.get("name", "")).lower():
+                    continue
+                strs = []
+                all_strings(u.get("input"), strs)
+                if not any(s.strip().lower() == addr for s in strs):
+                    continue
+                for txt in result_text.get(u.get("id"), []):
+                    # The status value, not field names: a Hunter result always has an "accept_all" key, even when invalid.
+                    if re.search(r"status\W{0,6}(valid|accept[_ -]?all|catch[_ -]?all)\b|accept[_ -]?all\W{0,6}true", txt, re.I):
+                        good = True
+            if not good and re.search(r'\\*"' + re.escape(addr) + r'\\*"\s*,\s*\\*"(published|checked|checked \(accept-all\))\\*"', raw, re.I):
+                good = True
+            if not good:
+                bad.append(addr)
+        return bad
+    except Exception:
+        return []
+
+
 def main():
     args = sys.argv[1:]
     try:
@@ -184,6 +275,10 @@ def main():
             data = json.loads(sys.stdin.read() or "{}")
             subject, body = hook_parts(data)
             m = None
+            try:
+                addrs = recipients_of(data.get("tool_input") or {})
+            except Exception:
+                addrs = []
         elif len(args) == 1:
             with open(args[0], encoding="utf-8") as f:
                 m = json.load(f)
@@ -196,6 +291,9 @@ def main():
     body = drop_quote(body)
     problems = []
     common_checks(subject, body, problems)
+    if m is None:
+        for a in unchecked_addresses(data, subject, addrs):
+            problems.append(f"address {a} was not checked: run the email checker on it first (find-email step 5) or leave a draft")
     if m is not None:
         full_checks(m, subject, body, problems)
     print(json.dumps({"pass": not problems, "problems": problems}, ensure_ascii=False))

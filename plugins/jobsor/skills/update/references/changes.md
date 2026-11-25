@@ -168,3 +168,8 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 ## 0.2.44
 - No step to run. The round can no longer end while a job it wrote to has fewer people than its target: the people step keeps a log,
   and the end-of-round check asks for more searching (or the real counts) before the round ends.
+
+## 0.2.45
+- No step to run. Every guessed email address is now checked before it is sent (half a Hunter credit each); addresses that cannot be
+  checked stay drafts. A new label, "checked (accept-all)", marks addresses the checker could not fully confirm; they may be sent. The
+  profile line "Send to guessed, unchecked emails" is no longer used, and a hook refuses a new email to an unchecked address.

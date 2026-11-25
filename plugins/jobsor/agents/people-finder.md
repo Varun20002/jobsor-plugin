@@ -13,5 +13,5 @@ no contradiction; unsure means left out. Never open linkedin.com pages and never
 check.
 
 Return a short list, one line per person: name, title, Contact as, LinkedIn link (only a real linkedin.com/in/ address), proof, email and
-its label (published, checked, guessed (not checked)). Then one line of what was left out and why (counts only). Do not write to the
+its label (published, checked, checked (accept-all), guessed (not checked)). Then one line of what was left out and why (counts only). Do not write to the
 tracker yourself; the main round writes the rows.
