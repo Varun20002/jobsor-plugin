@@ -62,6 +62,7 @@ Write one Log row: time and one line of counts ("2 replies (Acme asks for a call
   Draft), then only what the user must do (answer a reply, send a draft to a guessed address). No other text.
   Every job named in the summary (new jobs, jobs with a reply, jobs with a draft) is a clickable Markdown link to the job page, as the
   find-jobs report says.
+- If the email checker gave a warning this round (daily limit, offline, or may be blocked), one line with it, for example "Email checker: daily limit reached, Hunter used for 4 checks." Also write it in the Log row.
 - The report is the round's last message; Claude's own notification brings it to the user's phone and computer. Send it nowhere else.
 
 ## If the schedule is missing

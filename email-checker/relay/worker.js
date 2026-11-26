@@ -1,5 +1,5 @@
 // Relay: a stable public URL in front of the Mac's changing tunnel URL.
-const OFFLINE = { status: 'unknown', reason: 'checker offline (laptop off or asleep)' };
+const OFFLINE = { status: 'unknown', reason: 'checker offline (laptop off or asleep)', warning: 'Email checker offline (Mac off or asleep). Hunter is used instead.' };
 
 function same(a, b) {
   if (a.length !== b.length) return false;

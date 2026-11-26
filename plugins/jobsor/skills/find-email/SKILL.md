@@ -27,6 +27,7 @@ Write the address and its label in the People tab: `published`, `checked`, `chec
 5. **Check it (required before any send).** Every built or guessed address is checked. **First, a free mail-server checker** if one is
    connected (a connector with a `verify_email` tool, for example the owner's own JOBSOR email checker; optional): its `status` valid,
    invalid or accept_all is used as below; `unknown` (checker offline, or the company's mail server would not answer) goes on to Hunter.
+   Its answer may carry a `warning` (daily limit reached, checker offline, or may be blocked): keep it for the round's Log row and report, once per round.
    Then Hunter's email verifier; **only if Hunter is missing
    or out of credits**, Vibe Prospecting (optional; `enrich-prospects` with contact info for this person, which also returns its own found
    email: label that one `checked` only if Vibe marks it verified). Valid, not accept-all: `checked`. Accept-all or catch-all (also Hunter
@@ -54,4 +55,4 @@ Report per person: the address and its label, or "no address found" (only when t
 ## Rules
 - **Shared rules:** follow `skills/round/references/shared-rules.md` (read it once per run; a round has already read it).
 - **Debug rows:** each person checked writes one row: Step "Find email", Item the person, Tool, Input (address tried), Result (OK / Empty / Hidden /
-  Failed), Why (for example "Hunter: no result", "built from {first}.{last}, not checked").
+  Failed), Why (for example "Hunter: no result", "built from {first}.{last}, not checked", "Checker: unknown (daily limit), used Hunter", "Checker: valid"). The Why always starts with which checker answered and its reason when it was unknown.

@@ -177,3 +177,7 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 ## 0.2.46
 - No step to run. If a free email checker connector (a `verify_email` tool) is connected, guessed addresses are checked there first,
   and Hunter only when it cannot tell. Without one, nothing changes.
+
+## 0.2.47
+- No step to run. When the free email checker cannot answer (daily limit, Mac off, or it looks blocked), the round now says so in its
+  report and Log, and the debug log shows which checker answered each address.

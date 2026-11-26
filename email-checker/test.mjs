@@ -17,6 +17,8 @@ case "$1" in
   safe@*) echo '{"is_reachable":"safe","mx":{"records":["aspmx.l.google.com."]},"smtp":{"is_catch_all":false}}';;
   bad@*) echo '{"is_reachable":"invalid","mx":{"records":["x.zoho.com."]},"smtp":{"is_catch_all":false}}';;
   catch@*) echo '{"is_reachable":"risky","mx":{"records":["a.mimecast.com."]},"smtp":{"is_catch_all":true}}';;
+  down@*) echo '{"is_reachable":"unknown","mx":{"records":[]},"smtp":{"can_connect_smtp":false,"is_catch_all":false}}';;
+  up@*) echo '{"is_reachable":"safe","mx":{"records":["aspmx.l.google.com."]},"smtp":{"can_connect_smtp":true,"is_catch_all":false}}';;
   slow@*) sleep 5;;
   *) echo '{"is_reachable":"unknown","mx":{"records":[]},"smtp":{"is_catch_all":false}}';;
 esac
@@ -80,6 +82,36 @@ test('timeout gives unknown, then daily limit', async () => {
   assert.notEqual(parse(await call('who2@a.com')).reason, 'daily limit');
   const over = parse(await call('who3@a.com'));
   assert.equal(over.status, 'unknown'); assert.equal(over.reason, 'daily limit');
+  assert.match(over.warning, /daily limit of 6 reached/);
+});
+
+test('checker_status and tools list', async () => {
+  const list = await (await rpc('tools/list')).json();
+  assert.ok(list.result.tools.some((t) => t.name === 'checker_status'));
+  const r = await (await rpc('tools/call', { name: 'checker_status', arguments: {} })).json();
+  const s = JSON.parse(r.result.content[0].text);
+  assert.equal(s.checks_today, 6); assert.equal(s.limit, 6);
+  assert.match(s.warning, /daily limit/);
+});
+
+test('blocked warning after 5 unreachable checks, reset by a reachable one', async () => {
+  const tmp2 = fs.mkdtempSync(path.join(os.tmpdir(), 'checker2-'));
+  const p2 = spawn('node', [path.join(here, 'server.mjs')], {
+    env: { ...process.env, HOME: tmp2, PORT: '18098', CHECKER_SECRET: 's3cret', REACHER_BIN: fake, CHECKER_DAILY: '50', CHECKER_TIMEOUT_MS: '1500', CHECKER_GAP_MS: '10' },
+    stdio: 'ignore',
+  });
+  try {
+    for (let i = 0; i < 50; i++) {
+      try { if ((await fetch('http://127.0.0.1:18098/health')).ok) break; } catch {}
+      await new Promise((r) => setTimeout(r, 100));
+    }
+    const c2 = async (email) => JSON.parse((await (await fetch('http://127.0.0.1:18098/mcp', { method: 'POST', headers: H, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'verify_email', arguments: { email } } }) })).json()).result.content[0].text);
+    for (let i = 1; i <= 4; i++) assert.equal((await c2(`down@d${i}.com`)).warning, undefined);
+    const fifth = await c2('down@d5.com');
+    assert.match(fifth.warning, /may be blocked: the last 5 checks/);
+    const ok = await c2('up@d6.com');
+    assert.equal(ok.status, 'valid'); assert.equal(ok.warning, undefined);
+  } finally { p2.kill(); }
 });
 
 // relay
@@ -96,6 +128,7 @@ test('relay: register, 404, offline, proxy', async () => {
   const off = await (await handleRequest(post('/mcp/abc', call), e)).json();
   assert.equal(off.id, 7);
   assert.equal(JSON.parse(off.result.content[0].text).status, 'unknown');
+  assert.match(JSON.parse(off.result.content[0].text).warning, /Email checker offline \(Mac off or asleep\)\. Hunter is used instead\./);
   assert.equal((await handleRequest(post('/mcp/abc', { jsonrpc: '2.0', id: 1, method: 'tools/list' }), e)).status, 502);
   assert.equal((await handleRequest(post('/register', { url: 'https://x.trycloudflare.com' }, { 'x-checker-secret': 'abc' }), e)).status, 200);
   // fetch fails: still offline result

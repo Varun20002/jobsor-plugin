@@ -11,6 +11,7 @@ const HOME = process.env.HOME || os.homedir();
 const DIR = path.join(HOME, '.jobsor-checker');
 const CACHE_FILE = path.join(DIR, 'cache.json');
 const DAY_FILE = path.join(DIR, 'day.json');
+const HEALTH_FILE = path.join(DIR, 'health.json');
 const SECRET = process.env.CHECKER_SECRET || '';
 const BIN = process.env.REACHER_BIN || '';
 const PORT = Number(process.env.PORT || 8099);
@@ -81,6 +82,18 @@ function runReacher(email) {
   });
 }
 
+// Health streak: how many real checks in a row could not reach any mail server.
+function recordHealth(reached) {
+  const h = readJson(HEALTH_FILE, {});
+  const now = new Date().toISOString();
+  if (reached) writeJson(HEALTH_FILE, { streak: 0, last_ok_at: now, last_fail_at: h.last_fail_at || null });
+  else writeJson(HEALTH_FILE, { streak: (Number(h.streak) || 0) + 1, last_ok_at: h.last_ok_at || null, last_fail_at: now });
+}
+function blockedWarning() {
+  const streak = Number(readJson(HEALTH_FILE, {}).streak) || 0;
+  return streak >= 5 ? `Email checker may be blocked: the last ${streak} checks could not reach any mail server. Hunter is used instead.` : undefined;
+}
+
 function mapResult(email, j) {
   const host = mailHost(j.mx && j.mx.records);
   const catchAll = !!(j.smtp && j.smtp.is_catch_all);
@@ -92,7 +105,7 @@ function mapResult(email, j) {
   return { email, status, accept_all: status === 'accept_all', mail_host: host, reason, checked_by: 'reacher', cached: false };
 }
 
-async function verify(email) {
+async function verifyInner(email) {
   const key = email.toLowerCase();
   const cache = readJson(CACHE_FILE, {});
   const hit = cache[key];
@@ -104,10 +117,11 @@ async function verify(email) {
   const today = indiaDay();
   let count = day.day === today ? day.count : 0;
   if (count >= DAILY) {
-    return { email, status: 'unknown', accept_all: false, mail_host: 'none', reason: 'daily limit', checked_by: 'reacher', cached: false };
+    return { email, status: 'unknown', accept_all: false, mail_host: 'none', reason: 'daily limit', checked_by: 'reacher', cached: false, warning: `Email checker: daily limit of ${DAILY} reached; checks resume tomorrow (India time).` };
   }
   writeJson(DAY_FILE, { day: today, count: count + 1 });
   const out = await schedule(() => runReacher(key));
+  recordHealth(!!(out && !out.error && out.json && out.json.smtp && out.json.smtp.can_connect_smtp === true));
   let result;
   if (!out || out.error) {
     result = { email, status: 'unknown', accept_all: false, mail_host: 'none', reason: out && out.error === 'timeout' ? 'check timed out' : 'check failed', checked_by: 'reacher', cached: false };
@@ -123,6 +137,31 @@ async function verify(email) {
   return result;
 }
 
+async function verify(email) {
+  const result = await verifyInner(email);
+  if (!result.warning) {
+    const w = blockedWarning();
+    if (w) return { ...result, warning: w };
+  }
+  return result;
+}
+
+function status() {
+  const day = readJson(DAY_FILE, {});
+  const today = indiaDay();
+  const h = readJson(HEALTH_FILE, {});
+  const out = { day: today, checks_today: day.day === today ? day.count : 0, limit: DAILY, streak: Number(h.streak) || 0, last_ok_at: h.last_ok_at || null };
+  const w = out.checks_today >= DAILY ? `Email checker: daily limit of ${DAILY} reached; checks resume tomorrow (India time).` : blockedWarning();
+  if (w) out.warning = w;
+  return out;
+}
+
+const STATUS_TOOL = {
+  name: 'checker_status',
+  description: "Today's email checker numbers: checks used, the daily limit, and any warning.",
+  inputSchema: { type: 'object', properties: {} },
+};
+
 const TOOL = {
   name: 'verify_email',
   description: "Check whether a work email address exists, by asking the company's mail server (no email is sent). Returns status valid, invalid, accept_all or unknown.",
@@ -137,14 +176,15 @@ async function handle(msg) {
     return ok({
       protocolVersion: (params && params.protocolVersion) || '2025-06-18',
       capabilities: { tools: {} },
-      serverInfo: { name: 'jobsor-email-checker', version: '0.1.0' },
+      serverInfo: { name: 'jobsor-email-checker', version: '0.2.0' },
       instructions: 'Use verify_email to check a work address before sending; it never sends mail.',
     });
   }
   if (method === 'ping') return ok({});
-  if (method === 'tools/list') return ok({ tools: [TOOL] });
+  if (method === 'tools/list') return ok({ tools: [TOOL, STATUS_TOOL] });
   if (method === 'tools/call') {
     const name = params && params.name;
+    if (name === 'checker_status') return ok({ content: [{ type: 'text', text: JSON.stringify(status()) }] });
     if (name !== 'verify_email') return bad(-32602, 'unknown tool');
     const email = String((params.arguments && params.arguments.email) || '').trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || email.length > 200) {
