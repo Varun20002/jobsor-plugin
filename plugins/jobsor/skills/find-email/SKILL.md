@@ -31,8 +31,8 @@ Write the address and its label in the People tab: `published`, `checked`, `chec
    Then Hunter's email verifier; **only if Hunter is missing
    or out of credits**, Vibe Prospecting (optional; `enrich-prospects` with contact info for this person, which also returns its own found
    email: label that one `checked` only if Vibe marks it verified). Valid, not accept-all: `checked`. Accept-all or catch-all (also Hunter
-   "valid" with accept_all true): `checked (accept-all)`. Unknown: `guessed (not checked)`. Invalid: try the next format (at most 3 checks
-   a person). With no checker or no credits: `guessed (not checked)`. A check costs half a Hunter credit, far less than a bounce.
+   "valid" with accept_all true): `checked (accept-all)`. Unknown: `guessed (not checked)`. Invalid: try the next format (at most 5 checks
+   a person; at most 3 of them on Hunter, since each Hunter check costs a credit). With no checker or no credits: `guessed (not checked)`. A check costs half a Hunter credit, far less than a bounce.
 
 6. **Never stop at "no address found".** If no published or checked address was found, build the best guess from the company's format
    (Hunter's domain search pattern, or two published addresses, or the common formats in order); it is then checked by step 5 and written

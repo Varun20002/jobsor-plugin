@@ -181,3 +181,7 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 ## 0.2.47
 - No step to run. When the free email checker cannot answer (daily limit, Mac off, or it looks blocked), the round now says so in its
   report and Log, and the debug log shows which checker answered each address.
+
+## 0.2.48
+- No step to run. A guessed address may now be checked in up to 5 formats a person (was 3); at most 3 of those on Hunter, so credits are
+  not used up faster. The extra tries come from the free email checker when it is connected.
