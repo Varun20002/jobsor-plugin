@@ -53,24 +53,22 @@ Three tabs in the tracker. If a tab is missing, add it with its header row first
 
 
 ## Rules
-- **Every round writes debug rows; no exceptions.** A round that writes none is not finished. The busiest rounds (new-jobs windows) matter
-  most: never skip the log to save time.
-- **Write as you go:** after each part of the round (replies, follow-ups, alert mails, each source, each job's people, emails, messages,
-  sends), write that part's rows before starting the next part, so a round that stops part way still leaves its trail.
-- **One row per item, never a summary:** one row per search or tool call (its words, how many results, credits), one per alert mail
-  (in "Debug emails" too), one per job seen (in "Debug jobs" too), one per person checked, one per email address tried, one per message
-  written and one per send. "4 alerts already seen" is four rows, one per mail id.
-- **Minimum rows a part must leave** (when the part runs): Reply check and Bounce check: one row each. Follow-up: one row per message due
-  or not due. Alert mail: one row per mail. Each job source (post search, X, Apify, Indeed, company board): one row per call. Read job,
-  Filter, Score: one row per job. Route: one row per job (size, source, call). Find people: one row per person checked plus one per search.
-  Find email: one row per address tried. Write: one row per message (type, length in words, checks passed). Send: one row per send (the
-  To address, Gmail id, Result).
-- **Skipped parts still get a row** with the reason ("3 PM window already run", "Apify: once a day, ran at 09:57", "cap of 50 reached").
+- **Rows only for what this round actually did or found new:** a new alert mail opened, a source search that ran, each job read, filtered,
+  scored or added, each person and address tried, each message written, sent or drafted, each follow-up sent, each reply or bounce
+  found, and every failure.
+- **No rows for things already seen or not due:** alert mails already handled, follow-ups not due, sources not due this window, the plan
+  saying nothing is due. No "Skipped" rows.
+- **A round where nothing new happened writes no debug rows;** its Log row says "debug: 0 rows".
+- **Write as you go:** after each part of the round that did something, write that part's rows before starting the next part, so a round
+  that stops part way still leaves its trail.
+- **One row per item, never a summary** (for what did happen): one row per search or tool call (its words, how many results, credits),
+  one per alert mail opened (in "Debug emails" too), one per job seen (in "Debug jobs" too), one per person checked, one per email
+  address tried, one per message written and one per send.
 - **Credits:** fill the Credits column whenever the tool reports a cost (Firecrawl, Apify, Hunter).
 - **Check before the Log row:** count this round's debug rows and write the count at the end of the round's Log row ("debug: 34 rows").
-  If the count is 0, or a part that ran has no rows, write the missing rows first.
+  If a part that did something has no rows, write the missing rows first. Zero rows is right when nothing new happened.
 - Write the rows in batches (one write per part), not one call per row.
 - Never put mail text, message text or resume text in these tabs: only ids, links, titles, companies, names, tool names, numbers and
   one-line reasons.
-- A round in quiet hours writes one row: Step "Reply check", Result "Skipped", Why "quiet hours".
+- A round in quiet hours writes no rows.
 - Never read these tabs back in a round; only append. To count this round's rows, count what you wrote.

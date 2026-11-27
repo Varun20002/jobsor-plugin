@@ -19,8 +19,11 @@ with ">"), so the user's own words are never read as theirs.
 | 11 | Wants a call | "schedule/book an interview or call", "your availability", "time slot" | Job: Interview. Reply draft in the same thread, saying yes to the call; times only if the user gave them, otherwise a clear blank "[your free times, IST]". Tell the user to fill the blank and send |
 | 12 | Anything else from a person | A real reply that fits none of the above | Job: Replied. Stop follow-ups. Tell the user to read it; no guessing what it means |
 
-Any real reply (4 to 12) from **anyone at the company**, not only the person written to, stops every follow-up for that job. Other jobs,
-even at the same company for a different role, go on.
+Any real reply (4 to 12) from **anyone at the company**, not only the person written to, stops **all** outreach to that company, on every
+job at it: no new messages, no drafts, no follow-ups. In the same round every Messages row for that company with Status "Draft ready"
+becomes "Stopped (company replied)" and its Gmail draft is deleted, every People row there with Status "To contact" or "Draft made"
+becomes "Stopped (company replied)", and every job there gets Status Replied (or Interview, Rejected). The reply draft for the user is
+still made.
 
 Reply drafts use only the profile's reply facts (current and expected CTC, notice period, city, relocation) and confirmed facts. If the
 reply asks for something the profile does not have, the draft leaves a clear blank ("[your expected CTC]") and the report tells the user.

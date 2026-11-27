@@ -5,7 +5,8 @@ description: Find the right people to contact for a job in the JOBSOR tracker (h
 
 # Find people, with proof
 
-Read the JOBSOR profile and the job's row first. The route skill has set Size (Startup, MNC, Agency) and who to look for; if it has not,
+Read the JOBSOR profile and the job's row first. **Skip a company that has a Replied, Interview or Rejected job:** a reply from anyone there
+stops all outreach to that company, so find no new people for it. The route skill has set Size (Startup, MNC, Agency) and who to look for; if it has not,
 run route first. Then search in the order below and keep going until the numbers in "How many" are reached: they are targets, not limits to stop under. After each search run `python3 -I <round skill folder>/scripts/jobsor.py people --job <Job ID> --route <startup-hm|startup-no-hm|mnc|agency> --found N --searches S --empty-in-row E` and do its `next` until it says done. A hook checks at the end of the round: a job that got a new message must have a people run that says done.
 
 **Before anyone is written to the People tab, apply `references/proof-rules.md`.** A person goes in only with a proof they work at this

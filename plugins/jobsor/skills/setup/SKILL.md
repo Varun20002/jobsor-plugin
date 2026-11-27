@@ -37,7 +37,7 @@ Setup is quick and leads straight into autopilot. Ask nothing that can be read f
    Reply "ok", or fix anything (for example "remove 4, add Pune").
    ```
    Any line the user removes is removed from the Resume source too. "ok" means everything as shown. **Sending is "send for me" unless
-   the user said "drafts".** Guessed (unchecked) emails always stay drafts.
+   the user said "drafts".** Guessed emails are checked first and then sent; replies stay drafts.
 4. **Then do everything without asking again:** write the files, create the schedule, run the first round now.
 
 Never ask for sample messages, a writing voice, template changes, reply facts (CTC, notice period; ask only later, when a reply needs
@@ -75,7 +75,7 @@ Each round's report reaches the user as a Claude notification (phone and compute
 Run the first round now (round skill), without asking. Then reply with only the results, for example:
 ```
 Done. Profile, tracker and hourly round are set; JOBSOR now runs by itself.
-First round: 6 jobs, 4 emails sent, 2 drafts (guessed addresses).
+First round: 6 jobs, 6 emails sent, 0 drafts.
 To do once: turn on Naukri and LinkedIn alerts for <your roles> to you@gmail.com.
 Files: <link>
 ```

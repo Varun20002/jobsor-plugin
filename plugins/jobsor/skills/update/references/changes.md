@@ -185,3 +185,8 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 ## 0.2.48
 - No step to run. A guessed address may now be checked in up to 5 formats a person (was 3); at most 3 of those on Hunter, so credits are
   not used up faster. The extra tries come from the free email checker when it is connected.
+
+## 0.2.49
+- No step to run. A guessed email that could not be checked (no credits, checker off) is now sent too; one a checker says is invalid never
+  is. A reply from anyone at a company stops all messages, drafts and follow-ups to that company, and its waiting drafts are removed.
+  People show "Draft made" when a draft waits. The debug log no longer writes rows for rounds where nothing new happened.

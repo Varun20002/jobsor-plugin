@@ -30,3 +30,12 @@ Newest last. Each line: the decision, the date, the reason. Add to it when the o
 - Never automate Truecaller, GPay or similar lookups (their rules, India's DPDP Act, account bans). The user verifies a number by hand.
 - If phone numbers are added: only published ones (hiring posts) and Hunter's free field; paid lookups only on request.
 - If WhatsApp is added: `wa.me` ready-to-send links the user taps; not a linked-WhatsApp connector, not Meta's business API.
+
+## 27 Nov 2026 (owner)
+- **An unchecked guess may be sent when no check was possible** (no credits, checker off): 0.2.49, replaces the "drafts only" part of
+  0.2.45. A check is still always tried first; an address a checker calls invalid is never sent. Reason: 92 messages sat as drafts on
+  26 Nov when Hunter ran out of credits.
+- **A reply from anyone at a company stops all outreach to that company** (every job there): waiting drafts become "Stopped (company
+  replied)" and their Gmail drafts are deleted. Reason: Justdial replied while 12 other Justdial drafts were waiting.
+- **Debug rows only for what happened**: no rows for already-seen mail, follow-ups not due, or quiet rounds. Reason: the log grew past
+  2,100 rows in a week.

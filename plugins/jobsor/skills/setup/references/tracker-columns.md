@@ -36,7 +36,7 @@ the sheet changed, read again and retry once.
 | Proof | Why we know they work there now: "Posted about this job on 10 Nov", "Headline: PM at Acme", "On acme.com/team", "Named by P004 in a reply" |
 | Email | |
 | Email label | published, checked, checked (accept-all), guessed (not checked) |
-| Status | To contact, Asked, Contacted, Replied, Bounced, Do not contact |
+| Status | To contact, Draft made, Contacted, Replied, Bounced, Do not contact, Stopped (company replied) |
 | Notes | |
 
 ## Messages
@@ -48,7 +48,7 @@ the sheet changed, read again and retry once.
 | Type | Pitch, Recruiter, Peer ask, Referral ask, Follow-up 1, Follow-up 2, Follow-up 3, Thank-you, Reply draft |
 | Subject | |
 | Opening fact | The relevant item the message opens with, with its date and link (blank when it has no opening) |
-| Status | Draft ready, Sent, Bounced, Replied, Cancelled |
+| Status | Draft ready, Sent, Bounced, Replied, Cancelled, Stopped (company replied) |
 | Created | |
 | Sent | Date and time sent (by JOBSOR or seen in Gmail's Sent) |
 | Gmail id | Draft id or thread id |

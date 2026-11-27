@@ -24,25 +24,28 @@ Write the address and its label in the People tab: `published`, `checked`, `chec
    names without titles (Dr, Mr, Ms, Prof, Shri, Smt) and without accents; a double surname is joined ("Rao-Iyer" gives "raoiyer").
 4. **Build the address** from the format. With no known format, the common Indian formats in this order: `{first}.{last}`, `{first}`,
    `{first}{last}`, `{f}{last}`, `{first}_{last}`.
-5. **Check it (required before any send).** Every built or guessed address is checked. **First, a free mail-server checker** if one is
-   connected (a connector with a `verify_email` tool, for example the owner's own JOBSOR email checker; optional): its `status` valid,
-   invalid or accept_all is used as below; `unknown` (checker offline, or the company's mail server would not answer) goes on to Hunter.
-   Its answer may carry a `warning` (daily limit reached, checker offline, or may be blocked): keep it for the round's Log row and report, once per round.
-   Then Hunter's email verifier; **only if Hunter is missing
-   or out of credits**, Vibe Prospecting (optional; `enrich-prospects` with contact info for this person, which also returns its own found
-   email: label that one `checked` only if Vibe marks it verified). Valid, not accept-all: `checked`. Accept-all or catch-all (also Hunter
-   "valid" with accept_all true): `checked (accept-all)`. Unknown: `guessed (not checked)`. Invalid: try the next format (at most 5 checks
-   a person; at most 3 of them on Hunter, since each Hunter check costs a credit). With no checker or no credits: `guessed (not checked)`. A check costs half a Hunter credit, far less than a bounce.
+5. **Check it first (always tried).** Every built or guessed address is checked before it is used. **First, a free mail-server checker** if
+   one is connected (a connector with a `verify_email` tool, for example the owner's own JOBSOR email checker; optional): its `status`
+   valid, invalid or accept_all is used as below; `unknown` (checker offline, or the company's mail server would not answer) goes on to
+   Hunter. Its answer may carry a `warning` (daily limit reached, checker offline, or may be blocked): keep it for the round's Log row and
+   report, once per round. Then Hunter's email verifier; **only if Hunter is missing or out of credits**, Vibe Prospecting (optional;
+   `enrich-prospects` with contact info for this person, which also returns its own found email: label that one `checked` only if Vibe
+   marks it verified). Outcome:
+   - Valid, not accept-all: `checked`. Accept-all or catch-all (also Hunter "valid" with accept_all true): `checked (accept-all)`.
+   - Invalid: never use it; try the next format (at most 5 checks a person; at most 3 of them on Hunter, since each Hunter check costs a
+     credit).
+   - **No check was possible** (no checker connected, checker offline or at its daily limit, Hunter out of credits, or every checker said
+     unknown): `guessed (not checked)`. It may be sent like the others.
+   A check costs half a Hunter credit, far less than a bounce.
 
 6. **Never stop at "no address found".** If no published or checked address was found, build the best guess from the company's format
-   (Hunter's domain search pattern, or two published addresses, or the common formats in order); it is then checked by step 5 and written
-   with the label that check gives (`guessed (not checked)` only if it could not be checked). If the person's last name is only an initial
+   (Hunter's domain search pattern, or two published addresses, or the common formats in order); it is checked by step 5 and written
+   with the label that check gives (`guessed (not checked)` only if no check was possible). If the person's last name is only an initial
    or missing, use `{first}@domain` first. The person is only left with no address when the company's domain itself is unknown.
 
 ## What a label allows
-- `published`, `checked` and `checked (accept-all)`: may be sent (if sending is on) or drafted.
-- `guessed (not checked)`: **draft only, always** (the old profile line "Send to guessed, unchecked emails" is no longer used).
-- A hook refuses a new email to an address that was not checked or read from the tracker as published or checked in this run.
+- `published`, `checked`, `checked (accept-all)` and `guessed (not checked)`: may be sent (if sending is on) or drafted.
+- An address a checker said is invalid is never sent. A hook refuses a new email to an address that a checker said is invalid in this run.
 - A bounce later removes the address (the round does this) and the person is tried with the next format or replaced.
 
 ## Never

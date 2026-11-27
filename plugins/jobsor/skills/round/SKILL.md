@@ -10,9 +10,10 @@ Log tab. **Never read the Debug tabs** (Debug steps, Debug emails, Debug jobs): 
 a step needs a past date it cannot find elsewhere. Read `references/shared-rules.md` once at the start; every skill this round runs follows it. If the profile's "Plugin version:" is older than this plugin's version (or missing), carry
 on with the round and add one line to the report: "JOBSOR was updated; type /jobsor:update when you have a minute." (once a day at most). Note the time in India (IST, UTC+5:30) and the last round's time (last row of Log, from the 3 rows read). **Plan (code, not judgement):** run `python3 -I <this skill's folder>/scripts/jobsor.py plan --log "<the last 3 Log rows>" --sources <apify,indeed: the ones connected>` and do everything in its `due` list this round. When the window's items are done, end this round's Log row with its `log_marker`. The plan decides the windows; never skip a due source to save credits (each source already has its own small cap). A hook checks at the end that the due sources ran. It also checks that every job sent a new message this round has a people run (`jobsor.py people --job ...`) that says done.
 
-**Debug log:** if the profile says "Debug log: on", every part of this round and every skill it runs writes its rows to the
-"Debug steps", "Debug emails" and "Debug jobs" tabs as `references/debug-log.md` says, part by part as it goes, one row per item. A
-round that writes no debug rows is not finished; the Log row ends with "debug: N rows". Setup never turns this on.
+**Debug log:** if the profile says "Debug log: on", this round and every skill it runs writes rows to the "Debug steps", "Debug emails"
+and "Debug jobs" tabs as `references/debug-log.md` says, part by part as it goes, one row per item, **only for what happened or was found
+new** (no rows for mail already seen, follow-ups not due, sources not due). A round where nothing new happened writes no debug rows; its
+Log row says "debug: 0 rows". Setup never turns this on.
 
 **Quiet hours:** between 12 midnight and 9 AM India time, do nothing, write nothing, and end with "Quiet hours, nothing done." (A round
 the user starts by hand runs anyway, but sends nothing in quiet hours.)
@@ -25,10 +26,17 @@ Search Gmail for mail received **since the last round** (not just the last 2 hou
 - plus bounce notices (`from:mailer-daemon` or `from:postmaster`) that name an address in the People tab.
 Leave out the user's own mail, job-alert mail and mail already handled (its Gmail id is in a Messages row or a Notes line).
 Classify each with `references/reply-rules.md` and act:
-- **A real reply** from anyone at the company: the job's follow-ups stop at once. Set the job's Status (Replied, Interview, Rejected), the
-  person's Status Replied, and a dated note (one line, your words, never the mail's text). If they ask something (resume, CTC, notice,
-  availability), write a **reply draft** for the user with the write skill, using only the reply facts and confirmed facts, as a Gmail
-  draft in the same thread. **Never send a reply.**
+- **A real reply** (reply-rules 4 to 12) from anyone at a company stops **all** outreach to that company, on every job at it: no new
+  messages, no drafts, no follow-ups. In this same round:
+  - Set every job at that company to Replied (or the reply's own status: Interview, Rejected) with a dated note (one line, your words,
+    never the mail's text), and the replying person's Status Replied.
+  - Every Messages row for that company with Status "Draft ready" (not the reply draft this round just made) becomes "Stopped (company
+    replied)", and its Gmail draft is deleted (`delete_draft` with the row's Gmail id) so it cannot be sent by mistake. Say it in the
+    report ("Stopped 12 drafts to Acme: they replied").
+  - Every People row at that company with Status "To contact" or "Draft made" becomes "Stopped (company replied)".
+  - find-people, write and send skip a company that has a Replied, Interview or Rejected job.
+  - Exception: if they ask something (resume, CTC, notice, availability), still write a **reply draft** for the user with the write skill,
+    using only the reply facts and confirmed facts, as a Gmail draft in the same thread. **Never send a reply.**
 - **Someone else at the company replied** (not the person written to): add them to People with the title from their signature, or
   "not known"; Contact as is left blank unless their title says it. Never guess a role.
 - **The hiring manager is named** in a reply (by a peer or anyone): add that person to People with the proof "Named by <who> in a reply",
@@ -59,7 +67,7 @@ Write one Log row: time and one line of counts ("2 replies (Acme asks for a call
 0 sent"). Then the report to the user:
 - If nothing changed: change nothing else and end with exactly "No new replies."
 - Otherwise only the results: replies first (one line each), then a table of this round's work (Job as a link, Person, Sent or
-  Draft), then only what the user must do (answer a reply, send a draft to a guessed address). No other text.
+  Draft), then only what the user must do (answer a reply). No other text.
   Every job named in the summary (new jobs, jobs with a reply, jobs with a draft) is a clickable Markdown link to the job page, as the
   find-jobs report says.
 - If the email checker gave a warning this round (daily limit, offline, or may be blocked), one line with it, for example "Email checker: daily limit reached, Hunter used for 4 checks." Also write it in the Log row.

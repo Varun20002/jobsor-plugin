@@ -16,7 +16,7 @@ someone at the company replies.
 3. Setup reads your resume, asks a few questions, and makes two files in your account: your JOBSOR profile and your tracker. It also sets
    up "JOBSOR round", an hourly scheduled task (quiet from 12 midnight to 9 AM India time).
 4. Each round: replies and bounces first, then due follow-ups, then new jobs from your alert emails (the LinkedIn post search three times a day), the right people, and messages, sent
-   from your Gmail (up to your daily limit; a guessed address is checked first, and stays a draft if it cannot be checked). Each job's email carries its own one-page resume, tailored from your own resume lines.
+   from your Gmail (up to your daily limit; a guessed address is checked first, then sent). Each job's email carries its own one-page resume, tailored from your own resume lines.
    Set it up on claude.ai and the hourly round runs in the cloud, with your laptop closed. You can also run any step yourself: `/jobsor:find-jobs`, `/jobsor:find-people`,
    `/jobsor:write`, `/jobsor:send`, `/jobsor:round`.
 
@@ -29,8 +29,8 @@ Gmail send outside 9 AM to 12 midnight India time or above 50 in a day.
 
 - It writes only what you confirmed about yourself. Nothing is invented.
 - It never contacts anyone on LinkedIn for you and never logs in to LinkedIn.
-- It sends by itself by default, within a daily limit (50 by default and at most, 9 AM to midnight India time). Say "drafts" to turn that off. Unchecked guessed addresses and replies are always drafts.
-- It stops following up on a job the moment anyone at that company replies.
+- It sends by itself by default, within a daily limit (50 by default and at most, 9 AM to midnight India time). Say "drafts" to turn that off. Replies are always drafts.
+- It stops everything to a company (messages, drafts, follow-ups) the moment anyone at that company replies.
 
 ## Your data
 

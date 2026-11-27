@@ -3,7 +3,8 @@
 
 Usage: python3 -I check_message.py message.json   (skill mode: every check)
        python3 -I check_message.py --hook          (hook mode: reads a Gmail tool call's JSON on stdin; only the checks that need no facts)
-Hook mode also refuses a new email (not a reply) to an address that was not checked in this transcript or read as labelled.
+Hook mode also refuses a new email (not a reply) to an address that a checker called invalid in this transcript (and not valid later).
+An address that was never checked, or whose check said unknown, passes.
 Prints {"pass": true|false, "problems": ["..."]}. Exit 0 = pass, 3 = fail, 2 = bad input.
 
 message.json: type (pitch | recruiter | peer | referral | followup | thankyou | reply), subject, body,
@@ -219,8 +220,8 @@ def all_strings(node, out):
             all_strings(v, out)
 
 
-def unchecked_addresses(data, subject, addrs):
-    """Addresses with no check in this transcript. Any failure to read the transcript means no problem (fail open)."""
+def invalid_addresses(data, subject, addrs):
+    """Addresses a checker called invalid in this transcript (and not called valid later). Any failure to read it means no problem."""
     try:
         name = str(data.get("tool_name", "")).lower()
         if not (name.endswith("send_message") or name.endswith("send_email")):
@@ -247,7 +248,7 @@ def unchecked_addresses(data, subject, addrs):
             result_text.setdefault(r.get("tool_use_id"), []).append("\n".join(strs))
         bad = []
         for addr in addrs:
-            good = False
+            state = None
             for u in uses:
                 if "verif" not in str(u.get("name", "")).lower():
                     continue
@@ -257,11 +258,11 @@ def unchecked_addresses(data, subject, addrs):
                     continue
                 for txt in result_text.get(u.get("id"), []):
                     # The status value, not field names: a Hunter result always has an "accept_all" key, even when invalid.
-                    if re.search(r"status\W{0,6}(valid|accept[_ -]?all|catch[_ -]?all)\b|accept[_ -]?all\W{0,6}true", txt, re.I):
-                        good = True
-            if not good and re.search(r'\\*"' + re.escape(addr) + r'\\*"\s*,\s*\\*"(published|checked|checked \(accept-all\))\\*"', raw, re.I):
-                good = True
-            if not good:
+                    if re.search(r"status\W{0,6}invalid\b|result\W{0,6}undeliverable", txt, re.I):
+                        state = "invalid"
+                    elif re.search(r"status\W{0,6}(valid|accept[_ -]?all|catch[_ -]?all)\b|accept[_ -]?all\W{0,6}true", txt, re.I):
+                        state = "ok"
+            if state == "invalid":
                 bad.append(addr)
         return bad
     except Exception:
@@ -292,8 +293,8 @@ def main():
     problems = []
     common_checks(subject, body, problems)
     if m is None:
-        for a in unchecked_addresses(data, subject, addrs):
-            problems.append(f"address {a} was not checked: run the email checker on it first (find-email step 5) or leave a draft")
+        for a in invalid_addresses(data, subject, addrs):
+            problems.append(f"address {a} was checked and is invalid: do not send it; try the next email format")
     if m is not None:
         full_checks(m, subject, body, problems)
     print(json.dumps({"pass": not problems, "problems": problems}, ensure_ascii=False))

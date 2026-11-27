@@ -9,10 +9,10 @@ Read the profile's Sending section (mode: send for me unless it says drafts; dai
 
 ## Before each message (skip it, with the reason in Notes, if any check fails)
 1. **Stop rules:** no reply from anyone at the company since the last message (check Gmail now, not only the tracker); the person is not
-   "Do not contact"; the company is not on the never-contact list; the job is not Replied, Interview, Rejected, Skipped or No response.
-2. **Address:** `published`, `checked` or `checked (accept-all)`. `guessed (not checked)` always stays a draft. Before sending to a
-   guess, run find-email step 5 on it. A hook refuses a new email to an address with no check in this run (read the People row, or run the
-   checker).
+   "Do not contact"; the company is not on the never-contact list; the job is not Replied, Interview, Rejected, Skipped or No response; and **no job at the same company is Replied, Interview or
+   Rejected** (a reply from anyone at a company stops everything to that company).
+2. **Address:** `published`, `checked`, `checked (accept-all)` or `guessed (not checked)` (no check was possible) may be sent. Before
+   sending to a guess, run find-email step 5 on it. An address a checker said is invalid is never sent; a hook refuses it.
 3. **Not twice:** no message of the same type to the same person for the same job was already sent (look at Messages and at Gmail's Sent).
 4. **Cap and hours** (send mode): fewer than the daily cap sent today (count the Messages rows Sent today), and the time is between 9 AM and
    12 midnight India time.
@@ -23,7 +23,7 @@ sending (or making a draft), read the sent message's To address from Gmail. If i
 actually used into the People tab's Email and add a dated note "Sent to <address>, tracker had <old>"; log it in the debug log with
 Result "Failed" and Why "address changed".
 
-## Drafts (only if the profile says drafts, or the address is `guessed (not checked)`)
+## Drafts (only if the profile says drafts, or it is a reply)
 Create a Gmail draft to the person with the subject and body, the resume attached, and for a follow-up as a reply in the same thread.
 
 **Which resume:** the job's tailored PDF, made by the resume skill in this same run (run it first if this job has none yet). If no PDF
@@ -32,7 +32,12 @@ the same thread and attach nothing. Filename `<Name>_Resume_<Company>.pdf`, type
 - In Cowork or Claude Code: a file reference, `sha256:<hash>:<full path>` (hash from `shasum -a 256 "<path>"`).
 - On claude.ai (web, mobile, cloud schedule): the file's base64 as the attachment content (`base64 -w0 "<path>"`; the PDF is a few KB).
 The same attachment goes on a message sent in send-for-me mode.
-Set Status "Draft ready", Gmail id = the draft id. Tell the user how many drafts are waiting and that they send them from Gmail.
+Set Status "Draft ready", Gmail id = the draft id, and the person's People Status "Draft made" (same batch of writes). Tell the user how many
+drafts are waiting and that they send them from Gmail.
+
+**A message that already has a Gmail draft** (Status "Draft ready" with a Gmail id from an earlier round) and is now allowed to be sent: send it
+as a new email with the same subject, body and attachment, then delete that old draft (the Gmail connector's `delete_draft`) so the user is
+never left with a duplicate to send by mistake.
 
 ## Check every message before it goes out (code, not judgement)
 - Before each send or draft, write `message.json` (type, subject, body, facts = the profile's Confirmed facts and Resume source, job_text =
@@ -48,7 +53,8 @@ Set Status "Draft ready", Gmail id = the draft id. Tell the user how many drafts
 ## Send for me
 - Send every ready message in the same run, one after another, up to the daily cap and the hours. Wait a random 1 to 5 seconds between
   two sends (different each time; on a computer, `python3 -c "import random,time; time.sleep(random.uniform(1,5))"`). After each send,
-  write the row (Status "Sent", Sent time, Gmail id, Next follow-up = the next day); write the rows in batches if there are many.
+  write the row (Status "Sent", Sent time, Gmail id, Next follow-up = the next day) and set the person's People Status "Contacted" in the same
+  batch; write the rows in batches if there are many.
 - After every 20 sends, and at the end: search Gmail for bounce notices (`from:mailer-daemon` or `from:postmaster`, newer than today) that
   name one of today's addresses. For each bounce: the message becomes "Bounced", the person's email is cleared with a dated note, and the
   person goes back to find-email for the next format, or is replaced by the next person found for that job.
@@ -58,7 +64,7 @@ Set Status "Draft ready", Gmail id = the draft id. Tell the user how many drafts
 One line of counts (sent, drafts, bounced, skipped), then at most 2 lines the user must act on. Nothing else.
 
 ## Never
-- Never send outside the hours, above the cap, or when the user chose drafts. Sending is the default: do not leave a checked or published address as a draft.
+- Never send outside the hours, above the cap, or when the user chose drafts. Sending is the default: do not leave a checked, published or guessed address as a draft.
 - Never answer a recruiter or anyone who replied; replies are drafts for the user (the round makes them).
 - Never send from any address other than the user's own Gmail.
 

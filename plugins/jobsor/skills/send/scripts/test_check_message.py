@@ -90,25 +90,26 @@ def verify(result):
             {"type": "user", "message": {"content": [{"type": "tool_result", "tool_use_id": "t1", "content": [{"type": "text", "text": result}]}]}}]
 
 
-def row(label):
-    t = json.dumps(["P1", "J1", "Ravi K", "PM", "x", "ravi.k@zesty.in", label, "Contacted"])
-    return [{"type": "user", "message": {"content": [{"type": "tool_result", "tool_use_id": "r1", "content": t}]}}]
-
-
 code, out = hook()
-assert code == 3 and "ravi.k@zesty.in" in out["problems"][0], out
+assert code == 0, out
 n += 1
 code, out = hook(entries=verify('{"status": "valid", "accept_all": false}'))
 assert code == 0, out
 n += 1
 code, out = hook(entries=verify('{"status": "invalid"}'))
-assert code == 3, out
+assert code == 3 and "ravi.k@zesty.in" in out["problems"][0] and "invalid" in out["problems"][0], out
+n += 1
+code, out = hook(entries=verify('{"status": "invalid"}') + [
+    {"type": "assistant", "message": {"content": [{"type": "tool_use", "id": "t2", "name": "mcp__hunter__Email-Verifier",
+                                                   "input": {"email": "ravi.k@zesty.in"}}]}},
+    {"type": "user", "message": {"content": [{"type": "tool_result", "tool_use_id": "t2", "content": [{"type": "text", "text": '{"status": "valid"}'}]}]}}])
+assert code == 0, out
 n += 1
 code, out = hook(entries=verify('{"status": "invalid", "result": "undeliverable", "accept_all": false, "smtp_check": false}'))
 assert code == 3, out
 n += 1
 code, out = hook(entries=verify('{"status": "unknown", "accept_all": false}'))
-assert code == 3, out
+assert code == 0, out
 n += 1
 code, out = hook(entries=verify('{"status": "accept_all", "accept_all": true}'))
 assert code == 0, out
@@ -116,13 +117,10 @@ n += 1
 code, out = hook(entries=verify('Status: valid. Score 89.'))
 assert code == 0, out
 n += 1
-code, out = hook(entries=row("checked"))
+code, out = hook(subject="Re: Product Analyst at Zesty", entries=verify('{"status": "invalid"}'))
 assert code == 0, out
 n += 1
-code, out = hook(entries=row("guessed (not checked)"))
-assert code == 3, out
-n += 1
-code, out = hook(entries=row("checked (accept-all)"))
+code, out = hook(tool="mcp__Gmail__create_draft", entries=verify('{"status": "invalid"}'))
 assert code == 0, out
 n += 1
 code, out = hook(subject="Re: Product Analyst at Zesty")
