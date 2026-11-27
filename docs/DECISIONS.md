@@ -39,3 +39,4 @@ Newest last. Each line: the decision, the date, the reason. Add to it when the o
   replied)" and their Gmail drafts are deleted. Reason: Justdial replied while 12 other Justdial drafts were waiting.
 - **Debug rows only for what happened**: no rows for already-seen mail, follow-ups not due, or quiet rounds. Reason: the log grew past
   2,100 rows in a week.
+- **Daily send limit 100** (owner, 27 Nov 2026), was 50. Gmail's own limit is about 500 a day for a normal account.

@@ -23,13 +23,13 @@ someone at the company replies.
 **After an update:** type `/jobsor:update` once. It runs only what is new (for example a new alert check) and never redoes setup.
 
 In Cowork and Claude Code, two helpers (people-finder, researcher) let a round work on several jobs at once, and a guard refuses any
-Gmail send outside 9 AM to 12 midnight India time or above 50 in a day.
+Gmail send outside 9 AM to 12 midnight India time or above 100 in a day.
 
 ## Rules it always keeps
 
 - It writes only what you confirmed about yourself. Nothing is invented.
 - It never contacts anyone on LinkedIn for you and never logs in to LinkedIn.
-- It sends by itself by default, within a daily limit (50 by default and at most, 9 AM to midnight India time). Say "drafts" to turn that off. Replies are always drafts.
+- It sends by itself by default, within a daily limit (100 by default and at most, 9 AM to midnight India time). Say "drafts" to turn that off. Replies are always drafts.
 - It stops everything to a company (messages, drafts, follow-ups) the moment anyone at that company replies.
 
 ## Your data

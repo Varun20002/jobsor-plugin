@@ -4,7 +4,7 @@ Read `CLAUDE.md` first (rules, layout, release steps). This page is the state of
 in `DECISIONS.md`; research notes in `RESEARCH.md`. Update this page at the end of every session.
 
 ## Versions
-- **Plugin 0.2.49** is pushed and installed on the owner's Mac. The zip was sent to the owner; **whether he uploaded 0.2.47 / 0.2.48 on
+- **Plugin 0.2.50** is pushed and installed on the owner's Mac. The zip was sent to the owner; **whether he uploaded 0.2.47 / 0.2.48 on
   claude.ai is not confirmed** (0.2.46 was uploaded on 27 Nov). Check by asking him, or by the version a cloud round reports.
 - **Email checker 0.2.0** runs on the owner's Mac (LaunchAgent `com.jobsor.emailchecker`), relay Worker `jobsor-email-checker`
   (workers.dev) deployed; the owner added it on claude.ai as a custom connector ("Email checker"), and a call from Claude worked.
@@ -20,6 +20,7 @@ in `DECISIONS.md`; research notes in `RESEARCH.md`. Update this page at the end 
 | 0.2.47 | The checker's reason and warnings (daily limit, offline, may be blocked) go into the debug log, the Log row and the report |
 | 0.2.48 | Up to 5 email formats checked per person, at most 3 of them on Hunter |
 | 0.2.49 | Unchecked guesses are sent when no check was possible (the hook refuses only addresses a checker called invalid); a company reply stops everything to that company and deletes its waiting drafts; People Status "Draft made"; debug rows only for what happened |
+| 0.2.50 | Daily send limit 100 (guard and new profiles); the owner's profile set to 100 |
 
 ## Measured facts worth knowing
 - 24 Nov rounds: 19 messages sent, 0 replies by then; 10 Hunter-checked addresses all delivered; 2 of 10 unchecked guesses bounced

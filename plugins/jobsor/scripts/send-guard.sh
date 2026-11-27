@@ -1,12 +1,12 @@
 #!/bin/bash
 # JOBSOR send guard (Cowork and Claude Code only; Chat ignores hooks). Runs before any Gmail send tool call and refuses it outside
-# 9 AM to 12 midnight India time or above 50 sends in an India day, the hard ceiling (the user's own lower cap is kept by the send skill).
+# 9 AM to 12 midnight India time or above 100 sends in an India day, the hard ceiling (the user's own lower cap is kept by the send skill).
 # It then runs the content check (skills/send/scripts/check_message.py --hook: no JOBSOR ids, placeholders, banned phrases) and refuses a
 # message that fails it. A missing python3 or a broken check lets the send through, so a broken check never blocks all mail.
 # Counts are kept in the plugin's data directory, one file per day; nothing else is stored. The day count file does not survive between
 # cloud runs, so in the cloud the send skill's own count of today's Sent rows is the cap.
 set -u
-CAP=50
+CAP=100
 dir="${CLAUDE_PLUGIN_DATA:-$HOME/.claude/plugins/data/jobsor}"
 mkdir -p "$dir" 2>/dev/null || true
 day=$(TZ=Asia/Kolkata date +%F)

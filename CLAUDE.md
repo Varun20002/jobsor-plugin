@@ -37,7 +37,7 @@ Claude reads this file when a session starts in this folder. Read it fully, then
 ## 3. Hard product rules (the skills enforce them; keep them)
 - Messages and resumes use only facts the user confirmed. Nothing invented.
 - Never contacts anyone on LinkedIn and never logs in to LinkedIn.
-- Sends by default within the user's daily cap (default 50, never above 50), 9 AM to 12 midnight India time. Replies are always drafts.
+- Sends by default within the user's daily cap (default 100, never above 100), 9 AM to 12 midnight India time. Replies are always drafts.
 - Email labels: `published`, `checked`, `checked (accept-all)`, `guessed (not checked)`. An unchecked guess is never sent (0.2.45).
 - Stops following up on a job when anyone at that company replies.
 
@@ -55,7 +55,7 @@ Claude reads this file when a session starts in this folder. Read it fully, then
     says "Debug log: on").
   - `skills/setup/references/tracker-columns.md` and `profile-template.md`: the tracker tabs and the profile.
 - `agents/`: `people-finder`, `researcher` (helpers for parallel work in a round).
-- `hooks/hooks.json`: PreToolUse on Gmail sends -> `scripts/send-guard.sh` (hours, 50 a day, then `check_message.py --hook`);
+- `hooks/hooks.json`: PreToolUse on Gmail sends -> `scripts/send-guard.sh` (hours, 100 a day, then `check_message.py --hook`);
   PreToolUse on Indeed `search_jobs` -> `jobsor.py indeed-hook`; Stop -> `jobsor.py stop-hook`. Hooks also run in Claude's cloud
   (tested 22 and 24 Nov 2026). Files written to disk do not survive between cloud runs.
 - `.mcp.json`: connectors shipped with the plugin: Exa, Firecrawl, Apify, Indeed. Gmail is Claude's own connector (Google refuses

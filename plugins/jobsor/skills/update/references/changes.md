@@ -190,3 +190,7 @@ A profile with no "Plugin version" line was made before 0.2.8: treat it as 0.2.7
 - No step to run. A guessed email that could not be checked (no credits, checker off) is now sent too; one a checker says is invalid never
   is. A reply from anyone at a company stops all messages, drafts and follow-ups to that company, and its waiting drafts are removed.
   People show "Draft made" when a draft waits. The debug log no longer writes rows for rounds where nothing new happened.
+
+## 0.2.50
+- No step to run. The daily send limit is now 100 (was 50): new profiles start at 100 and the send guard allows up to 100 a day. An
+  existing profile keeps its own cap; say "set my daily cap to 100" to raise it.
